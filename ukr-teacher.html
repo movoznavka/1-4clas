@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вчительська панель — Мій зошит з української</title>
+<link rel="stylesheet" href="ukr-style.css">
+</head>
+<body>
+<div class="notebook">
+  <div class="page">
+    <span class="tag">Тільки для вчителя</span>
+    <h1>Результати учнів</h1>
+    <p class="eyebrow-line">Прогрес по зірках і виконання домашніх завдань для кожного учня. Натисніть на назву уроку, щоб відкрити його й пройти разом з учнем.</p>
+
+    <div id="gate">
+      <p><button class="btn" id="gate-btn">Увійти в панель</button></p>
+    </div>
+
+    <div id="dashboard" style="display:none;">
+      <h2>Персональні посилання для учнів</h2>
+      <p class="eyebrow-line">Надішліть кожному учню його власне посилання (наприклад у Viber чи Telegram) — по ньому він одразу потрапить у свій кабінет, без потреби обирати ім'я зі списку.</p>
+      <div id="links-list" style="margin:14px 0 30px;"></div>
+
+      <h2>Результати</h2>
+      <div class="teacher-toolbar">
+        <div id="loading-msg" class="eyebrow-line">Завантаження даних…</div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="teacher-table" id="results-table" style="display:none;">
+          <thead>
+            <tr id="table-head"></tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <p><a href="ukr-index.html">← На головну</a></p>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="ukr-students.js"></script>
+<script src="ukr-firebase-config.js"></script>
+<script src="ukr-platform.js"></script>
+<script>
+  document.getElementById('gate-btn').addEventListener('click', enter);
+
+  // Якщо вже входили цього сеансу — одразу показати панель
+  if (sessionStorage.getItem('teacher_ok') === '1') enter(true);
+
+  function enter(silent) {
+    if (sessionStorage.getItem('teacher_ok') !== '1') {
+      const code = prompt('Введіть код доступу вчителя:');
+      if (code === null) return;
+      if (code !== (window.TEACHER_PASSCODE || '')) {
+        alert('Невірний код доступу.');
+        return;
+      }
+      sessionStorage.setItem('teacher_ok', '1');
+    }
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    loadDashboard();
+  }
+
+  function pct(earned, total) {
+    if (!total) return 0;
+    return Math.round((earned / total) * 100);
+  }
+
+  function baseUrl() {
+    return location.origin + location.pathname.replace(/[^\/]*$/, '') + 'ukr-index.html';
+  }
+
+  function renderLinks() {
+    const students = Platform.getStudents();
+    const wrap = document.getElementById('links-list');
+    wrap.innerHTML = '';
+    if (!students.length) {
+      wrap.innerHTML = '<p class="eyebrow-line">Список учнів порожній — додайте імена у файлі ukr-students.js.</p>';
+      return;
+    }
+    students.forEach(function (name) {
+      const link = baseUrl() + '?u=' + encodeURIComponent(name);
+      const row = document.createElement('div');
+      row.className = 'checklist';
+      row.style.margin = '0 0 8px';
+      row.innerHTML = `
+        <li style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+          <span><strong>${name}</strong><br><span style="font-size:0.82rem; color:var(--ink-soft); word-break:break-all;">${link}</span></span>
+          <button class="btn small copy-btn" style="flex-shrink:0;">Копіювати</button>
+        </li>`;
+      row.querySelector('.copy-btn').addEventListener('click', function (e) {
+        navigator.clipboard.writeText(link).then(function () {
+          e.target.textContent = 'Скопійовано!';
+          setTimeout(function () { e.target.textContent = 'Копіювати'; }, 1500);
+        });
+      });
+      wrap.appendChild(row);
+    });
+  }
+
+  function loadDashboard() {
+    renderLinks();
+    const students = Platform.getStudents();
+    const lessons = Platform.LESSONS;
+
+    const head = document.getElementById('table-head');
+    head.innerHTML = '<th>Урок</th>' + students.map(name => `<th>${name}</th>`).join('');
+
+    Platform.getAllProgress().then(function (data) {
+      document.getElementById('loading-msg').textContent = students.length
+        ? ''
+        : 'Список учнів порожній — додайте імена у файлі ukr-students.js.';
+
+      const body = document.getElementById('table-body');
+      body.innerHTML = '';
+      lessons.forEach(function (l) {
+        const row = document.createElement('tr');
+        let cells = `<td><a class="lesson-open-link" href="${l.file}" target="_blank"><strong>${l.title.replace(/^Урок \d+\.\s*/, '')}</strong></a></td>`;
+        students.forEach(function (name) {
+          const d = data[name] && data[name][l.id];
+          if (!d) {
+            cells += `<td><span class="hw-pill none">не розпочато</span></td>`;
+            return;
+          }
+          const starsPct = pct(d.stars || 0, d.totalStars || 0);
+          const hwStarsLabel = d.hwTotalStars ? ` · ДЗ ${d.hwStars || 0}/${d.hwTotalStars} ⭐` : '';
+          const hwLabel = d.homeworkTotal
+            ? (d.homeworkComplete ? 'ДЗ виконано' : `ДЗ ${d.homeworkDone || 0}/${d.homeworkTotal}`)
+            : 'ДЗ —';
+          const hwClass = d.homeworkComplete ? 'done' : (d.homeworkDone ? 'partial' : 'none');
+          cells += `<td>
+            <div class="cell-progress">
+              <div class="cell-track"><div class="cell-fill" style="width:${starsPct}%"></div></div>
+              <span>${d.stars || 0}/${d.totalStars || 0} ⭐${hwStarsLabel}</span>
+            </div>
+            <span class="hw-pill ${hwClass}">${hwLabel}</span>
+          </td>`;
+        });
+        row.innerHTML = cells;
+        body.appendChild(row);
+      });
+
+      document.getElementById('results-table').style.display = students.length ? 'table' : 'none';
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Урок 1. Моє повсякденне життя</title>
+<link rel="stylesheet" href="ukr-style.css">
+<style>
+  .hero-lesson{ padding:30px 32px 6px 40px; }
+  .goal-box{
+    background:var(--leaf-pale); border-left:5px solid var(--leaf);
+    border-radius:0 var(--radius) var(--radius) 0;
+    padding:14px 18px; max-width:var(--max-w); margin-top:10px;
+  }
+  .meta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:14px; }
+  .meta-pill{ font-size:0.85rem; font-weight:700; color:var(--ink-soft); background:#fff; border:1px solid rgba(43,42,40,0.15); padding:5px 12px; border-radius:20px; }
+  .summary-grid{ display:flex; gap:16px; flex-wrap:wrap; }
+  .summary-card{ flex:1 1 200px; background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-sm); }
+  .growth-line{
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    background:#fff; border:2px dashed var(--paper-line); border-radius:var(--radius);
+    padding:16px 18px; margin:16px 0; max-width:var(--max-w);
+  }
+  .growth-line .step{ font-weight:800; font-family:'Nunito',sans-serif; }
+  .growth-line .step.w1{ color:var(--ink-soft); }
+  .growth-line .step.w2{ color:var(--sky); }
+  .growth-line .step.w3{ color:var(--leaf); }
+  .growth-line .arrow{ color:var(--ink-soft); }
+  .mini-head{ margin:26px 0 4px; }
+  .connector-note{ max-width:var(--max-w); background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius); padding:16px 18px; box-shadow:var(--shadow-sm); }
+</style>
+</head>
+<body>
+<script>if(!localStorage.getItem('zoshyt_current_student')){location.href='ukr-login.html?next='+encodeURIComponent(location.pathname);}</script>
+
+<div class="progress-bar">
+  <a class="back-link" href="ukr-index.html">← зошит</a>
+  <div class="progress-track"><div class="progress-fill"></div></div>
+  <div class="stars">☆☆☆☆☆☆☆☆</div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-target="#sec-words">Слова</div>
+  <div class="tab" data-target="#sec-grammar">Граматика</div>
+  <div class="tab" data-target="#sec-practice">Практика</div>
+  <div class="tab" data-target="#sec-connectors">Зв'язки</div>
+  <div class="tab" data-target="#sec-text">Текст</div>
+  <div class="tab" data-target="#sec-ukraine">Україна 🇺🇦</div>
+  <div class="tab" data-target="#sec-summary">Підсумок</div>
+</div>
+
+<div class="notebook">
+
+  <div class="hero-lesson">
+    <span class="tag">Урок 1 · Моє повсякденне життя</span>
+    <h1>Мій звичайний день</h1>
+
+    <svg class="day-cycle" viewBox="0 0 340 200" width="340" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Сонечко прокидається, всміхається вдень і засинає ввечері">
+      <rect width="340" height="200" fill="var(--sky-pale)"/>
+
+      <g class="stars">
+        <circle cx="42" cy="34" r="2.2" fill="#fff"/>
+        <circle cx="70" cy="54" r="1.6" fill="#fff"/>
+        <circle cx="278" cy="38" r="2.2" fill="#fff"/>
+        <circle cx="300" cy="58" r="1.6" fill="#fff"/>
+      </g>
+
+      <g class="cloud" opacity="0.95">
+        <ellipse cx="55" cy="140" rx="24" ry="13" fill="#fff"/>
+        <ellipse cx="75" cy="134" rx="17" ry="11" fill="#fff"/>
+      </g>
+      <g class="cloud2" opacity="0.95">
+        <ellipse cx="275" cy="150" rx="20" ry="11" fill="#fff"/>
+        <ellipse cx="292" cy="145" rx="14" ry="9" fill="#fff"/>
+      </g>
+
+      <!-- Місяць: сонний персонаж, видно вночі -->
+      <g class="moon-char">
+        <circle cx="170" cy="55" r="27" fill="#FDE9AE"/>
+        <path d="M160 32a19 19 0 1 0 4 44 23 23 0 0 1-4-44z" fill="#F6D77A"/>
+        <path d="M158 55q4 4 8 0M172 55q4 4 8 0" stroke="var(--ink)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        <path d="M161 64q7 4 14 0" stroke="var(--ink)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      </g>
+      <g class="zzz">
+        <text x="200" y="38" font-family="Comfortaa, sans-serif" font-size="16" fill="#fff" font-weight="700">Z</text>
+        <text x="212" y="26" font-family="Comfortaa, sans-serif" font-size="11" fill="#fff" font-weight="700">z</text>
+      </g>
+
+      <!-- Сонце: прокидається, усміхається, махає -->
+      <g class="sun-char">
+        <circle cx="170" cy="90" r="32" fill="var(--gold)"/>
+        <circle cx="159" cy="83" r="7" fill="#FFE3A0" opacity="0.65"/>
+        <circle cx="160" cy="86" r="3.4" fill="var(--ink)"/>
+        <circle cx="180" cy="86" r="3.4" fill="var(--ink)"/>
+        <ellipse cx="153" cy="97" rx="5.5" ry="3.2" fill="#FF9C74" opacity="0.7"/>
+        <ellipse cx="187" cy="97" rx="5.5" ry="3.2" fill="#FF9C74" opacity="0.7"/>
+        <path d="M156 99q14 13 28 0" stroke="var(--ink)" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+        <path class="arm" d="M140 90q-16-14-28-8" stroke="var(--gold)" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path class="arm" d="M200 90q16-14 28-8" stroke="var(--gold)" stroke-width="7" fill="none" stroke-linecap="round"/>
+      </g>
+
+      <path d="M0 172 Q85 142 170 166 T340 172 V200 H0 Z" fill="var(--leaf-pale)"/>
+      <path d="M0 186 Q85 166 170 182 T340 186 V200 H0 Z" fill="var(--leaf)"/>
+    </svg>
+
+    <div class="goal-box">
+      <strong>Мета уроку:</strong> вивчити слова про весь твій день — від ранкового будильника до вечірнього сну, навчитися з'єднувати дії словами «спочатку, потім, зазвичай» та побудувати перше правильне речення.
+    </div>
+    <div class="meta-row">
+      <span class="meta-pill">⏱ ≈ 60–70 хвилин</span>
+      <span class="meta-pill">📘 29 нових слів</span>
+      <span class="meta-pill">✏️ порядок слів у реченні</span>
+    </div>
+  </div>
+
+  <!-- ================= НОВІ СЛОВА ================= -->
+  <section id="sec-words" class="section page">
+    <div class="section-head">
+      <span class="section-num">1</span>
+      <h2>Нові слова — увесь твій день</h2>
+    </div>
+    <p>Натисни на картку, щоб перевернути її та побачити пояснення й приклад. Слова йдуть у тому порядку, як і дії протягом дня — від ранку до сну.</p>
+
+    <div class="vocab-group">
+      <div class="vocab-group-head" style="border-left-color:var(--gold)">🌅 Ранок</div>
+      <div class="card-grid" id="vocab-morning"></div>
+    </div>
+
+    <div class="vocab-group">
+      <div class="vocab-group-head" style="border-left-color:var(--sky)">📚 Школа</div>
+      <div class="card-grid" id="vocab-school"></div>
+    </div>
+
+    <div class="vocab-group">
+      <div class="vocab-group-head" style="border-left-color:var(--leaf)">🍲 День</div>
+      <div class="card-grid" id="vocab-day"></div>
+    </div>
+
+    <div class="vocab-group">
+      <div class="vocab-group-head" style="border-left-color:var(--coral)">🌆 Вечір</div>
+      <div class="card-grid" id="vocab-evening"></div>
+    </div>
+
+    <div class="vocab-group">
+      <div class="vocab-group-head" style="border-left-color:var(--ink)">🌙 Перед сном</div>
+      <div class="card-grid" id="vocab-night"></div>
+    </div>
+  </section>
+
+  <!-- ================= ГРАМАТИКА ================= -->
+  <section id="sec-grammar" class="section page">
+    <div class="section-head">
+      <span class="section-num">2</span>
+      <h2>Слово · словосполучення · речення</h2>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <h3 style="margin-top:0">Слово</h3>
+        <p style="margin:0">Одне-єдине слово. Просто називає річ, дію чи ознаку — і все.<br><strong>школа</strong></p>
+      </div>
+      <div class="summary-card">
+        <h3 style="margin-top:0">Словосполучення</h3>
+        <p style="margin:0">Два (чи більше) слова разом. Вони пов'язані за змістом, але думка ще не завершена.<br><strong>моя школа</strong></p>
+      </div>
+      <div class="summary-card">
+        <h3 style="margin-top:0">Речення</h3>
+        <p style="margin:0">Завершена думка. Завжди з великої літери, завжди з крапкою (чи ! або ?) у кінці.<br><strong>Я йду до школи.</strong></p>
+      </div>
+    </div>
+
+    <p style="margin-top:18px">Дивись, як одне й те саме слово «росте» — від слова до цілої думки:</p>
+    <div class="growth-line">
+      <span class="step w1">школа</span>
+      <span class="arrow">→</span>
+      <span class="step w2">моя школа</span>
+      <span class="arrow">→</span>
+      <span class="step w3">Я йду до школи.</span>
+    </div>
+
+    <h3 class="mini-head">Перевір себе: слово, словосполучення чи речення?</h3>
+    <p>Прочитай приклад і обери правильну відповідь.</p>
+
+    <div class="exercise" id="wsr1">
+      <div class="q">«школа»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="wsr2">
+      <div class="q">«моя школа»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="wsr3">
+      <div class="q">«Я йду до школи.»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="wsr4">
+      <div class="q">«читати книжку»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="wsr5">
+      <div class="q">«портфель»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="wsr6">
+      <div class="q">«Дівчинка йде на урок.»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <h3 class="mini-head">Порядок слів у реченні</h3>
+    <p>У звичайному українському реченні спочатку йде той, ХТО діє (підмет), потім те, ЩО він робить (присудок), а далі — інші слова:</p>
+    <p class="hand" style="font-size:1.4rem;color:var(--sky)">Хто? → що робить? → що / куди / коли?</p>
+    <p><em>Дівчинка читає книжку.</em> &nbsp;·&nbsp; <em>Я йду до школи.</em></p>
+
+    <div class="exercise">
+      <div class="q">🧩 Збери речення зі слів у правильному порядку:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="order-ex-2">
+      <div class="q">🧩 А тепер трохи довше речення:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+  </section>
+
+  <!-- ================= ПРАКТИКА ================= -->
+  <section id="sec-practice" class="section page">
+    <div class="section-head">
+      <span class="section-num">3</span>
+      <h2>Практика</h2>
+    </div>
+    <p>Завдання йдуть від простих до складніших — не поспішай.</p>
+
+    <div class="exercise" id="p1">
+      <div class="q">1️⃣ Як називається сумка, у якій носять зошити й книжки до школи?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p2">
+      <div class="q">2️⃣ Як називається дія — надягати на себе одяг?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p3">
+      <div class="q">3️⃣ Устав правильне слово: «Я ___ зуби щоранку.»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p4">
+      <div class="q">4️⃣ Обери те, що є СЛОВОСПОЛУЧЕННЯМ (не словом і не реченням):</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p5">
+      <div class="q">5️⃣ Устав правильне слово: «Я ___ портфель і йду до школи.»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p6">
+      <div class="q">6️⃣ Що з переліченого є РЕЧЕННЯМ?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p7">
+      <div class="q">7️⃣ Як називається людина, яка навчає учнів у школі?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="p8">
+      <div class="q">8️⃣ Устав правильне слово: «На ___ діти відпочивають між уроками.»</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise">
+      <div class="q">9️⃣ Збери ще одне речення — про школу:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+  </section>
+
+  <!-- ================= СЛОВА-ЗВ'ЯЗКИ ================= -->
+  <section id="sec-connectors" class="section page">
+    <div class="section-head">
+      <span class="section-num">4</span>
+      <h2>Слова-зв'язки</h2>
+    </div>
+    <div class="connector-note">
+      Цими словами ти з'єднуєш окремі дії в одну розповідь про свій день — з ними виходить набагато краще й «доросліше», ніж просто перелічувати дії одну за одною.
+    </div>
+    <div class="card-grid" id="connectors-grid" style="margin-top:16px"></div>
+
+    <h3 class="mini-head">Приклад розповіді</h3>
+    <div class="storybox" id="connector-story"></div>
+
+    <div class="exercise" style="margin-top:20px">
+      <div class="q">🧩 Збери перше речення розповіді:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="c-order-2">
+      <div class="q">🧩 А тепер друге речення:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="c1">
+      <div class="q">Я вмиваюся. ___ я снідаю.</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="c2">
+      <div class="q">Я прокидаюся о сьомій годині майже щодня. Яке слово тут підходить найкраще?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise" id="c3">
+      <div class="q">Яке слово означає «майже ніколи»?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise">
+      <div class="q">Знайди в тексті вище всі слова-зв'язки — клікай на них, а тоді натисни «Перевірити».</div>
+      <button class="btn small" id="check-connectors">Перевірити</button>
+      <div class="feedback" id="connector-feedback"></div>
+    </div>
+  </section>
+
+  <!-- ================= МІНІТЕКСТ + РОБОТА З ТЕКСТОМ ================= -->
+  <section id="sec-text" class="section page">
+    <div class="section-head">
+      <span class="section-num">5</span>
+      <h2>День Оленки</h2>
+    </div>
+    <p>Прочитай текст. У ньому — багато слів, які ти сьогодні вивчив.</p>
+    <div class="storybox" id="story"></div>
+
+    <h3 style="margin-top:26px">Робота з текстом</h3>
+    <div class="exercise" id="t1">
+      <div class="q">Що Оленка робить вранці спочатку?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="t2">
+      <div class="q">Куди Оленка йде з портфелем?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="t3">
+      <div class="q">Що Оленка робить перед сном?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="exercise">
+      <div class="q">Знайди й познач слова-ДІЇ (дієслова) у тексті — клікай прямо на слова вище, а тоді натисни «Перевірити».</div>
+      <button class="btn small" id="check-verbs">Перевірити</button>
+      <div class="feedback" id="verb-feedback"></div>
+    </div>
+  </section>
+
+  <!-- ================= ДОМАШНЄ ЗАВДАННЯ ================= -->
+  
+  <!-- ================= ПІДСУМОК ================= -->
+  <section id="sec-ukraine" class="section page">
+    <div class="section-head">
+      <span class="section-num">6</span>
+      <h2>Цікавинка про Україну</h2>
+    </div>
+    <div class="ukraine-box theme-trypillia">
+      <div class="ukraine-ribbon"><span class="emoji">🏺</span>Трипільська культура</div>
+      <div class="ukraine-body">
+      <p>Чи знаєш ти, що на території сучасної України існувала одна з найдавніших цивілізацій світу — Трипільська культура?</p>
+      <p>Ще 5–7 тисяч років тому люди тут будували великі поселення, іноді на тисячі будинків. Тоді ще не було годинників, але люди теж прокидалися вранці, готували їжу і працювали за сонцем!</p>
+      <p>Археологи й досі знаходять сліди їхнього повсякденного життя по всій Україні.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sec-summary" class="section page">
+    <div class="section-head">
+      <span class="section-num">7</span>
+      <h2>Слова для запам'ятовування</h2>
+    </div>
+    <div class="keywords">
+      <span class="keyword-pill">прокидатися</span>
+      <span class="keyword-pill">школа</span>
+      <span class="keyword-pill">обідати</span>
+      <span class="keyword-pill">вечеряти</span>
+      <span class="keyword-pill">лягати спати</span>
+    </div>
+    <p style="margin-top:20px">Сьогодні ти вивчив(ла) слова про весь свій день, навчився(-лася) розрізняти слово, словосполучення й речення, правильно будувати порядок слів — і з'єднувати дії словами-зв'язками. Наступного уроку — <strong>«Моя сім'я»</strong> та іменники «хто? що?».</p>
+    <p><a class="btn ghost" href="ukr-index.html">← Повернутись до зошита</a></p>
+  </section>
+
+  <footer class="page-footer">Урок 1 з 36 · Українська мова · 4–5 клас</footer>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="ukr-students.js"></script>
+<script src="ukr-firebase-config.js"></script>
+<script src="ukr-lesson-kit.js"></script>
+<script src="ukr-platform.js"></script>
+<script>
+  // ---- допоміжна функція: картка-«значок» -------------------------
+  function badge(pale, solid, glyph){
+    return `<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">`
+      + `<rect width="200" height="140" fill="var(${pale})"/>`
+      + `<circle cx="100" cy="60" r="34" fill="var(${solid})"/>`
+      + glyph
+      + `</svg>`;
+  }
+  const G = `stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"`;
+
+  const vocabMorning = [
+    { word:"прокидатися", translation:"переставати спати, розплющувати очі вранці", example:"Я прокидаюся о сьомій годині.",
+      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--gold-pale)"/><circle cx="100" cy="88" r="32" fill="var(--gold)"/><g stroke="var(--gold)" stroke-width="6" stroke-linecap="round"><line x1="100" y1="28" x2="100" y2="42"/><line x1="62" y1="44" x2="72" y2="54"/><line x1="138" y1="44" x2="128" y2="54"/><line x1="48" y1="88" x2="62" y2="88"/><line x1="152" y1="88" x2="138" y2="88"/></g><rect x="0" y="120" width="200" height="20" fill="var(--leaf-pale)"/></svg>` },
+    { word:"вставати", translation:"підійматися з ліжка після сну", example:"Я встаю з ліжка одразу після дзвінка будильника.",
+      svg: badge('--gold-pale','--gold', `<path d="M78 78h44M100 78V50M88 60l12-12 12 12" ${G}/>`) },
+    { word:"спати", translation:"бути уві сні", example:"Уночі я міцно сплю.",
+      svg: badge('--gold-pale','--gold', `<path d="M84 60q16 12 32 0" ${G}/><text x="118" y="42" font-family="Comfortaa, sans-serif" font-size="18" fill="#fff" font-weight="700">Z</text>`) },
+    { word:"будильник", translation:"пристрій, який гучно дзвенить, щоб розбудити тебе", example:"Мій будильник дзвонить о сьомій ранку.",
+      svg: badge('--gold-pale','--gold', `<circle cx="100" cy="62" r="17" ${G}/><path d="M100 62V50M100 62l9 6" ${G}/><path d="M78 40l-8-8M122 40l8-8" ${G}/>`) },
+    { word:"вмиватися", translation:"мити обличчя й руки водою", example:"Прокинувшись, я вмиваюся.",
+      svg: badge('--gold-pale','--gold', `<path d="M100 40c10 14 16 24 16 33a16 16 0 0 1-32 0c0-9 6-19 16-33z" ${G}/>`) },
+    { word:"чистити зуби", translation:"мити зуби щіткою, щоб вони були здорові", example:"Дитина чистить зуби зранку і ввечері.",
+      svg: badge('--gold-pale','--gold', `<path d="M100 42c-9 0-14 7-14 15 0 9 3 16 5 23 1 3 2 5 4 5s3-3 3-7c1-3 2-3 3 0 0 4 1 7 3 7s3-2 4-5c2-7 5-14 5-23 0-8-5-15-13-15z" ${G}/>`) },
+    { word:"приймати душ", translation:"митися під душем", example:"Увечері я приймаю душ.",
+      svg: badge('--gold-pale','--gold', `<path d="M84 50h32" ${G}/><path d="M100 50V38" ${G}/><g stroke="#fff" stroke-width="4" stroke-linecap="round"><line x1="86" y1="62" x2="84" y2="70"/><line x1="100" y1="64" x2="98" y2="74"/><line x1="114" y1="62" x2="112" y2="70"/></g>`) },
+    { word:"одягатися", translation:"надягати на себе одяг", example:"Хлопчик швидко одягається до школи.",
+      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--gold-pale)"/><path d="M78 42l-27 16 9 15 13-7v56h54V66l13 7 9-15-27-16c-3 6-14 6-17 0-3 6-14 6-17 0z" fill="var(--sky)" stroke="var(--ink)" stroke-width="4"/></svg>` },
+    { word:"снідати", translation:"їсти вранці, перший раз за день", example:"Родина снідає разом на кухні.",
+      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--leaf-pale)"/><path d="M55 82a45 26 0 0 0 90 0z" fill="#fff" stroke="var(--ink)" stroke-width="4"/><path d="M50 82h100" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/><path d="M88 52c-4 6 4 8 0 14M112 52c-4 6 4 8 0 14" stroke="var(--ink-soft)" stroke-width="4" fill="none" stroke-linecap="round"/></svg>` }
+  ];
+
+  const vocabSchool = [
+    { word:"портфель", translation:"сумка, у якій носять зошити й книжки до школи", example:"У моєму портфелі лежать зошит і пенал.",
+      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--sky-pale)"/><rect x="66" y="42" width="8" height="18" rx="4" fill="var(--ink)"/><rect x="126" y="42" width="8" height="18" rx="4" fill="var(--ink)"/><path d="M78 48v-9a22 15 0 0 1 44 0v9" fill="none" stroke="var(--ink)" stroke-width="4"/><rect x="60" y="48" width="80" height="72" rx="18" fill="var(--sky)" stroke="var(--ink)" stroke-width="4"/><rect x="78" y="58" width="44" height="24" rx="9" fill="var(--gold)" stroke="var(--ink)" stroke-width="3"/><rect x="89" y="92" width="22" height="18" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="3"/></svg>` },
+    { word:"школа", translation:"місце, де діти навчаються", example:"Щоранку я йду до школи з друзями.",
+      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--leaf-pale)"/><path d="M45 68l55-32 55 32z" fill="var(--coral)" stroke="var(--ink)" stroke-width="4"/><rect x="55" y="68" width="90" height="48" fill="#fff" stroke="var(--ink)" stroke-width="4"/><rect x="92" y="90" width="16" height="26" fill="var(--sky)" stroke="var(--ink)" stroke-width="3"/><rect x="65" y="78" width="14" height="14" fill="var(--gold-pale)" stroke="var(--ink)" stroke-width="2"/><rect x="121" y="78" width="14" height="14" fill="var(--gold-pale)" stroke="var(--ink)" stroke-width="2"/><line x1="100" y1="36" x2="100" y2="22" stroke="var(--ink)" stroke-width="3"/><path d="M100 22h16l-16 10z" fill="var(--gold)"/></svg>` },
+    { word:"урок", translation:"час, коли вчитель навчає учнів у класі", example:"Перший урок сьогодні — українська мова.",
+      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--gold-pale)"/><path d="M100 52c-14-10-34-10-44-4v48c10-6 30-6 44 4 14-10 34-10 44-4V48c-10-6-30-6-44 4z" fill="#fff" stroke="var(--ink)" stroke-width="4"/><line x1="100" y1="52" x2="100" y2="100" stroke="var(--ink)" stroke-width="3"/></svg>` },
+    { word:"перерва", translation:"короткий відпочинок між уроками", example:"На перерві діти виходять у коридор.",
+      svg: badge('--sky-pale','--sky', `<circle cx="100" cy="62" r="17" ${G}/><path d="M100 62V52M100 62l8 5" ${G}/><path d="M92 40h16" ${G}/>`) },
+    { word:"учитель", translation:"людина, яка навчає учнів у школі", example:"Учитель пояснює нову тему біля дошки.",
+      svg: badge('--sky-pale','--sky', `<rect x="78" y="46" width="44" height="28" rx="3" ${G}/><path d="M78 74l44-6" ${G}/><circle cx="126" cy="66" r="2.5" fill="#fff"/>`) },
+    { word:"учень", translation:"дитина, яка навчається в школі", example:"Кожен учень має свій підручник.",
+      svg: badge('--sky-pale','--sky', `<circle cx="100" cy="46" r="9" ${G}/><path d="M84 78c0-11 7-18 16-18s16 7 16 18" ${G}/><path d="M78 78h44" ${G}/>`) },
+    { word:"вчитися", translation:"здобувати знання, навчатися", example:"Я вчуся читати й писати українською.",
+      svg: badge('--sky-pale','--sky', `<circle cx="100" cy="52" r="12" ${G}/><path d="M100 64v16M92 88h16" ${G}/><path d="M94 44l6 8 6-8" ${G}/>`) },
+    { word:"читати", translation:"дивитися на текст і розуміти слова", example:"Я люблю читати цікаві книжки.",
+      svg: badge('--sky-pale','--sky', `<path d="M100 48c-9-6-21-6-28-2v32c7-4 19-4 28 2 9-6 21-6 28-2V46c-7-4-19-4-28 2z" ${G}/>`) },
+    { word:"писати", translation:"робити літери й слова на папері", example:"Я пишу нове слово в зошиті.",
+      svg: badge('--sky-pale','--sky', `<path d="M76 84l30-30 12 12-30 30-15 4z" ${G}/>`) }
+  ];
+
+  const vocabDay = [
+    { word:"обідати", translation:"їсти в середині дня", example:"Ми обідаємо о першій годині.",
+      svg: badge('--leaf-pale','--leaf', `<circle cx="100" cy="66" r="18" ${G}/><line x1="82" y1="42" x2="82" y2="52" ${G}/><line x1="90" y1="42" x2="90" y2="52" ${G}/><line x1="118" y1="42" x2="112" y2="60" ${G}/>`) },
+    { word:"працювати", translation:"виконувати роботу", example:"Тато працює в офісі до п'ятої.",
+      svg: badge('--leaf-pale','--leaf', `<rect x="80" y="56" width="40" height="28" rx="4" ${G}/><path d="M92 56v-6a8 8 0 0 1 16 0v6" ${G}/>`) },
+    { word:"слухати", translation:"уважно сприймати звуки, музику чи мову", example:"Я слухаю, що каже вчителька.",
+      svg: badge('--leaf-pale','--leaf', `<path d="M92 46c-10 2-16 12-16 22 0 8 4 12 9 12" ${G}/><circle cx="112" cy="56" r="4" ${G}/><path d="M112 56v22a6 6 0 1 1-6-6" ${G}/>`) },
+    { word:"розмовляти", translation:"говорити з кимось, вести бесіду", example:"На перерві я розмовляю з друзями.",
+      svg: badge('--leaf-pale','--leaf', `<path d="M76 50h28a8 8 0 0 1 8 8v6a8 8 0 0 1-8 8h-6l-10 8v-8h-4a8 8 0 0 1-8-8v-6a8 8 0 0 1 8-8z" ${G}/><path d="M118 66h6a8 8 0 0 1 8 8v4a8 8 0 0 1-8 8l-8 6v-6" ${G}/>`) },
+    { word:"грати", translation:"розважатися грою", example:"Після школи ми граємо у дворі.",
+      svg: badge('--leaf-pale','--leaf', `<rect x="78" y="48" width="24" height="24" rx="4" ${G}/><rect x="98" y="68" width="24" height="24" rx="4" ${G}/><circle cx="86" cy="56" r="1.6" fill="#fff"/><circle cx="94" cy="64" r="1.6" fill="#fff"/><circle cx="106" cy="76" r="1.6" fill="#fff"/><circle cx="114" cy="84" r="1.6" fill="#fff"/>`) }
+  ];
+
+  const vocabEvening = [
+    { word:"гуляти", translation:"бути надворі, бавитися на свіжому повітрі", example:"Після уроків діти гуляють у дворі.",
+      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--coral-pale)"/><circle cx="65" cy="58" r="30" fill="var(--leaf)"/><rect x="60" y="86" width="10" height="28" fill="#9a6a34"/><circle cx="138" cy="88" r="17" fill="var(--coral)" stroke="var(--ink)" stroke-width="3"/><path d="M126 88h24M138 76v24" stroke="#fff" stroke-width="2.5"/></svg>` },
+    { word:"вечеряти", translation:"їсти ввечері, останній прийом їжі за день", example:"Ми вечеряємо разом о сьомій.",
+      svg: badge('--coral-pale','--coral', `<circle cx="100" cy="66" r="18" ${G}/><line x1="82" y1="42" x2="82" y2="52" ${G}/><line x1="90" y1="42" x2="90" y2="52" ${G}/><line x1="118" y1="42" x2="112" y2="60" ${G}/>`) },
+    { word:"відпочивати", translation:"розслаблятися, набиратися сил", example:"Увечері я відпочиваю після школи.",
+      svg: badge('--coral-pale','--coral', `<path d="M76 82v-14a10 10 0 0 1 10-10h28a10 10 0 0 1 10 10v14" ${G}/><path d="M72 82h56v10a4 4 0 0 1-4 4H76a4 4 0 0 1-4-4z" ${G}/>`) },
+    { word:"дивитися телевізор", translation:"дивитися передачі чи фільми на екрані", example:"Увечері вся сім'я дивиться телевізор.",
+      svg: badge('--coral-pale','--coral', `<rect x="72" y="46" width="56" height="36" rx="4" ${G}/><path d="M92 52l14 10-14 10z" ${G}/><line x1="90" y1="90" x2="110" y2="90" ${G}/>`) },
+    { word:"робити домашнє завдання", translation:"виконувати вправи, які задав учитель", example:"Увечері я роблю домашнє завдання за столом.",
+      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--coral-pale)"/><rect x="58" y="32" width="72" height="92" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="4"/><line x1="70" y1="53" x2="118" y2="53" stroke="var(--sky)" stroke-width="4" stroke-linecap="round"/><line x1="70" y1="68" x2="118" y2="68" stroke="var(--sky)" stroke-width="4" stroke-linecap="round"/><line x1="70" y1="83" x2="100" y2="83" stroke="var(--sky)" stroke-width="4" stroke-linecap="round"/><path d="M118 108l35-35 11 11-35 35-15 4z" fill="var(--gold)" stroke="var(--ink)" stroke-width="3"/></svg>` }
+  ];
+
+  const vocabNight = [
+    { word:"лягати спати", translation:"йти в ліжко, щоб заснути", example:"Малий лягає спати о дев'ятій годині.",
+      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="#2B3A34"/><path d="M122 36a37 37 0 1 0 26 63 29 29 0 0 1-26-63z" fill="var(--gold)"/><circle cx="55" cy="42" r="3" fill="#fff"/><circle cx="76" cy="26" r="2" fill="#fff"/><circle cx="45" cy="64" r="2" fill="#fff"/><circle cx="90" cy="90" r="2" fill="#fff"/></svg>` },
+    { word:"засинати", translation:"переходити зі стану неспання в сон", example:"Я засинаю приблизно за десять хвилин.",
+      svg:`<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="#2B3A34"/><path d="M84 62q16 12 32 0" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/><text x="120" y="44" font-family="Comfortaa, sans-serif" font-size="18" fill="#fff" font-weight="700">Z</text><text x="132" y="32" font-family="Comfortaa, sans-serif" font-size="12" fill="#fff" font-weight="700">z</text></svg>` }
+  ];
+
+  const connectors = [
+    { icon:"1️⃣", word:"спочатку", translation:"перше слово, яким починаємо розповідь про день", example:"Спочатку я прокидаюся." },
+    { icon:"➡️", word:"потім", translation:"наступна дія після попередньої", example:"Потім я снідаю." },
+    { icon:"➡️", word:"після цього", translation:"ще один спосіб сказати «потім»", example:"Після цього я йду до школи." },
+    { icon:"➡️", word:"далі", translation:"продовжуємо розповідь про день", example:"Далі в мене урок математики." },
+    { icon:"🔁", word:"зазвичай", translation:"так буває майже завжди, щодня", example:"Зазвичай я прокидаюся о сьомій." },
+    { icon:"🔀", word:"іноді", translation:"не завжди, а лише час від часу", example:"Іноді я сплю трохи довше." },
+    { icon:"⏱️", word:"часто", translation:"багато разів, регулярно", example:"Я часто гуляю з друзями." },
+    { icon:"🐢", word:"рідко", translation:"майже ніколи, дуже нечасто", example:"Я рідко дивлюся телевізор уранці." },
+    { icon:"🏁", word:"нарешті", translation:"в самому кінці розповіді", example:"Нарешті, я лягаю спати." }
+  ];
+
+  LessonKit.initFlashcards('#vocab-morning', vocabMorning);
+  LessonKit.initFlashcards('#vocab-school', vocabSchool);
+  LessonKit.initFlashcards('#vocab-day', vocabDay);
+  LessonKit.initFlashcards('#vocab-evening', vocabEvening);
+  LessonKit.initFlashcards('#vocab-night', vocabNight);
+  LessonKit.initFlashcards('#connectors-grid', connectors);
+  LessonKit.initTabs();
+  LessonKit.setTotalStars(27);
+
+  LessonKit.initChoice(document.getElementById('wsr1'),
+    [{text:"слово", correct:true},{text:"словосполучення", correct:false},{text:"речення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('wsr2'),
+    [{text:"слово", correct:false},{text:"словосполучення", correct:true},{text:"речення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('wsr3'),
+    [{text:"слово", correct:false},{text:"словосполучення", correct:false},{text:"речення", correct:true}]);
+  LessonKit.initChoice(document.getElementById('wsr4'),
+    [{text:"слово", correct:false},{text:"словосполучення", correct:true},{text:"речення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('wsr5'),
+    [{text:"слово", correct:true},{text:"словосполучення", correct:false},{text:"речення", correct:false}]);
+  LessonKit.initChoice(document.getElementById('wsr6'),
+    [{text:"слово", correct:false},{text:"словосполучення", correct:false},{text:"речення", correct:true}]);
+
+  const grammarBoxes = document.querySelectorAll('#sec-grammar .exercise:not(#wsr1):not(#wsr2):not(#wsr3):not(#wsr4):not(#wsr5):not(#wsr6)');
+  LessonKit.initOrderBuilder(grammarBoxes[0], ["Дівчинка","читає","книжку"]);
+  LessonKit.initOrderBuilder(grammarBoxes[1], ["Після","уроків","діти","гуляють","у","дворі"]);
+
+  LessonKit.initChoice(document.getElementById('p1'), [
+    {text:"олівець", correct:false},{text:"портфель", correct:true},{text:"зошит", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p2'), [
+    {text:"снідати", correct:false},{text:"одягатися", correct:true},{text:"гуляти", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p3'), [
+    {text:"чищу", correct:true},{text:"читаю", correct:false},{text:"гуляю", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p4'), [
+    {text:"школа", correct:false},{text:"моя школа", correct:true},{text:"Я йду до школи.", correct:false}
+  ], "✓ Так! «моя школа» — два слова, пов'язані за змістом, без закінченої думки.", "✗ Подумай: тут має бути рівно два слова без крапки в кінці.");
+  LessonKit.initChoice(document.getElementById('p5'), [
+    {text:"беру", correct:true},{text:"сплю", correct:false},{text:"малюю", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p6'), [
+    {text:"прокидатися", correct:false},{text:"вранці прокидатися", correct:false},{text:"Я прокидаюся о сьомій.", correct:true}
+  ]);
+  LessonKit.initChoice(document.getElementById('p7'), [
+    {text:"учень", correct:false},{text:"учитель", correct:true},{text:"друг", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p8'), [
+    {text:"перерві", correct:true},{text:"уроці", correct:false},{text:"портфелі", correct:false}
+  ]);
+
+  const p9box = document.getElementById('sec-practice').querySelector('.exercise:last-child');
+  LessonKit.initOrderBuilder(p9box, ["Перший","урок","сьогодні","українська","мова"]);
+
+  const connectorWords = "Зазвичай я прокидаюся о сьомій . Спочатку я вмиваюся і чищу зуби . Потім я снідаю . Після цього я йду до школи . Часто на перерві я розмовляю з друзями . Іноді я трохи стомлююся . Нарешті , увечері я лягаю спати .".split(" ");
+  const connectorTokens = ["Зазвичай","Спочатку","Потім","Після","цього","Часто","Іноді","Нарешті"];
+  const cStoryEl = document.getElementById('connector-story');
+  let cHtml = "<p>";
+  connectorWords.forEach(tok => {
+    if (tok === ".") { cHtml += ". </p><p>"; return; }
+    if (tok === ",") { cHtml += ", "; return; }
+    if (connectorTokens.includes(tok)) {
+      cHtml += `<span class="clickable-word" data-conn="1">${tok}</span> `;
+    } else {
+      cHtml += tok + " ";
+    }
+  });
+  cHtml += "</p>";
+  cStoryEl.innerHTML = cHtml;
+  LessonKit.initStoryHighlight('#connector-story');
+
+  const connBoxes = document.querySelectorAll('#sec-connectors .exercise:not(#c1):not(#c2):not(#c3)');
+  LessonKit.initOrderBuilder(connBoxes[0], ["Зазвичай","я","прокидаюся","о","сьомій"]);
+  LessonKit.initOrderBuilder(connBoxes[1], ["Спочатку","я","вмиваюся","і","чищу","зуби"]);
+
+  LessonKit.initChoice(document.getElementById('c1'), [
+    {text:"Потім", correct:true},{text:"Рідко", correct:false},{text:"Іноді", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('c2'), [
+    {text:"Зазвичай", correct:true},{text:"Рідко", correct:false},{text:"Іноді", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('c3'), [
+    {text:"Часто", correct:false},{text:"Рідко", correct:true},{text:"Зазвичай", correct:false}
+  ]);
+
+  document.getElementById('check-connectors').addEventListener('click', (e) => {
+    const words = Array.from(document.querySelectorAll('#connector-story .clickable-word'));
+    const marked = words.filter(w => w.classList.contains('marked'));
+    const foundAll = marked.length === words.length && marked.length > 0;
+    const fb = document.getElementById('connector-feedback');
+    if (foundAll) {
+      fb.textContent = `✓ Супер! Ти знайшов(-ла) усі ${words.length} слів-зв'язків.`;
+      fb.className = 'feedback ok';
+      LessonKit.addStar(e.clientX, e.clientY);
+    } else {
+      fb.textContent = `Позначено слів: ${marked.length} із ${words.length}. Пошукай ще уважніше.`;
+      fb.className = 'feedback no';
+    }
+  });
+
+  const storyWords = "Зазвичай Оленка прокидається рано . Спочатку вона вмивається , чистить зуби і швидко одягається . Потім родина снідає разом на кухні . Після цього Оленка бере портфель і йде до школи . Перший урок — українська мова , а на перерві вона розмовляє з друзями . Після уроків діти гуляють у дворі . Увечері Оленка вечеряє , робить домашнє завдання і трохи відпочиває . Нарешті , коли настає ніч , вона лягає спати і швидко засинає .".split(" ");
+  const verbTokens = ["прокидається","вмивається","чистить","одягається","снідає","бере","йде","розмовляє","гуляють","вечеряє","робить","відпочиває","настає","лягає","засинає"];
+  const storyEl = document.getElementById('story');
+  let html = "<p>";
+  storyWords.forEach(tok => {
+    if (tok === "." ) { html += ". </p><p>"; return; }
+    if (tok === ",") { html += ", "; return; }
+    const clean = tok.replace(/[—]/g,'').trim();
+    if (verbTokens.includes(clean)) {
+      html += `<span class="clickable-word" data-verb="1">${tok}</span> `;
+    } else {
+      html += tok + " ";
+    }
+  });
+  html += "</p>";
+  storyEl.innerHTML = html;
+  LessonKit.initStoryHighlight('#story');
+
+  LessonKit.initChoice(document.getElementById('t1'), [
+    {text:"Сніданок", correct:false},{text:"Прокидається", correct:true},{text:"Урок", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('t2'), [
+    {text:"До школи", correct:true},{text:"У двір", correct:false},{text:"До ліжка", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('t3'), [
+    {text:"Гуляє у дворі", correct:false},{text:"Робить домашнє завдання", correct:false},{text:"Лягає спати", correct:true}
+  ]);
+
+  document.getElementById('check-verbs').addEventListener('click', (e) => {
+    const words = Array.from(document.querySelectorAll('#story .clickable-word'));
+    const marked = words.filter(w => w.classList.contains('marked'));
+    const allMarkedAreVerbs = marked.length > 0 && marked.every(w => w.dataset.verb === "1");
+    const foundAll = marked.length === words.length;
+    const fb = document.getElementById('verb-feedback');
+    if (allMarkedAreVerbs && foundAll) {
+      fb.textContent = `✓ Чудово! Ти знайшов(-ла) усі ${words.length} слів-дій.`;
+      fb.className = 'feedback ok';
+      LessonKit.addStar(e.clientX, e.clientY);
+    } else {
+      fb.textContent = `Позначено слів: ${marked.length} із ${words.length}. Придивись ще раз до дій у тексті.`;
+      fb.className = 'feedback no';
+    }
+  });
+
+  Platform.initLessonPage('lesson-01', 'Урок 1. Моє повсякденне життя');
+</script>
+</body>
+</html>

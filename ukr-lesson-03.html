@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Урок 3. Зовнішність людини</title>
+<link rel="stylesheet" href="ukr-style.css">
+<style>
+  .hero-lesson{ padding:30px 32px 6px 40px; }
+  .goal-box{
+    background:var(--leaf-pale); border-left:5px solid var(--leaf);
+    border-radius:0 var(--radius) var(--radius) 0;
+    padding:14px 18px; max-width:var(--max-w); margin-top:10px;
+  }
+  .meta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:14px; }
+  .meta-pill{ font-size:0.85rem; font-weight:700; color:var(--ink-soft); background:#fff; border:1px solid rgba(43,42,40,0.15); padding:5px 12px; border-radius:20px; }
+  .summary-grid{ display:flex; gap:16px; flex-wrap:wrap; }
+  .summary-card{ flex:1 1 200px; background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-sm); }
+  .vocab-group{ margin:30px 0 8px; }
+  .vocab-group-head{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Comfortaa',sans-serif; font-weight:700; font-size:1.15rem;
+    color:var(--ink); margin-bottom:10px; padding:10px 16px;
+    background:#fff; border-left:5px solid var(--sky);
+    border-radius:0 12px 12px 0; box-shadow:var(--shadow-sm);
+  }
+  .mini-head{ margin:26px 0 4px; }
+  .agree-table{ width:100%; max-width:var(--max-w); border-collapse:collapse; background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); margin:14px 0; }
+  .agree-table th, .agree-table td{ padding:10px 14px; text-align:left; border-bottom:1px solid var(--paper-line); }
+  .agree-table th{ background:var(--sky-pale); font-family:'Comfortaa',sans-serif; }
+  .agree-table td strong{ color:var(--sky); }
+
+  /* ---------- Гра «Склади портрет» ---------- */
+  .portrait-game{
+    background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius);
+    padding:24px; box-shadow:var(--shadow-sm); max-width:760px;
+    display:flex; gap:26px; flex-wrap:wrap; align-items:flex-start;
+  }
+  .portrait-face{ flex:0 0 200px; margin:0 auto; }
+  .portrait-face svg{ width:100%; height:auto; display:block; }
+  .portrait-controls{ flex:1 1 300px; min-width:260px; }
+  .pg-row{ margin-bottom:16px; }
+  .pg-row .lbl{ font-weight:800; margin-bottom:6px; display:block; }
+  .pg-options{ display:flex; flex-wrap:wrap; gap:8px; }
+  .pg-btn{
+    font-family:'Nunito',sans-serif; font-weight:700; font-size:0.85rem;
+    padding:8px 14px; border-radius:100px; border:2px solid var(--paper-line);
+    background:#fff; color:var(--ink); cursor:pointer;
+  }
+  .pg-btn.active{ background:var(--gold-pale); border-color:var(--gold); color:var(--ink); }
+  .portrait-sentence{
+    margin-top:10px; font-weight:800; color:var(--leaf); min-height:1.4em;
+  }
+</style>
+</head>
+<body>
+<script>if(!localStorage.getItem('zoshyt_current_student')){location.href='ukr-login.html?next='+encodeURIComponent(location.pathname);}</script>
+
+<div class="progress-bar">
+  <a class="back-link" href="ukr-index.html">← зошит</a>
+  <div class="progress-track"><div class="progress-fill"></div></div>
+  <div class="stars">☆☆☆☆☆☆☆☆</div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-target="#sec-game">Портрет</div>
+  <div class="tab" data-target="#sec-words">Слова</div>
+  <div class="tab" data-target="#sec-grammar">Граматика</div>
+  <div class="tab" data-target="#sec-practice">Практика</div>
+  <div class="tab" data-target="#sec-text">Текст</div>
+  <div class="tab" data-target="#sec-ukraine">Україна 🇺🇦</div>
+  <div class="tab" data-target="#sec-summary">Підсумок</div>
+</div>
+
+<div class="notebook">
+
+  <div class="hero-lesson">
+    <span class="tag">Урок 3 · Зовнішність людини</span>
+    <h1>Який він? Яка вона?</h1>
+    <div class="goal-box">
+      <strong>Мета уроку:</strong> навчитися описувати зовнішність людини — обличчя, волосся, очі — і правильно змінювати прикметники за родом: який? яка? яке? які?
+    </div>
+    <div class="meta-row">
+      <span class="meta-pill">⏱ ≈ 60 хвилин</span>
+      <span class="meta-pill">🧑 гра «Склади портрет»</span>
+      <span class="meta-pill">✏️ прикметник: рід</span>
+    </div>
+  </div>
+
+  <!-- ================= ГРА: СКЛАДИ ПОРТРЕТ ================= -->
+  <section id="sec-game" class="section page">
+    <div class="section-head">
+      <span class="section-num">1</span>
+      <h2>Гра: склади портрет</h2>
+    </div>
+    <p>Обери колір волосся, зачіску і колір очей — і подивись, яким вийде обличчя. У кінці прочитай речення про свій портрет.</p>
+
+    <div class="portrait-game">
+      <div class="portrait-face">
+        <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="40" cy="128" rx="10" ry="14" fill="#F3C9A0" stroke="#E0AD7E" stroke-width="2"/>
+          <ellipse cx="160" cy="128" rx="10" ry="14" fill="#F3C9A0" stroke="#E0AD7E" stroke-width="2"/>
+          <circle cx="100" cy="125" r="58" fill="#F3C9A0"/>
+          <g id="hairStraight">
+            <path d="M40 112 Q40 50 100 50 Q160 50 160 112 L160 92 Q160 62 100 62 Q40 62 40 92 Z" fill="#C9C9C9"/>
+          </g>
+          <g id="hairCurly" style="display:none">
+            <circle cx="52" cy="88" r="17" fill="#C9C9C9"/>
+            <circle cx="74" cy="66" r="18" fill="#C9C9C9"/>
+            <circle cx="100" cy="58" r="19" fill="#C9C9C9"/>
+            <circle cx="126" cy="66" r="18" fill="#C9C9C9"/>
+            <circle cx="148" cy="88" r="17" fill="#C9C9C9"/>
+            <circle cx="45" cy="106" r="14" fill="#C9C9C9"/>
+            <circle cx="155" cy="106" r="14" fill="#C9C9C9"/>
+          </g>
+          <path id="browL" d="M68 104q10-8 20-2" stroke="#C9C9C9" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path id="browR" d="M112 102q10-6 20 2" stroke="#C9C9C9" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle id="eyeL" cx="80" cy="120" r="7.5" fill="#B5B5B5"/>
+          <circle cx="82.5" cy="117.5" r="2" fill="#fff"/>
+          <circle id="eyeR" cx="120" cy="120" r="7.5" fill="#B5B5B5"/>
+          <circle cx="122.5" cy="117.5" r="2" fill="#fff"/>
+          <path d="M100 122q-3 10 0 14q3 2 6 0" stroke="#D69B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M80 150q20 14 40 0" stroke="#8B5A2B" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="portrait-controls">
+        <div class="pg-row">
+          <span class="lbl">Колір волосся:</span>
+          <div class="pg-options" id="hairColorOpts"></div>
+        </div>
+        <div class="pg-row">
+          <span class="lbl">Зачіска:</span>
+          <div class="pg-options" id="hairStyleOpts"></div>
+        </div>
+        <div class="pg-row">
+          <span class="lbl">Колір очей:</span>
+          <div class="pg-options" id="eyeColorOpts"></div>
+        </div>
+        <div class="portrait-sentence" id="portraitSentence"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= НОВІ СЛОВА ================= -->
+  <section id="sec-words" class="section page">
+    <div class="section-head">
+      <span class="section-num">2</span>
+      <h2>Слова про зовнішність</h2>
+    </div>
+    <p>Натисни на картку, щоб перевернути її та побачити пояснення й приклад.</p>
+
+    <div class="vocab-group">
+      <div class="vocab-group-head" style="border-left-color:var(--sky)">😊 Обличчя</div>
+      <div class="card-grid" id="vocab-face"></div>
+    </div>
+
+    <div class="vocab-group">
+      <div class="vocab-group-head" style="border-left-color:var(--leaf)">📏 Який він, яка вона?</div>
+      <div class="card-grid" id="vocab-adj"></div>
+    </div>
+
+    <div class="vocab-group">
+      <div class="vocab-group-head" style="border-left-color:var(--gold)">🎨 Кольори очей і волосся</div>
+      <div class="card-grid" id="vocab-colors"></div>
+    </div>
+  </section>
+
+  <!-- ================= ГРАМАТИКА ================= -->
+  <section id="sec-grammar" class="section page">
+    <div class="section-head">
+      <span class="section-num">3</span>
+      <h2>Прикметник: який? яка? яке? які?</h2>
+    </div>
+    <p>Прикметник — це слово, яке описує предмет чи людину. Він завжди «підлаштовується» під рід і число того слова, до якого належить.</p>
+
+    <table class="agree-table">
+      <tr><th>Питання</th><th>Приклад слова</th><th>Прикметник</th><th>Разом</th></tr>
+      <tr><td>який? (він)</td><td>хлопчик</td><td><strong>високий</strong></td><td>високий хлопчик</td></tr>
+      <tr><td>яка? (вона)</td><td>дівчинка</td><td><strong>висока</strong></td><td>висока дівчинка</td></tr>
+      <tr><td>яке? (воно)</td><td>дерево</td><td><strong>високе</strong></td><td>високе дерево</td></tr>
+      <tr><td>які? (вони)</td><td>діти</td><td><strong>високі</strong></td><td>високі діти</td></tr>
+    </table>
+
+    <p>Помітив(-ла) закінчення? <strong>-ий</strong> для він, <strong>-а</strong> для вона, <strong>-е</strong> для воно, <strong>-і</strong> для вони.</p>
+
+    <h3 class="mini-head">Перевір себе</h3>
+    <div class="exercise" id="g1">
+      <div class="q">Хлопчик ___ (гарний / гарна / гарне).</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="g2">
+      <div class="q">Дівчинка ___ (стрункий / струнка / стрункі).</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="g3">
+      <div class="q">Волосся ___ (кучерявий / кучерява / кучеряве).</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="g4">
+      <div class="q">Очі ___ (карий / каре / карі).</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="g5">
+      <div class="q">Діти ___ (веселий / весела / веселі).</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+
+    <h3 class="mini-head">Побудуй речення</h3>
+    <div class="exercise">
+      <div class="q">🧩 Збери речення про хлопчика:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="g-order-2">
+      <div class="q">🧩 Збери речення про дівчинку:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+  </section>
+
+  <!-- ================= ПРАКТИКА ================= -->
+  <section id="sec-practice" class="section page">
+    <div class="section-head">
+      <span class="section-num">4</span>
+      <h2>Практика</h2>
+    </div>
+
+    <div class="exercise" id="p1">
+      <div class="q">1️⃣ Чим ми бачимо?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="p2">
+      <div class="q">2️⃣ Що росте на голові?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="p3">
+      <div class="q">3️⃣ Устав правильне слово: «У бабусі ___ волосся.» (сиве/сивий/сиві)</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="p4">
+      <div class="q">4️⃣ Протилежність до слова «високий» —</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise">
+      <div class="q">5️⃣ Збери речення:</div>
+      <div class="order-pool"></div>
+      <div class="order-answer"></div>
+      <div class="feedback"></div>
+    </div>
+  </section>
+
+  <!-- ================= ТЕКСТ ================= -->
+  <section id="sec-text" class="section page">
+    <div class="section-head">
+      <span class="section-num">5</span>
+      <h2>Мій друг Максим</h2>
+    </div>
+    <p>Прочитай опис зовнішності.</p>
+    <div class="storybox" id="story"></div>
+
+    <h3 style="margin-top:26px">Робота з текстом</h3>
+    <div class="exercise" id="t1">
+      <div class="q">Яке волосся у Максима?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="t2">
+      <div class="q">Якого кольору очі в Максима?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="exercise" id="t3">
+      <div class="q">Який Максим на зріст?</div>
+      <div class="choices"></div>
+      <div class="feedback"></div>
+    </div>
+  </section>
+
+  <!-- ================= ДОМАШНЄ ЗАВДАННЯ ================= -->
+  
+  <!-- ================= ПІДСУМОК ================= -->
+  <section id="sec-ukraine" class="section page">
+    <div class="section-head">
+      <span class="section-num">6</span>
+      <h2>Цікавинка про Україну</h2>
+    </div>
+    <div class="ukraine-box theme-vyshyvanka">
+      <div class="ukraine-ribbon"><span class="emoji">🧵</span>Вишиванка</div>
+      <div class="ukraine-body">
+      <p>Українська вишиванка — вишита сорочка — один із найвідоміших символів України у світі.</p>
+      <p>У кожному регіоні країни є свій унікальний візерунок, і за ним колись навіть можна було впізнати, звідки людина родом!</p>
+      <p>Щороку у третій четвер травня українці й люди з інших країн одягають вишиванки на День вишиванки.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sec-summary" class="section page">
+    <div class="section-head">
+      <span class="section-num">7</span>
+      <h2>Слова для запам'ятовування</h2>
+    </div>
+    <div class="keywords">
+      <span class="keyword-pill">обличчя</span>
+      <span class="keyword-pill">волосся</span>
+      <span class="keyword-pill">високий</span>
+      <span class="keyword-pill">кучерявий</span>
+      <span class="keyword-pill">карі</span>
+    </div>
+    <p style="margin-top:20px">Сьогодні ти навчився(-лася) описувати зовнішність людини і правильно змінювати прикметники за родом: який, яка, яке, які. Наступного уроку — <strong>«Характер людини»</strong>.</p>
+    <p><a class="btn ghost" href="ukr-index.html">← Повернутись до зошита</a></p>
+  </section>
+
+  <footer class="page-footer">Урок 3 з 36 · Українська мова · 4–5 клас</footer>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="ukr-students.js"></script>
+<script src="ukr-firebase-config.js"></script>
+<script src="ukr-lesson-kit.js"></script>
+<script src="ukr-platform.js"></script>
+<script>
+  // ================= ГРА: СКЛАДИ ПОРТРЕТ =================
+  const hairColors = [
+    { word:"руде", hex:"#C1662B" },
+    { word:"русяве", hex:"#8B5A2B" },
+    { word:"чорне", hex:"#2B2B2B" },
+    { word:"біляве", hex:"#E8D08A" }
+  ];
+  const hairStyles = [
+    { word:"пряме", type:"straight" },
+    { word:"кучеряве", type:"curly" }
+  ];
+  const eyeColors = [
+    { word:"карі", hex:"#6B4226" },
+    { word:"блакитні", hex:"#4A90D9" },
+    { word:"зелені", hex:"#4C8C4A" }
+  ];
+
+  let state = { hairColor:null, hairStyle:null, eyeColor:null };
+
+  function renderPortrait(){
+    const straightHairEls = document.querySelectorAll('#hairStraight path');
+    const curlyHairEls = document.querySelectorAll('#hairCurly circle');
+    const hairHex = state.hairColor ? state.hairColor.hex : '#C9C9C9';
+    straightHairEls.forEach(el => el.setAttribute('fill', hairHex));
+    curlyHairEls.forEach(el => el.setAttribute('fill', hairHex));
+    document.getElementById('browL').setAttribute('stroke', hairHex);
+    document.getElementById('browR').setAttribute('stroke', hairHex);
+    const styleType = state.hairStyle ? state.hairStyle.type : 'straight';
+    document.getElementById('hairStraight').style.display = styleType === 'straight' ? '' : 'none';
+    document.getElementById('hairCurly').style.display = styleType === 'curly' ? '' : 'none';
+    const eyeHex = state.eyeColor ? state.eyeColor.hex : '#B5B5B5';
+    document.getElementById('eyeL').setAttribute('fill', eyeHex);
+    document.getElementById('eyeR').setAttribute('fill', eyeHex);
+
+    const sentenceEl = document.getElementById('portraitSentence');
+    if (state.hairColor && state.hairStyle && state.eyeColor) {
+      sentenceEl.textContent = `У мене ${state.hairColor.word} ${state.hairStyle.word} волосся і ${state.eyeColor.word} очі.`;
+    } else {
+      sentenceEl.textContent = 'Обери варіанти вище, щоб побачити свій портрет 👆';
+    }
+  }
+
+  function buildOptions(containerSel, items, stateKey){
+    const el = document.getElementById(containerSel);
+    let firstPick = true;
+    items.forEach(item => {
+      const btn = document.createElement('button');
+      btn.className = 'pg-btn' + (state[stateKey] === item ? ' active' : '');
+      btn.textContent = item.word;
+      btn.addEventListener('click', (e) => {
+        Array.from(el.children).forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const wasSet = el.dataset.picked === '1';
+        state[stateKey] = item;
+        el.dataset.picked = '1';
+        renderPortrait();
+        if (!wasSet) LessonKit.addStar(e.clientX, e.clientY);
+      });
+      el.appendChild(btn);
+    });
+  }
+  buildOptions('hairColorOpts', hairColors, 'hairColor');
+  buildOptions('hairStyleOpts', hairStyles, 'hairStyle');
+  buildOptions('eyeColorOpts', eyeColors, 'eyeColor');
+  renderPortrait();
+
+  // ================= СЛОВА =================
+  function badge(pale, solid, glyph){
+    return `<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">`
+      + `<rect width="200" height="140" fill="var(${pale})"/>`
+      + `<circle cx="100" cy="60" r="34" fill="var(${solid})"/>`
+      + glyph
+      + `</svg>`;
+  }
+  const G = `stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"`;
+
+  function swatch(hex, word){
+    return `<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" fill="var(--sky-pale)"/><circle cx="100" cy="60" r="34" fill="${hex}" stroke="var(--ink)" stroke-width="4"/></svg>`;
+  }
+
+  const vocabFace = [
+    { word:"обличчя", translation:"передня частина голови людини", example:"У неї кругле обличчя.",
+      svg: badge('--sky-pale','--sky', `<circle cx="100" cy="60" r="20" ${G}/>`) },
+    { word:"очі", translation:"ними ми бачимо", example:"Її очі дивляться уважно.", icon:"👀" },
+    { word:"волосся", translation:"росте на голові", example:"У нього коротке волосся.",
+      svg: badge('--sky-pale','--sky', `<path d="M76 62a24 24 0 0 1 48 0q0-18-10-25q-7 7-14 2q-9-7-14 0q-8 5-10 23z" ${G}/>`) },
+    { word:"ніс", translation:"ним ми дихаємо і відчуваємо запахи", example:"У малюка маленький ніс.", icon:"👃" },
+    { word:"вуха", translation:"ними ми чуємо", example:"У зайця великі вуха.", icon:"👂" },
+    { word:"посмішка", translation:"вираз обличчя, коли людині радісно", example:"У неї добра посмішка.", icon:"😄" },
+    { word:"брови", translation:"смужки волосся над очима", example:"У тата густі брови.",
+      svg: badge('--sky-pale','--sky', `<path d="M74 54q13-8 26 0M100 54q13-8 26 0" ${G}/>`) },
+    { word:"щоки", translation:"бічні частини обличчя", example:"У малюка круглі щічки.",
+      svg: badge('--sky-pale','--sky', `<circle cx="82" cy="66" r="8" ${G}/><circle cx="118" cy="66" r="8" ${G}/>`) }
+  ];
+
+  const vocabAdj = [
+    { word:"високий", translation:"має великий зріст", example:"Тато високий.",
+      svg: badge('--leaf-pale','--leaf', `<path d="M100 40v44M88 52l12-12 12 12" ${G}/>`) },
+    { word:"низький", translation:"має малий зріст", example:"Малюк ще низький.",
+      svg: badge('--leaf-pale','--leaf', `<path d="M100 84V40M88 72l12 12 12-12" ${G}/>`) },
+    { word:"стрункий", translation:"тонкий, з гарною поставою", example:"Балерина струнка.",
+      svg: badge('--leaf-pale','--leaf', `<path d="M100 36v48" ${G}/><path d="M92 40h16M92 84h16" ${G}/>`) },
+    { word:"повний", translation:"трохи більший за середнього, округлий", example:"Дідусь повний і добрий.",
+      svg: badge('--leaf-pale','--leaf', `<circle cx="100" cy="60" r="20" ${G}/>`) },
+    { word:"молодий", translation:"має мало років", example:"Учителька ще молода.", icon:"✨" },
+    { word:"старий", translation:"має багато років", example:"Дідусь уже старий.", icon:"🧓" },
+    { word:"гарний", translation:"приємний на вигляд", example:"Яка гарна сукня!", icon:"🌟" },
+    { word:"кучерявий", translation:"з волоссям, що в'ється кільцями", example:"У сестри кучеряве волосся.",
+      svg: badge('--leaf-pale','--leaf', `<path d="M76 60q6-10 0-16q6 8 12 0q6 8 12 0q6 8 12 0q6 8 12 0q-6 6 0 16" ${G}/>`) },
+    { word:"прямий", translation:"без завитків, рівний", example:"У брата пряме волосся.",
+      svg: badge('--leaf-pale','--leaf', `<path d="M78 44v32M92 44v32M108 44v32M122 44v32" ${G}/>`) }
+  ];
+
+  const vocabColors = [
+    { word:"карий", translation:"колір очей — темно-коричневий", example:"У мене карі очі.", svg: swatch('#6B4226') },
+    { word:"блакитний", translation:"колір очей — світло-синій", example:"У сестри блакитні очі.", svg: swatch('#4A90D9') },
+    { word:"зелений", translation:"колір очей — як трава", example:"У друга зелені очі.", svg: swatch('#4C8C4A') },
+    { word:"русявий", translation:"світло-коричневий колір волосся", example:"У мене русяве волосся.", svg: swatch('#8B5A2B') },
+    { word:"рудий", translation:"оранжево-червоний колір волосся", example:"У неї руде волосся.", svg: swatch('#C1662B') },
+    { word:"чорний", translation:"дуже темний колір волосся", example:"У тата чорне волосся.", svg: swatch('#2B2B2B') }
+  ];
+
+  LessonKit.initFlashcards('#vocab-face', vocabFace);
+  LessonKit.initFlashcards('#vocab-adj', vocabAdj);
+  LessonKit.initFlashcards('#vocab-colors', vocabColors);
+  LessonKit.initTabs();
+  LessonKit.setTotalStars(3 + 7 + 5 + 3);
+
+  // ================= ГРАМАТИКА =================
+  LessonKit.initChoice(document.getElementById('g1'), [
+    {text:"гарний", correct:true},{text:"гарна", correct:false},{text:"гарне", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('g2'), [
+    {text:"стрункий", correct:false},{text:"струнка", correct:true},{text:"стрункі", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('g3'), [
+    {text:"кучерявий", correct:false},{text:"кучерява", correct:false},{text:"кучеряве", correct:true}
+  ]);
+  LessonKit.initChoice(document.getElementById('g4'), [
+    {text:"карий", correct:false},{text:"каре", correct:false},{text:"карі", correct:true}
+  ]);
+  LessonKit.initChoice(document.getElementById('g5'), [
+    {text:"веселий", correct:false},{text:"весела", correct:false},{text:"веселі", correct:true}
+  ]);
+
+  const grammarOrderBoxes = document.querySelectorAll('#sec-grammar .exercise');
+  LessonKit.initOrderBuilder(grammarOrderBoxes[5], ["Хлопчик","високий","і","стрункий"]);
+  LessonKit.initOrderBuilder(document.getElementById('g-order-2'), ["Дівчинка","гарна","і","весела"]);
+
+  // ================= ПРАКТИКА =================
+  LessonKit.initChoice(document.getElementById('p1'), [
+    {text:"вухами", correct:false},{text:"очима", correct:true},{text:"носом", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p2'), [
+    {text:"волосся", correct:true},{text:"брови", correct:false},{text:"щоки", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p3'), [
+    {text:"сиве", correct:true},{text:"сивий", correct:false},{text:"сиві", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('p4'), [
+    {text:"низький", correct:true},{text:"стрункий", correct:false},{text:"молодий", correct:false}
+  ]);
+  const p5box = document.getElementById('sec-practice').querySelector('.exercise:last-child');
+  LessonKit.initOrderBuilder(p5box, ["У","сестри","кучеряве","волосся"]);
+
+  // ================= ТЕКСТ =================
+  document.getElementById('story').innerHTML = `
+    <p>Максим — мій найкращий друг. Він високий і стрункий хлопчик.</p>
+    <p>У нього коротке чорне волосся і карі очі. Максим завжди усміхнений — у нього добра посмішка.</p>
+    <p>Максим не лише гарний зовні, а й дуже веселий. З ним завжди цікаво.</p>
+  `;
+  LessonKit.initChoice(document.getElementById('t1'), [
+    {text:"Довге і руде", correct:false},{text:"Коротке і чорне", correct:true},{text:"Кучеряве і біляве", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('t2'), [
+    {text:"Карі", correct:true},{text:"Блакитні", correct:false},{text:"Зелені", correct:false}
+  ]);
+  LessonKit.initChoice(document.getElementById('t3'), [
+    {text:"Низький", correct:false},{text:"Повний", correct:false},{text:"Високий", correct:true}
+  ]);
+
+  Platform.initLessonPage('lesson-03', 'Урок 3. Зовнішність людини');
+</script>
+</body>
+</html>
