@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="ukr-style.css">
 </head>
 <body>
-<script>if(!localStorage.getItem('zoshyt_current_student')){location.href='ukr-login.html?next='+encodeURIComponent(location.pathname);}</script>
+<script>if(!localStorage.getItem('zoshyt_current_student')&&localStorage.getItem('zoshyt_teacher')!=='1'){location.href='ukr-login.html?next='+encodeURIComponent(location.pathname);}</script>
 
 <div class="progress-bar">
   <a class="back-link" href="ukr-lesson-04.html">← до уроку</a>
