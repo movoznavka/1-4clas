@@ -13,4 +13,4 @@ window.PLATFORM_STUDENTS = [
 
 /* Адреса розгортання Apps Script (Web app, закінчується на /exec) для бота з результатами.
    Вставте її сюди після розгортання Code14.gs. Поки порожньо — результати в бота не надсилаються. */
-window.BOT_WEB_APP_URL = "";
+window.BOT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwu98fNsompMovd73qKo7_mrU2z4JjvfxZ7tUMFaAp5pFi82FruzOPhrfpgW0_3n1OrOA/exec";
