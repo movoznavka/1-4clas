@@ -74,7 +74,6 @@ background-image:repeating-linear-gradient(transparent 0 25px,var(--line) 25px 2
   <div id="content"></div>
   <p class="note" id="tnote"></p>
 </div>
-<script src="ukr-students.js"></script>
 <script>
 /* ============================================================
    ЯК ДОДАТИ ТЕМУ
@@ -131,9 +130,9 @@ const CLASSES=[
    Бот віддає: що відкрито кому (mode=access) і позначки ДЗ. */
 const API_URL="https://script.google.com/macros/s/AKfycbwi1AzxlGzRW8HrejKj9aJuB19bgpdrBaKGp0i85SwyYShcp2rf0n5gUnomIBB77LPi/exec";
 
-/* Учні блоку «Українська» беруться з ukr-students.js (PLATFORM_STUDENTS).
-   Учні класів 1–4: "Ім'я": номер_класу */
-const EXTRA_STUDENTS={"Марічка":2,"Матвій 3":3};
+/* Усі учні: "Ім'я": блок (0 = «Українська», 1–4 = клас).
+   Нового учня дописуйте сюди, а також у список STUDENTS у боті. */
+const STUDENTS={"Гліб":0,"Матвій":0,"Елія":0,"Святослав":0,"Марічка":2,"Матвій 3":3};
 
 /* Теми, відкриті вручну в коді: "Ім'я": ["ukr-lesson-01.html", ...]
    (решту відкриває бот кнопкою «🔓 Теми») */
@@ -154,8 +153,7 @@ if(teacher)document.body.classList.add('teacher');
 const norm=s=>(s||'').trim().replace(/\s+/g,' ').toLowerCase();
 function blockOf(name){
   const n=norm(name);
-  if((window.PLATFORM_STUDENTS||[]).some(x=>norm(x)===n))return 0;
-  for(const k in EXTRA_STUDENTS){if(norm(k)===n)return EXTRA_STUDENTS[k];}
+  for(const k in STUDENTS){if(norm(k)===n)return STUDENTS[k];}
   return null;
 }
 const lock=who?blockOf(who):null;
@@ -169,8 +167,7 @@ let hw={};                           // ДЗ учня: {файл_тесту: {nu
 let curN=null;
 
 function allStudents(){
-  const s=(window.PLATFORM_STUDENTS||[]).slice();
-  Object.keys(EXTRA_STUDENTS).forEach(k=>s.push(k));
+  const s=Object.keys(STUDENTS);
   Object.keys(STUDENT_ACCESS).forEach(k=>{if(!s.some(x=>norm(x)===norm(k)))s.push(k);});
   return s;
 }
