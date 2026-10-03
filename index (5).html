@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Зошити з мови · 1–4 клас</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCF0DC;--card:#FFFBF2;--ink:#3A2016;--soft:#8A6552;--line:#BFD7EA;--margin:#E8837A;--shadow:rgba(58,32,22,.4);
+--c0:#8A5BB5;--c1:#E0592F;--c2:#D98A1F;--c3:#3F8F5B;--c4:#5B6FD6;}
+:root:not([data-theme="light"]){color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--margin:#a8544d;--shadow:rgba(0,0,0,.6)}}
+:root[data-theme="dark"]{--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--margin:#a8544d;--shadow:rgba(0,0,0,.6)}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Quicksand',sans-serif;padding:26px 16px 60px;min-height:100vh}
+.wrap{max-width:900px;margin:0 auto}
+.brand{text-align:center;margin-bottom:22px}
+.eyebrow{font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--c1)}
+h1{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(26px,7vw,38px);margin:4px 0 6px}
+.brand p{margin:0;color:var(--soft);font-weight:600}
+.tabs{display:flex;gap:10px;justify-content:center;margin-bottom:26px;flex-wrap:wrap}
+.tab{border:none;cursor:pointer;background:var(--card);color:var(--ink);border-radius:20px;padding:12px 22px;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:20px;box-shadow:0 10px 20px -14px var(--shadow);transition:transform .15s}
+.tab small{display:block;font:700 11px 'Quicksand',sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--soft)}
+.tab.txt{font-weight:600;font-size:16px;letter-spacing:.03em;display:flex;align-items:center;padding:12px 24px}
+.tab:hover{transform:translateY(-2px)}
+.tab.on{background:var(--cc);color:#fff}.tab.on small{color:#fff}
+.sec{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--cc);margin:26px 0 14px 4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px 18px}
+.nb{position:relative;display:block;text-decoration:none;color:var(--ink);background:var(--card);border-radius:6px 18px 18px 6px;padding:18px 18px 16px 52px;min-height:176px;box-shadow:0 16px 28px -18px var(--shadow);border-left:10px solid var(--cc);transition:transform .18s cubic-bezier(.34,1.56,.64,1);
+background-image:repeating-linear-gradient(transparent 0 25px,var(--line) 25px 26px);background-position:0 44px;background-repeat:repeat-y;background-size:100% 100%}
+.nb::before{content:'';position:absolute;left:38px;top:0;bottom:0;width:2px;background:var(--margin);opacity:.6}
+.rings{position:absolute;left:-17px;top:14px;bottom:14px;display:flex;flex-direction:column;justify-content:space-around}
+.rings i{width:24px;height:9px;border-radius:5px;background:linear-gradient(#ddd,#8a8a8a);box-shadow:0 1px 2px var(--shadow)}
+.nb.ready:hover{transform:translateY(-4px) rotate(-.6deg)}
+.nb.soon{opacity:.55;cursor:default}
+.lab{display:inline-block;background:var(--cc);color:#fff;border-radius:8px;padding:2px 10px;font:800 11px 'Baloo 2',sans-serif;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.nb h2{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:18px;line-height:1.25;margin:0 0 6px 0;background:var(--card);display:inline;padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.nb p{margin:10px 0 0;font-weight:600;font-size:13px;color:var(--soft);background:var(--card);display:inline-block;padding:0 2px}
+.st{pointer-events:none;position:absolute;right:12px;bottom:10px;font:800 10.5px 'Baloo 2',sans-serif;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:var(--cc);color:#fff}
+.nb.soon .st{background:var(--soft)}
+.nb h2 a{color:inherit;text-decoration:none}
+.nb h2 a::after{content:'';position:absolute;inset:0;border-radius:6px 18px 18px 6px}
+.nb:focus-within{outline:2px solid var(--cc);outline-offset:2px}
+.dzl{position:absolute;right:96px;bottom:10px;z-index:2;font:800 10.5px 'Baloo 2',sans-serif;text-transform:uppercase;padding:1px 10px;border-radius:999px;border:2px solid var(--cc);color:var(--cc);background:var(--card);text-decoration:none}
+.dzl:hover{background:var(--cc);color:#fff}
+.note{text-align:center;color:var(--soft);font-size:12.5px;font-weight:600;margin-top:36px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <div class="eyebrow">Платформа уроків · 1–4 клас</div>
+    <h1>Мої зошити з мови</h1>
+    <p>Обери клас, щоб побачити теми</p>
+  </div>
+  <div class="tabs" id="tabs"></div>
+  <div id="content"></div>
+  <p class="note" id="tnote"></p>
+</div>
+<script src="ukr-students.js"></script>
+<script>
+/* [тег, назва, опис, файл, статус] */
+const CLASSES=[
+ {n:0,label:'Українська',color:'--c0',sections:[
+  {t:'Уроки',items:[
+   ['Урок 1','Моє повсякденне життя','Слово, словосполучення, речення. Порядок слів у реченні.','ukr-lesson-01.html','ready','ukr-lesson-01-dz.html'],
+   ['Урок 2','Їжа','Види речення: розповідне, питальне, спонукальне.','ukr-lesson-02.html','ready','ukr-lesson-02-dz.html'],
+   ['Урок 3','Зовнішність людини','Прикметник: який? яка? яке? які?','ukr-lesson-03.html','ready','ukr-lesson-03-dz.html'],
+   ['Урок 4','Характер людини','Іменник + прикметник.','ukr-lesson-04.html','ready','ukr-lesson-04-dz.html']]}]},
+ {n:1,color:'--c1',sections:[
+  {t:'Звуки і букви',items:[
+   ['§ 1','Звуки мовлення і букви','Слухаємо звуки навколо, вчимося їх розрізняти.','urok1-zvuky-i-bukvy.html','soon'],
+   ['§ 2','Голосні звуки','Співаємо голосні, шукаємо їх у словах.','urok1-holosni.html','soon'],
+   ['§ 3','Приголосні звуки','Дзвінкі й глухі — знайомимось.','urok1-pryholosni.html','soon']]},
+  {t:'Слово. Речення',items:[
+   ['§ 4','Склад. Перенос слів','Ділимо слова на склади.','urok1-sklad.html','soon'],
+   ['§ 5','Наголос','Де «живе» наголос у слові.','urok1-naholos.html','soon'],
+   ['§ 6','Речення','З чого складається речення.','urok1-rechennya.html','soon']]}]},
+ {n:2,color:'--c2',sections:[
+  {t:'Звуки мовлення',items:[
+   ['§ 1','Звуки і букви. Голосні звуки','Разом із Їжачком Колючкою.','urok-1-zvuky-bukvy.html','soon'],
+   ['§ 8','Дзвінкі та глухі приголосні','Разом із Котиком Мурчиком.','urok-2-dzvinki-hluhi.html','soon'],
+   ['§ 9','Тверді та м\'які приголосні','Скоро тут з\'явиться урок!','urok-tverdi-myaki.html','soon']]},
+  {t:'Правопис і лексика',items:[
+   ['§ 11','Вживання апострофа','Разом із Песиком Барбосиком.','urok-3-apostrof.html','soon'],
+   ['§ 12–14','Слово і його значення','Омоніми, синоніми й антоніми з Лисенятком Читайликом.','urok-4-slovo-znachennya.html','soon']]}]},
+ {n:3,color:'--c3',sections:[
+  {t:'Частини мови',items:[
+   ['§ 1','Іменник','Назви предметів: хто? що?','urok3-imennyk.html','soon'],
+   ['§ 2','Рід і число іменників','Чоловічий, жіночий, середній.','urok3-rid-chyslo.html','soon'],
+   ['§ 3','Прикметник','Яка? Який? Яке?','urok3-prykmetnyk.html','soon'],
+   ['§ 4','Дієслово','Що робить? Що робив?','urok3-diyeslovo.html','soon']]},
+  {t:'Будова слова',items:[
+   ['§ 5','Корінь і спільнокореневі слова','Родина слів.','urok3-korin.html','soon'],
+   ['§ 6','Префікс і суфікс','Складаємо нові слова.','urok3-prefiks-sufiks.html','soon']]}]},
+ {n:4,color:'--c4',sections:[
+  {t:'Частини мови',items:[
+   ['§ 1','Іменник: відмінки','Змінюємо іменники за відмінками.','urok4-vidminky.html','soon'],
+   ['§ 2','Прикметник','Узгоджуємо з іменником.','urok4-prykmetnyk.html','soon'],
+   ['§ 3','Числівник','Скільки? Котрий?','urok4-chyslivnyk.html','soon'],
+   ['§ 4','Займенник','Я, ти, він, вона, воно.','urok4-zaymennyk.html','soon'],
+   ['§ 5','Дієслово: час','Минулий, теперішній, майбутній.','urok4-diyeslovo-chas.html','soon']]},
+  {t:'Синтаксис',items:[
+   ['§ 6','Види речень за метою','Розповідні, питальні, спонукальні.','urok4-vydy-rechen.html','soon'],
+   ['§ 7','Однорідні члени речення','Кома між однорідними членами.','urok4-odnoridni.html','soon']]}]}
+];
+const tabs=document.getElementById('tabs'),content=document.getElementById('content');
+/* Персональні посилання: index.html?u=Ім'я відкриває лише блок учня.
+   Учні блоку «Українська» беруться зі списку в ukr-students.js.
+   Для класів 1–4 дописуйте сюди: "Ім'я": номер_класу  (наприклад "Марійка":2) */
+const EXTRA_STUDENTS={};
+const qs=new URLSearchParams(location.search);
+let who=qs.get('u');
+/* Режим вчителя: index.html?vchytel=1 — бачить усі класи й відкриває будь-який урок без посилання учня */
+let teacher=false;
+try{
+  if(qs.has('vchytel')&&!who){
+    localStorage.setItem('zoshyt_teacher','1');
+    localStorage.removeItem('zoshyt_current_student');
+    teacher=true;
+  }else if(qs.has('all')){
+    localStorage.removeItem('zoshyt_current_student');
+    teacher=localStorage.getItem('zoshyt_teacher')==='1';
+  }else if(who){
+    localStorage.setItem('zoshyt_current_student',who);
+    localStorage.removeItem('zoshyt_teacher');
+  }else{
+    teacher=localStorage.getItem('zoshyt_teacher')==='1';
+    if(!teacher)who=localStorage.getItem('zoshyt_current_student');
+  }
+}catch(e){}
+if(qs.has('all')||teacher)who=null;
+function blockOf(name){
+  const n=(name||'').trim().toLowerCase();
+  if((window.PLATFORM_STUDENTS||[]).some(x=>x.toLowerCase()===n))return 0;
+  for(const k in EXTRA_STUDENTS){if(k.toLowerCase()===n)return EXTRA_STUDENTS[k];}
+  return null;
+}
+const lock=who?blockOf(who):null;
+const VISIBLE=teacher?CLASSES:(lock===null?[]:CLASSES.filter(c=>c.n===lock));
+function colorOf(c){return getComputedStyle(document.documentElement).getPropertyValue(c.color).trim();}
+function drawTabs(n){
+  tabs.style.display=(VISIBLE.length>1)?'':'none';
+  tabs.innerHTML=VISIBLE.map(k=>`<button class="tab ${k.label?'txt ':''}${k.n===n?'on':''}" style="--cc:${colorOf(k)}" data-n="${k.n}">${k.label?k.label:`${k.n}<small>клас</small>`}</button>`).join('');
+  tabs.querySelectorAll('.tab').forEach(b=>b.onclick=()=>show(+b.dataset.n));
+}
+function show(n){
+  const c=CLASSES.find(x=>x.n===n),color=colorOf(c);
+  drawTabs(n);
+  content.innerHTML=c.sections.map(s=>`<div style="--cc:${color}"><div class="sec">${s.t}</div><div class="grid">`+
+   s.items.map(i=>{
+     const rd=i[4]==='ready';
+     return `<div class="nb ${i[4]}" style="--cc:${color}">
+      <div class="rings"><i></i><i></i><i></i><i></i></div>
+      <span class="lab">${i[0]}</span><br>
+      <h2>${rd?`<a href="${i[3]}">${i[1]}</a>`:i[1]}</h2><br><p>${i[2]}</p>
+      ${i[5]?`<a class="dzl" href="${i[5]}">ДЗ</a>`:''}
+      <span class="st">${rd?'Відкрити':'Скоро'}</span></div>`;}).join('')+`</div></div>`).join('');
+}
+const bp=document.querySelector('.brand p');
+if(teacher){
+  document.querySelector('.eyebrow').textContent='Режим вчителя · учні цього не бачать';
+  bp.textContent='Кожному учню — своє посилання (…/index.html?u=Ім\'я). Оберіть клас, щоб побачити його теми.';
+  document.getElementById('tnote').innerHTML='<a href="ukr-teacher.html?vchytel=1">📊 Кабінет вчителя: результати й посилання учнів</a>';
+  drawTabs(-1); /* теми з'являються після натискання на клас */
+}else if(lock!==null){
+  bp.textContent='Привіт, '+who+'! Обери урок — за кожне правильне завдання ⭐';
+  show(lock);
+}else{
+  bp.textContent='Це посилання недійсне. Зверніться до вчительки за новим.';
+  tabs.style.display='none';
+}
+</script>
+</body>
+</html>
