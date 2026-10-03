@@ -17,9 +17,6 @@ const firebaseConfig = {
   appId: "1:118472089053:web:0b1a886bb92156182f2a34"
 };
 
-/* Пароль (код доступу) вчительської панелі /teacher/. */
-window.TEACHER_PASSCODE = "Vovavo12";
-
 // --- нижче нічого міняти не потрібно ---
 try {
   firebase.initializeApp(firebaseConfig);
