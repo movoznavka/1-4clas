@@ -208,7 +208,7 @@
   // Рахує перші відповіді в LessonKit.initChoice / initOrderBuilder
   // і шле звіт, коли учень відповів на всі питання (або частковий — коли йде зі сторінки).
   // ---------------------------------------------------------
-  const Report = { name: '', items: [], done: [], correct: 0, wrong: [], lastSent: 0 };
+  const Report = { name: '', items: [], done: [], correct: 0, wrong: [], lastSent: '' };
 
   function reportNumber(container) {
     const sorted = Report.items.slice().sort(function (a, b) {
@@ -220,8 +220,11 @@
   function reportSend() {
     const url = global.BOT_WEB_APP_URL;
     const answered = Report.done.length;
-    if (!url || !Report.name || !answered || answered === Report.lastSent) return;
-    Report.lastSent = answered;
+    const stars = global.LessonKit ? LessonKit.progress.earned : 0;
+    const totalStars = global.LessonKit ? LessonKit.progress.total : 0;
+    const sig = answered + '/' + stars;
+    if (!url || !Report.name || (!answered && !stars) || sig === Report.lastSent) return;
+    Report.lastSent = sig;
     const payload = {
       type: 'quiz_result',
       student: Platform.getCurrentStudent() || 'Без імені',
@@ -229,6 +232,8 @@
       correct: Report.correct,
       answered: answered,
       total: Report.items.length,
+      stars: stars,
+      totalStars: totalStars,
       wrongList: Report.wrong.slice().sort(function (a, b) { return a - b; }).map(String),
       reviewLink: '',
       flaggedList: []
