@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Протилежні та близькі за значенням слова · 2 клас</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCF0DC;--card:#FFFBF2;--ink:#3A2016;--soft:#8A6552;--line:#BFD7EA;--margin:#E8837A;--shadow:rgba(58,32,22,.4);--cc:#D98A1F;--ok:#2E8B57;--bad:#D6453D}
+:root:not([data-theme="light"]){color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--margin:#a8544d;--shadow:rgba(0,0,0,.6)}}
+:root[data-theme="dark"]{--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--margin:#a8544d;--shadow:rgba(0,0,0,.6)}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Quicksand',sans-serif;padding:20px 14px 70px;min-height:100%;font-size:16px}
+.wrap{max-width:760px;margin:0 auto}
+a.back{color:var(--soft);font-weight:700;text-decoration:none;font-size:14px}
+h1{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(24px,6vw,34px);margin:8px 0 4px}
+.sub{color:var(--soft);font-weight:600;margin:0 0 14px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:8px 0;display:flex;align-items:center;gap:12px;font:800 14px 'Baloo 2',sans-serif}
+.bar i{flex:1;height:10px;border-radius:9px;background:var(--line);overflow:hidden;display:block}
+.bar b{display:block;height:100%;width:0;background:var(--cc);transition:width .3s}
+.card{position:relative;background:var(--card);border-radius:6px 18px 18px 6px;border-left:10px solid var(--cc);padding:16px 18px 16px 48px;margin:0 0 22px;box-shadow:0 16px 28px -18px var(--shadow);
+background-image:repeating-linear-gradient(transparent 0 25px,var(--line) 25px 26px);background-size:100% 100%}
+.card::before{content:'';position:absolute;left:34px;top:0;bottom:0;width:2px;background:var(--margin);opacity:.6}
+.card h2{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;margin:0 0 4px;line-height:1.25}
+.lab{display:inline-block;background:var(--cc);color:#fff;border-radius:8px;padding:1px 10px;font:800 12px 'Baloo 2',sans-serif;margin-bottom:6px}
+.d{margin:0 0 12px;color:var(--soft);font-weight:600;font-size:14px}
+.rule{background:var(--card);border:2px dashed var(--cc);border-radius:14px;padding:10px 14px;margin:10px 0;font-weight:600}
+.rule b{color:var(--cc)}
+.q{background:var(--card);border-radius:12px;padding:8px 10px;margin:8px 0;border:2px solid transparent}
+.q.ok{border-color:var(--ok)}.q.bad{border-color:var(--bad)}
+.p{font-weight:700;margin-bottom:6px}
+.ops{display:flex;flex-wrap:wrap;gap:8px}
+.op{font:700 15px 'Quicksand',sans-serif;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:7px 14px;cursor:pointer}
+.op.sel{border-color:var(--cc);background:var(--cc);color:#fff}
+.op.good{border-color:var(--ok);background:var(--ok);color:#fff}
+.op.wrong{border-color:var(--bad);background:var(--bad);color:#fff}
+.in{width:100%;font:600 16px 'Quicksand',sans-serif;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:8px 10px}
+.in:focus{outline:2px solid var(--cc)}
+.fb{font-size:13px;font-weight:700;margin-top:5px;min-height:0}
+.q.ok .fb{color:var(--ok)}.q.bad .fb{color:var(--bad)}
+.btn{font:800 15px 'Baloo 2',sans-serif;background:var(--cc);color:#fff;border:0;border-radius:999px;padding:9px 22px;cursor:pointer;margin-top:6px}
+.btn.big{font-size:18px;padding:12px 30px;background:var(--ok)}
+.btn:disabled{opacity:.5;cursor:default}
+.res{text-align:center;font:800 20px 'Baloo 2',sans-serif;background:var(--card);border-radius:18px;padding:18px;box-shadow:0 16px 28px -18px var(--shadow)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">‹ До зошитів</a>
+  <h1>Протилежні та близькі за значенням слова</h1>
+  <p class="sub">2 клас · урок + 14 завдань (приблизно година)</p>
+
+  <div class="card">
+    <span class="lab">Запам'ятай</span>
+    <h2>Слова-пари</h2>
+    <div class="rule"><b>Протилежні за значенням</b> слова (антоніми) відповідають на те саме питання, але означають протилежне.<br>великий — малий · гучно — тихо · день — ніч · сміється — плаче</div>
+    <div class="rule"><b>Близькі за значенням</b> слова (синоніми) звучать по-різному, а означають майже те саме.<br>гарний — красивий · дивитися — поглядати · говорити — розмовляти</div>
+    <div class="rule"><b>Секрет:</b> добирай слово тієї самої частини мови: до дієслова — дієслово, до прикметника — прикметник. Одне слово може мати кілька пар: добрий — злий, сердитий. Щоб перевірити, заміни слово в реченні: у синоніма зміст той самий, а в антоніма — протилежний.</div>
+    <p class="d">Пригадай, як Щебетунчик і Читалочка добирали слова: «голосно — тихо», «малий — великий», «гарний — красивий».</p>
+  </div>
+
+  <div id="tasks"></div>
+  <div style="text-align:center"><button class="btn big" id="fin">Завершити й надіслати результат</button></div>
+  <div class="res" id="res" style="display:none;margin-top:20px"></div>
+</div>
+<script>
+const API="https://script.google.com/macros/s/AKfycbwi1AzxlGzRW8HrejKj9aJuB19bgpdrBaKGp0i85SwyYShcp2rf0n5gUnomIBB77LPi/exec";
+const NAME="Протилежні та близькі за значенням слова";
+const C=(p,o,a)=>({k:'c',p,o,a}),X=(p,...a)=>({k:'t',p,a}),M=(p,o,a)=>({k:'m',p,o,a}),F=(p,r)=>({k:'f',p,r});
+const T=[
+{h:'Добери протилежне',d:'Обери слово з протилежним значенням.',q:[
+ C('гучно',['швидко','тихо','весело'],1),C('далеко',['близько','високо','низько'],0),C('малий',['тонкий','великий','старий'],1),
+ C('зблизька',['здалеку','швидко','тихо'],0),C('ранок',['день','вечір','сніг'],1),C('хоробрий',['сміливий','полохливий','веселий'],1)]},
+{h:'Впиши протилежне',d:'Напиши слово з протилежним значенням.',q:[
+ X('високий —','низький'),X('широкий —','вузький'),X('світлий —','темний'),X('радість —','сум','смуток','горе'),
+ X('сміється —','плаче'),X('початок —','кінець'),X('добре —','погано','зле')]},
+{h:'Познач усі протилежні',d:'Може бути кілька правильних слів.',q:[
+ M('Протилежні до слова ДОБРИЙ:',['злий','лагідний','сердитий','щирий','жорстокий'],[0,2,4]),
+ M('Протилежні до слова ВЕСЕЛИЙ:',['сумний','радісний','похмурий','щасливий','журливий'],[0,2,4])]},
+{h:'Доповни речення',d:'Допиши слово, протилежне до виділеного за змістом.',q:[
+ X('Щебетунчик говорить, а Читалочка … .','мовчить'),X('Сонечко сміється, а хмарка … .','плаче','сумує','хмуриться'),
+ X('Вогнище загорілось і … .','погасло','згасло'),X('Удень ясно, а вночі … .','темно'),
+ X('Хлопчик увійшов до кімнати, а дівчинка … з неї.','вийшла')]},
+{h:'Удав і мавпочка',d:'Удав сумний, мовчазний, спокійний. Мавпочка — його повна протилежність.',q:[
+ C('сумний → мавпочка',['веселий','гарний','сірий'],0),C('мовчазний → мавпочка',['тихий','балакучий','хоробрий'],1),
+ C('спокійний → мавпочка',['повільний','сумний','рухливий'],2),X('Протилежне до слова «повільний»:','швидкий','прудкий','моторний')]},
+{h:'Яке слово зайве?',d:'Три слова близькі за значенням, одне — ні. Знайди його.',q:[
+ C('Зайве слово:',['радий','веселий','щасливий','сумний'],3),C('Зайве слово:',['великий','величезний','гігантський','крихітний'],3),
+ C('Зайве слово:',['говорити','розмовляти','мовчати','балакати'],2),C('Зайве слово:',['гарний','красивий','вродливий','потворний'],3),
+ C('Зайве слово:',['швидко','хутко','повільно','прудко'],2)]},
+{h:'Добери близьке',d:'Обери слово, близьке за значенням.',q:[
+ C('гарний',['красивий','низький','старий'],0),C('дивитися',['спати','поглядати','читати'],1),C('сміливий',['відважний','слабкий','сумний'],0),
+ C('хутко',['повільно','швидко','тихо'],1),C('розмовляти',['мовчати','говорити','слухати'],1),C('величезний',['малесенький','гігантський','різнокольоровий'],1)]},
+{h:'Впиши близьке',d:'Напиши слово, близьке за значенням.',q:[
+ X('великий ≈','величезний','здоровенний','чималий','гігантський'),X('бігти ≈','мчати','нестися','поспішати'),
+ X('сумний ≈','смутний','журливий','невеселий','похмурий'),X('кричати ≈','волати','галасувати','горлати'),
+ X('мудрий ≈','розумний','кмітливий','тямущий'),X('хата ≈','дім','оселя','будинок')]},
+{h:'Познач усі близькі',d:'Може бути кілька правильних слів.',q:[
+ M('Близькі до слова СМІЯТИСЯ:',['реготати','хихотіти','плакати','посміхатися','ридати'],[0,1,3]),
+ M('Близькі до слова ХОРОБРИЙ:',['відважний','полохливий','сміливий','боягузливий','безстрашний'],[0,2,4])]},
+{h:'Заміни слово близьким',d:'Яке слово можна поставити замість виділеного (великими буквами), щоб зміст не змінився?',q:[
+ C('Хлопчик ШВИДКО побіг до школи.',['хутко','тихо','ліниво'],0),C('Павич розпустив ГАРНИЙ хвіст.',['довгий','красивий','важкий'],1),
+ C('Читалочка ДИВИТЬСЯ на птаха.',['поглядає','співає','спить'],0),C('Щебетунчик ГОВОРИТЬ голосно.',['мовчить','розмовляє','спить'],1),
+ C('Папуга ДОРЕЧНО вживає слова.',['влучно','смішно','тихо'],0)]},
+{h:'Птахи подають голос',d:'Утвори слово від звуку, який видає птах (воно близьке до слова «кричить»).',q:[
+ X('Журавель: «Курли!» →','курличе'),X('Соловей: «Тьох!» →','тьохкає'),X('Зозуля: «Ку-ку!» →','кує'),
+ X('Горобець: «Цвірінь!» →','цвірінькає','цвірінчить'),X('Півень: «Ку-ку-рі-ку!» →','кукурікає')]},
+{h:'Близькі чи протилежні?',d:'Визнач, яка це пара слів.',q:[
+ C('гарний — вродливий',['близькі','протилежні'],0),C('світло — темно',['близькі','протилежні'],1),C('радіти — веселитися',['близькі','протилежні'],0),
+ C('правда — брехня',['близькі','протилежні'],1),C('розумний — тямущий',['близькі','протилежні'],0),C('гарячий — холодний',['близькі','протилежні'],1),
+ C('говорити — мовчати',['близькі','протилежні'],1),C('дім — оселя',['близькі','протилежні'],0)]},
+{h:'Настав вечір',d:'Заміни виділені слова протилежними, щоб дізнатися, яким був вечір. Запиши слово чи два.',q:[
+ X('Сонечко ПІДНЯЛОСЯ → сонечко …','зайшло','сховалося','сіло','опустилося'),X('ЗАЩЕБЕТАЛИ пташки → … пташки','замовкли','змовкли','заснули'),
+ X('Земля ПРОКИДАЄТЬСЯ → земля …','засинає','спить'),X('Настав РАНОК → настав …','вечір')]},
+{h:'Склади сам(а)',d:'Напиши речення (хоча б 15 букв) із двома словами.',q:[
+ F('Речення зі словами ДОБРИЙ і ЗЛИЙ (протилежні):','добр.*зл|зл.*добр'),
+ F('Речення зі словами ГАРНИЙ і КРАСИВИЙ (близькі):','гарн.*красив|красив.*гарн'),
+ F('Речення зі словами ДЕНЬ і НІЧ (протилежні):','(ден|дн).*(ніч|ноч)|(ніч|ноч).*(ден|дн)')]}
+];
+const S=T.map(t=>t.q.map(()=>({v:null,n:0,f:null,lock:false})));
+const norm=s=>(s||'').toLowerCase().trim().replace(/[.!?,…]+$/,'').replace(/\s+/g,' ');
+const box=document.getElementById('tasks');
+box.innerHTML=T.map((t,ti)=>`<div class="card" data-t="${ti}"><span class="lab">Завдання ${ti+1}</span><h2>${t.h}</h2><p class="d">${t.d}</p>`+
+ t.q.map((q,qi)=>`<div class="q" data-q="${qi}"><div class="p">${q.p}</div>`+
+  (q.k==='t'?`<input class="in" autocomplete="off" placeholder="твоя відповідь">`:
+   q.k==='f'?`<textarea class="in" rows="2" placeholder="напиши речення"></textarea>`:
+   `<div class="ops">${q.o.map((o,i)=>`<button class="op" data-i="${i}">${o}</button>`).join('')}</div>`)+
+  `<div class="fb"></div></div>`).join('')+`<button class="btn" data-chk="${ti}">Перевірити</button></div>`).join('');
+box.addEventListener('click',e=>{
+ const b=e.target.closest('.op');
+ if(b){const row=b.closest('.q'),ti=+b.closest('.card').dataset.t,qi=+row.dataset.q,s=S[ti][qi],q=T[ti].q[qi];
+  if(s.lock)return;const i=+b.dataset.i;
+  if(q.k==='c'){row.querySelectorAll('.op').forEach(x=>x.classList.remove('sel','wrong'));b.classList.add('sel');s.v=i;}
+  else{s.v=s.v||[];const k=s.v.indexOf(i);k>-1?s.v.splice(k,1):s.v.push(i);b.classList.toggle('sel');b.classList.remove('wrong');}
+  return;}
+ const c=e.target.closest('[data-chk]');if(c)check(+c.dataset.chk);
+});
+function check(ti){
+ const card=box.querySelector(`[data-t="${ti}"]`);
+ T[ti].q.forEach((q,qi)=>{
+  const s=S[ti][qi];if(s.lock)return;
+  const row=card.querySelector(`[data-q="${qi}"]`),fb=row.querySelector('.fb'),inp=row.querySelector('.in');
+  let ok=false,ans='';
+  if(q.k==='c'){ok=s.v===q.a;ans=q.o[q.a];}
+  else if(q.k==='m'){const v=(s.v||[]).slice().sort().join();ok=v===q.a.slice().sort().join();ans=q.a.map(i=>q.o[i]).join(', ');}
+  else if(q.k==='t'){ok=q.a.map(norm).indexOf(norm(inp.value))>-1;ans=q.a[0];}
+  else{const v=norm(inp.value);ok=v.length>=15&&new RegExp(q.r,'i').test(v);}
+  if(q.k!=='f'&&((q.k==='t'&&!inp.value.trim())||(q.k==='c'&&s.v===null)||(q.k==='m'&&!(s.v||[]).length))){fb.textContent='Спочатку дай відповідь';return;}
+  s.n++;if(s.f===null)s.f=ok;
+  row.classList.remove('ok','bad');row.classList.add(ok?'ok':'bad');
+  if(ok){s.lock=true;fb.textContent='✓ Правильно!';if(inp)inp.disabled=true;
+   if(q.k!=='t'&&q.k!=='f')row.querySelectorAll('.op.sel').forEach(x=>x.classList.add('good'));}
+  else if(s.n>=2&&q.k!=='f'){s.lock=true;fb.textContent='Правильна відповідь: '+ans;if(inp)inp.disabled=true;}
+  else{fb.textContent=q.k==='f'?'Перевір, чи є в реченні обидва слова, і спробуй ще раз':'Ще не те. Спробуй ще раз!';
+   if(q.k==='c')row.querySelectorAll('.op.sel').forEach(x=>{x.classList.remove('sel');x.classList.add('wrong');});}
+ });
+ upd();
+}
+const total=S.reduce((a,t)=>a+t.length,0);
+const bar=document.createElement('div');bar.className='bar';bar.innerHTML='<span id="st">⭐ 0</span><i><b id="pb"></b></i><span id="pc">0/'+total+'</span>';
+document.querySelector('.sub').after(bar);
+function upd(){let r=0,d=0;S.forEach(t=>t.forEach(s=>{if(s.f===true)r++;if(s.f!==null)d++;}));
+ document.getElementById('st').textContent='⭐ '+r;document.getElementById('pc').textContent=d+'/'+total;
+ document.getElementById('pb').style.width=Math.round(d/total*100)+'%';}
+let sent=false;
+document.getElementById('fin').onclick=function(){
+ let r=0,d=0;const wrong=[];
+ S.forEach((t,ti)=>t.forEach((s,qi)=>{if(s.f!==null)d++;if(s.f===true)r++;if(s.f===false)wrong.push((ti+1)+'.'+(qi+1));}));
+ const res=document.getElementById('res');res.style.display='block';
+ res.innerHTML=(d<total?'Виконано '+d+' із '+total+'. ':'')+'⭐ '+r+' з '+total+(r===d&&d>0?' — чудово! 🎉':' — молодець, що старалась!');
+ res.scrollIntoView({behavior:'smooth'});
+ if(sent)return;sent=true;this.disabled=true;
+ const who=new URLSearchParams(location.search).get('student')||'Без імені';
+ try{fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},
+  body:JSON.stringify({type:'quiz_result',student:who,testName:NAME,correct:r,answered:d,total:total,wrongList:wrong,flaggedList:[]})});}catch(e){}
+};
+</script>
+</body>
+</html>
