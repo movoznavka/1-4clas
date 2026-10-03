@@ -48,9 +48,9 @@
 (function(){
   var params = new URLSearchParams(location.search);
   var u = params.get('u');
-  if (u) { localStorage.setItem('zoshyt_current_student', u); }
+  if (u) { localStorage.setItem('zoshyt_current_student', u); localStorage.removeItem('zoshyt_teacher'); }
 })();
-if(!localStorage.getItem('zoshyt_current_student')){location.href='ukr-login.html?next='+encodeURIComponent(location.pathname);}
+if(!localStorage.getItem('zoshyt_current_student')&&localStorage.getItem('zoshyt_teacher')!=='1'){location.href='ukr-login.html?next='+encodeURIComponent(location.pathname);}
 </script>
 <div class="notebook">
 
@@ -135,6 +135,15 @@ if(!localStorage.getItem('zoshyt_current_student')){location.href='ukr-login.htm
   ];
 
   const currentStudent = localStorage.getItem('zoshyt_current_student');
+  if (!currentStudent && localStorage.getItem('zoshyt_teacher') === '1') {
+    const tag = document.getElementById('student-tag');
+    tag.textContent = 'Режим вчителя · Вийти';
+    tag.style.cursor = 'pointer';
+    tag.addEventListener('click', () => {
+      localStorage.removeItem('zoshyt_teacher');
+      location.href = 'ukr-teacher.html';
+    });
+  }
   if (currentStudent) {
     const tag = document.getElementById('student-tag');
     tag.textContent = 'Вітаю, ' + currentStudent + '! · Вийти';
