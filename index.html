@@ -115,12 +115,25 @@ const tabs=document.getElementById('tabs'),content=document.getElementById('cont
 const EXTRA_STUDENTS={};
 const qs=new URLSearchParams(location.search);
 let who=qs.get('u');
+/* Режим вчителя: index.html?vchytel=1 — бачить усі класи й відкриває будь-який урок без посилання учня */
+let teacher=false;
 try{
-  if(qs.has('all'))localStorage.removeItem('zoshyt_current_student');
-  else if(who)localStorage.setItem('zoshyt_current_student',who);
-  else who=localStorage.getItem('zoshyt_current_student');
+  if(qs.has('vchytel')&&!who){
+    localStorage.setItem('zoshyt_teacher','1');
+    localStorage.removeItem('zoshyt_current_student');
+    teacher=true;
+  }else if(qs.has('all')){
+    localStorage.removeItem('zoshyt_current_student');
+    teacher=localStorage.getItem('zoshyt_teacher')==='1';
+  }else if(who){
+    localStorage.setItem('zoshyt_current_student',who);
+    localStorage.removeItem('zoshyt_teacher');
+  }else{
+    teacher=localStorage.getItem('zoshyt_teacher')==='1';
+    if(!teacher)who=localStorage.getItem('zoshyt_current_student');
+  }
 }catch(e){}
-if(qs.has('all'))who=null;
+if(qs.has('all')||teacher)who=null;
 function blockOf(name){
   const n=(name||'').trim().toLowerCase();
   if((window.PLATFORM_STUDENTS||[]).some(x=>x.toLowerCase()===n))return 0;
@@ -130,6 +143,7 @@ function blockOf(name){
 const lock=who?blockOf(who):null;
 const VISIBLE=lock===null?CLASSES:CLASSES.filter(c=>c.n===lock);
 if(lock!==null){document.querySelector('.brand p').textContent='Привіт, '+who+'! Обери урок і починай';}
+if(teacher){document.querySelector('.brand p').textContent='Режим вчителя — уроки відкриті без посилання учня';}
 function show(n){
   const c=CLASSES.find(x=>x.n===n);
   const color=getComputedStyle(document.documentElement).getPropertyValue(c.color).trim();
