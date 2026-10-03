@@ -13,8 +13,8 @@
     <h1>Результати учнів</h1>
     <p class="eyebrow-line">Прогрес по зірках і виконання домашніх завдань для кожного учня. Натисніть на назву уроку, щоб відкрити його й пройти разом з учнем.</p>
 
-    <div id="gate">
-      <p><button class="btn" id="gate-btn">Увійти в панель</button></p>
+    <div id="gate" style="display:none;">
+      <p class="eyebrow-line">Ця сторінка відкривається лише за посиланням вчителя.</p>
     </div>
 
     <div id="dashboard" style="display:none;">
@@ -46,21 +46,11 @@
 <script src="ukr-firebase-config.js"></script>
 <script src="ukr-platform.js"></script>
 <script>
-  document.getElementById('gate-btn').addEventListener('click', enter);
+  // Вхід без коду: відкривається за посиланням з ?vchytel=1 (або якщо режим вчителя вже ввімкнено на цьому пристрої)
+  const isTeacher = new URLSearchParams(location.search).has('vchytel') || localStorage.getItem('zoshyt_teacher') === '1';
+  if (isTeacher) enter(); else document.getElementById('gate').style.display = 'block';
 
-  // Якщо вже входили цього сеансу — одразу показати панель
-  if (sessionStorage.getItem('teacher_ok') === '1') enter(true);
-
-  function enter(silent) {
-    if (sessionStorage.getItem('teacher_ok') !== '1') {
-      const code = prompt('Введіть код доступу вчителя:');
-      if (code === null) return;
-      if (code !== (window.TEACHER_PASSCODE || '')) {
-        alert('Невірний код доступу.');
-        return;
-      }
-      sessionStorage.setItem('teacher_ok', '1');
-    }
+  function enter() {
     // Режим вчителя: дозволяє відкривати уроки без учнівського посилання
     // (прогрес і результати при цьому не зберігаються й не надсилаються в бот)
     localStorage.setItem('zoshyt_teacher', '1');
