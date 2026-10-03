@@ -49,6 +49,7 @@
   var params = new URLSearchParams(location.search);
   var u = params.get('u');
   if (u) { localStorage.setItem('zoshyt_current_student', u); localStorage.removeItem('zoshyt_teacher'); }
+  else if (params.has('vchytel')) { localStorage.setItem('zoshyt_teacher', '1'); localStorage.removeItem('zoshyt_current_student'); }
 })();
 if(!localStorage.getItem('zoshyt_current_student')&&localStorage.getItem('zoshyt_teacher')!=='1'){location.href='ukr-login.html?next='+encodeURIComponent(location.pathname);}
 </script>
@@ -141,7 +142,7 @@ if(!localStorage.getItem('zoshyt_current_student')&&localStorage.getItem('zoshyt
     tag.style.cursor = 'pointer';
     tag.addEventListener('click', () => {
       localStorage.removeItem('zoshyt_teacher');
-      location.href = 'ukr-teacher.html';
+      location.href = 'ukr-teacher.html?vchytel=1';
     });
   }
   if (currentStudent) {
