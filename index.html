@@ -53,11 +53,11 @@ background-image:repeating-linear-gradient(transparent 0 25px,var(--line) 25px 2
   <div class="brand">
     <div class="eyebrow">Платформа уроків · 1–4 клас</div>
     <h1>Мої зошити з мови</h1>
-    <p>Обери клас, відкрий зошит — і потрапиш в інтерактивний урок</p>
+    <p>Обери клас, щоб побачити теми</p>
   </div>
   <div class="tabs" id="tabs"></div>
   <div id="content"></div>
-  <p class="note">Тримай усі файли в одній папці, щоб посилання працювали</p>
+  <p class="note" id="tnote"></p>
 </div>
 <script src="ukr-students.js"></script>
 <script>
@@ -68,9 +68,7 @@ const CLASSES=[
    ['Урок 1','Моє повсякденне життя','Слово, словосполучення, речення. Порядок слів у реченні.','ukr-lesson-01.html','ready','ukr-lesson-01-dz.html'],
    ['Урок 2','Їжа','Види речення: розповідне, питальне, спонукальне.','ukr-lesson-02.html','ready','ukr-lesson-02-dz.html'],
    ['Урок 3','Зовнішність людини','Прикметник: який? яка? яке? які?','ukr-lesson-03.html','ready','ukr-lesson-03-dz.html'],
-   ['Урок 4','Характер людини','Іменник + прикметник.','ukr-lesson-04.html','ready','ukr-lesson-04-dz.html']]},
-  {t:'Весь курс',items:[
-   ['36 занять','Мій зошит з української','Річний план: лексика й граматика крок за кроком.','ukr-index.html','ready']]}]},
+   ['Урок 4','Характер людини','Іменник + прикметник.','ukr-lesson-04.html','ready','ukr-lesson-04-dz.html']]}]},
  {n:1,color:'--c1',sections:[
   {t:'Звуки і букви',items:[
    ['§ 1','Звуки мовлення і букви','Слухаємо звуки навколо, вчимося їх розрізняти.','urok1-zvuky-i-bukvy.html','soon'],
@@ -82,12 +80,12 @@ const CLASSES=[
    ['§ 6','Речення','З чого складається речення.','urok1-rechennya.html','soon']]}]},
  {n:2,color:'--c2',sections:[
   {t:'Звуки мовлення',items:[
-   ['§ 1','Звуки і букви. Голосні звуки','Разом із Їжачком Колючкою.','urok-1-zvuky-bukvy.html','ready'],
-   ['§ 8','Дзвінкі та глухі приголосні','Разом із Котиком Мурчиком.','urok-2-dzvinki-hluhi.html','ready'],
+   ['§ 1','Звуки і букви. Голосні звуки','Разом із Їжачком Колючкою.','urok-1-zvuky-bukvy.html','soon'],
+   ['§ 8','Дзвінкі та глухі приголосні','Разом із Котиком Мурчиком.','urok-2-dzvinki-hluhi.html','soon'],
    ['§ 9','Тверді та м\'які приголосні','Скоро тут з\'явиться урок!','urok-tverdi-myaki.html','soon']]},
   {t:'Правопис і лексика',items:[
-   ['§ 11','Вживання апострофа','Разом із Песиком Барбосиком.','urok-3-apostrof.html','ready'],
-   ['§ 12–14','Слово і його значення','Омоніми, синоніми й антоніми з Лисенятком Читайликом.','urok-4-slovo-znachennya.html','ready']]}]},
+   ['§ 11','Вживання апострофа','Разом із Песиком Барбосиком.','urok-3-apostrof.html','soon'],
+   ['§ 12–14','Слово і його значення','Омоніми, синоніми й антоніми з Лисенятком Читайликом.','urok-4-slovo-znachennya.html','soon']]}]},
  {n:3,color:'--c3',sections:[
   {t:'Частини мови',items:[
    ['§ 1','Іменник','Назви предметів: хто? що?','urok3-imennyk.html','soon'],
@@ -141,17 +139,16 @@ function blockOf(name){
   return null;
 }
 const lock=who?blockOf(who):null;
-const VISIBLE=lock===null?CLASSES:CLASSES.filter(c=>c.n===lock);
-if(lock!==null){document.querySelector('.brand p').textContent='Привіт, '+who+'! Обери урок і починай';}
-if(teacher){document.querySelector('.brand p').textContent='Режим вчителя — уроки відкриті без посилання учня';}
-function show(n){
-  const c=CLASSES.find(x=>x.n===n);
-  const color=getComputedStyle(document.documentElement).getPropertyValue(c.color).trim();
-  tabs.style.display=VISIBLE.length>1?'':'none';
-  tabs.innerHTML=VISIBLE.map(k=>{
-    const col=getComputedStyle(document.documentElement).getPropertyValue(k.color).trim();
-    return `<button class="tab ${k.label?'txt ':''}${k.n===n?'on':''}" style="--cc:${col}" data-n="${k.n}">${k.label?k.label:`${k.n}<small>клас</small>`}</button>`;}).join('');
+const VISIBLE=teacher?CLASSES:(lock===null?[]:CLASSES.filter(c=>c.n===lock));
+function colorOf(c){return getComputedStyle(document.documentElement).getPropertyValue(c.color).trim();}
+function drawTabs(n){
+  tabs.style.display=(VISIBLE.length>1)?'':'none';
+  tabs.innerHTML=VISIBLE.map(k=>`<button class="tab ${k.label?'txt ':''}${k.n===n?'on':''}" style="--cc:${colorOf(k)}" data-n="${k.n}">${k.label?k.label:`${k.n}<small>клас</small>`}</button>`).join('');
   tabs.querySelectorAll('.tab').forEach(b=>b.onclick=()=>show(+b.dataset.n));
+}
+function show(n){
+  const c=CLASSES.find(x=>x.n===n),color=colorOf(c);
+  drawTabs(n);
   content.innerHTML=c.sections.map(s=>`<div style="--cc:${color}"><div class="sec">${s.t}</div><div class="grid">`+
    s.items.map(i=>{
      const rd=i[4]==='ready';
@@ -161,11 +158,20 @@ function show(n){
       <h2>${rd?`<a href="${i[3]}">${i[1]}</a>`:i[1]}</h2><br><p>${i[2]}</p>
       ${i[5]?`<a class="dzl" href="${i[5]}">ДЗ</a>`:''}
       <span class="st">${rd?'Відкрити':'Скоро'}</span></div>`;}).join('')+`</div></div>`).join('');
-  try{localStorage.setItem('cls14',n)}catch(e){}
 }
-let start=2;try{const v=localStorage.getItem('cls14');if(v!==null&&VISIBLE.some(x=>x.n===+v))start=+v}catch(e){}
-if(!VISIBLE.some(x=>x.n===start))start=VISIBLE[0].n;
-show(start);
+const bp=document.querySelector('.brand p');
+if(teacher){
+  document.querySelector('.eyebrow').textContent='Режим вчителя · учні цього не бачать';
+  bp.textContent='Кожному учню — своє посилання (…/index.html?u=Ім\'я). Оберіть клас, щоб побачити його теми.';
+  document.getElementById('tnote').innerHTML='<a href="ukr-teacher.html?vchytel=1">📊 Кабінет вчителя: результати й посилання учнів</a>';
+  drawTabs(-1); /* теми з'являються після натискання на клас */
+}else if(lock!==null){
+  bp.textContent='Привіт, '+who+'! Обери урок — за кожне правильне завдання ⭐';
+  show(lock);
+}else{
+  bp.textContent='Це посилання недійсне. Зверніться до вчительки за новим.';
+  tabs.style.display='none';
+}
 </script>
 </body>
 </html>
