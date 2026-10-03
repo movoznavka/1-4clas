@@ -59,6 +59,7 @@ background-image:repeating-linear-gradient(transparent 0 25px,var(--line) 25px 2
   <div id="content"></div>
   <p class="note">Тримай усі файли в одній папці, щоб посилання працювали</p>
 </div>
+<script src="ukr-students.js"></script>
 <script>
 /* [тег, назва, опис, файл, статус] */
 const CLASSES=[
@@ -108,10 +109,32 @@ const CLASSES=[
    ['§ 7','Однорідні члени речення','Кома між однорідними членами.','urok4-odnoridni.html','soon']]}]}
 ];
 const tabs=document.getElementById('tabs'),content=document.getElementById('content');
+/* Персональні посилання: index.html?u=Ім'я відкриває лише блок учня.
+   Учні блоку «Українська» беруться зі списку в ukr-students.js.
+   Для класів 1–4 дописуйте сюди: "Ім'я": номер_класу  (наприклад "Марійка":2) */
+const EXTRA_STUDENTS={};
+const qs=new URLSearchParams(location.search);
+let who=qs.get('u');
+try{
+  if(qs.has('all'))localStorage.removeItem('zoshyt_current_student');
+  else if(who)localStorage.setItem('zoshyt_current_student',who);
+  else who=localStorage.getItem('zoshyt_current_student');
+}catch(e){}
+if(qs.has('all'))who=null;
+function blockOf(name){
+  const n=(name||'').trim().toLowerCase();
+  if((window.PLATFORM_STUDENTS||[]).some(x=>x.toLowerCase()===n))return 0;
+  for(const k in EXTRA_STUDENTS){if(k.toLowerCase()===n)return EXTRA_STUDENTS[k];}
+  return null;
+}
+const lock=who?blockOf(who):null;
+const VISIBLE=lock===null?CLASSES:CLASSES.filter(c=>c.n===lock);
+if(lock!==null){document.querySelector('.brand p').textContent='Привіт, '+who+'! Обери урок і починай';}
 function show(n){
   const c=CLASSES.find(x=>x.n===n);
   const color=getComputedStyle(document.documentElement).getPropertyValue(c.color).trim();
-  tabs.innerHTML=CLASSES.map(k=>{
+  tabs.style.display=VISIBLE.length>1?'':'none';
+  tabs.innerHTML=VISIBLE.map(k=>{
     const col=getComputedStyle(document.documentElement).getPropertyValue(k.color).trim();
     return `<button class="tab ${k.label?'txt ':''}${k.n===n?'on':''}" style="--cc:${col}" data-n="${k.n}">${k.label?k.label:`${k.n}<small>клас</small>`}</button>`;}).join('');
   tabs.querySelectorAll('.tab').forEach(b=>b.onclick=()=>show(+b.dataset.n));
@@ -126,7 +149,8 @@ function show(n){
       <span class="st">${rd?'Відкрити':'Скоро'}</span></div>`;}).join('')+`</div></div>`).join('');
   try{localStorage.setItem('cls14',n)}catch(e){}
 }
-let start=2;try{const v=localStorage.getItem('cls14');if(v!==null&&CLASSES.some(x=>x.n===+v))start=+v}catch(e){}
+let start=2;try{const v=localStorage.getItem('cls14');if(v!==null&&VISIBLE.some(x=>x.n===+v))start=+v}catch(e){}
+if(!VISIBLE.some(x=>x.n===start))start=VISIBLE[0].n;
 show(start);
 </script>
 </body>
