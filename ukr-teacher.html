@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <p><a href="ukr-index.html">← На головну</a></p>
+    <p><a href="ukr-index.html">📖 Відкрити зошит як вчитель</a></p>
   </div>
 </div>
 
@@ -61,6 +61,10 @@
       }
       sessionStorage.setItem('teacher_ok', '1');
     }
+    // Режим вчителя: дозволяє відкривати уроки без учнівського посилання
+    // (прогрес і результати при цьому не зберігаються й не надсилаються в бот)
+    localStorage.setItem('zoshyt_teacher', '1');
+    localStorage.removeItem('zoshyt_current_student');
     document.getElementById('gate').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
     loadDashboard();
