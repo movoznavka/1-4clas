@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Урок 6. Мої улюблені речі</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCF0DC;--card:#FFFBF2;--ink:#3A2016;--soft:#8A6552;--line:#BFD7EA;--margin:#E8837A;--shadow:rgba(58,32,22,.4);--cc:#8A5BB5;--ok:#2E8B57;--bad:#D6453D}
+:root:not([data-theme="light"]){color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--margin:#a8544d;--shadow:rgba(0,0,0,.6)}}
+:root[data-theme="dark"]{--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--margin:#a8544d;--shadow:rgba(0,0,0,.6)}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Quicksand',sans-serif;padding:18px 14px 70px;font-size:16px}
+.wrap{max-width:780px;margin:0 auto}
+a.back{color:var(--soft);font-weight:700;text-decoration:none;font-size:14px}
+h1{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(24px,6vw,34px);margin:6px 0 4px}
+.sub{color:var(--soft);font-weight:600;margin:0 0 8px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:6px 0 8px}
+.bar{display:flex;align-items:center;gap:12px;font:800 14px 'Baloo 2',sans-serif}
+.bar i{flex:1;height:10px;border-radius:9px;background:var(--line);overflow:hidden;display:block}
+.bar b{display:block;height:100%;width:0;background:var(--cc);transition:width .3s}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tab{font:800 14px 'Baloo 2',sans-serif;border:0;border-radius:999px;padding:6px 14px;background:var(--card);color:var(--ink);cursor:pointer}
+.tab.on{background:var(--cc);color:#fff}
+.sec{display:none}.sec.on{display:block}
+.card{position:relative;background:var(--card);border-radius:6px 18px 18px 6px;border-left:10px solid var(--cc);padding:16px 18px 16px 48px;margin:16px 0 18px;box-shadow:0 16px 28px -18px var(--shadow);
+background-image:repeating-linear-gradient(transparent 0 25px,var(--line) 25px 26px);background-size:100% 100%}
+.card::before{content:'';position:absolute;left:34px;top:0;bottom:0;width:2px;background:var(--margin);opacity:.6}
+.card h2{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;margin:0 0 4px;line-height:1.25}
+.lab{display:inline-block;background:var(--cc);color:#fff;border-radius:8px;padding:1px 10px;font:800 12px 'Baloo 2',sans-serif;margin-bottom:6px}
+.d{margin:0 0 10px;color:var(--soft);font-weight:600;font-size:14px}
+.rule{background:var(--card);border:2px dashed var(--cc);border-radius:14px;padding:10px 14px;margin:10px 0;font-weight:600}
+.gs{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:10px 0}
+.g{background:var(--card);border:3px solid var(--c);border-radius:16px;padding:12px 14px;font-weight:600;font-size:14px}
+.g h3{margin:0;color:var(--c);font:800 22px 'Baloo 2',sans-serif}.g .my{color:var(--c);font-weight:800}
+.g.p{--c:#3F8F5B}.g.m{--c:#3B7DD8}.g.f{--c:#D9558C}.g.n{--c:#C98505}
+.mn{font:800 19px 'Baloo 2',sans-serif;text-align:center;background:#3A2016;color:#fff;border-radius:14px;padding:12px;margin:10px 0}
+.mn b:nth-child(1){color:#8DB8F5}.mn b:nth-child(2){color:#F5A3C4}.mn b:nth-child(3){color:#F7CD6A}
+.trick{background:var(--card);border-left:5px solid var(--margin);border-radius:0 14px 14px 0;padding:10px 14px;margin:10px 0;font-weight:600}
+.fcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.fc{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px;text-align:center;cursor:pointer;min-height:110px;font-weight:600}
+.fc .fi{font-size:30px}.fc b{display:block;font:800 18px 'Baloo 2',sans-serif}.fc .bk{display:none;font-size:13px;color:var(--soft)}
+.fc.on{border-color:var(--cc)}.fc.on .bk{display:block}
+.story{background:linear-gradient(180deg,#CDE6FF,#FFE9A8);border-radius:18px;padding:14px 16px;margin:14px 0;color:#2a2a2a;font-weight:600;line-height:1.7}
+.story h2{margin:0 0 6px;color:#0B3D8C;font:800 20px 'Baloo 2',sans-serif}
+.q{background:var(--card);border-radius:12px;padding:8px 10px;margin:8px 0;border:2px solid transparent}
+.q.ok{border-color:var(--ok)}.q.bad{border-color:var(--bad)}
+.p{font-weight:700;margin-bottom:6px}
+.ops{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.op,.spk{font:700 15px 'Quicksand',sans-serif;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:7px 14px;cursor:pointer}
+.op.sel{border-color:var(--cc);background:var(--cc);color:#fff}.op.used{opacity:.5}
+.op.good{border-color:var(--ok);background:var(--ok);color:#fff}.op.wrong{border-color:var(--bad);background:var(--bad);color:#fff}
+.ans{font-weight:800;min-height:26px;margin-top:6px;color:var(--cc)}
+.in{width:100%;font:600 16px 'Quicksand',sans-serif;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:8px 10px}
+.in:focus{outline:2px solid var(--cc)}
+.fb{font-size:13px;font-weight:700;margin-top:5px}
+.q.ok .fb{color:var(--ok)}.q.bad .fb{color:var(--bad)}
+.btn{font:800 15px 'Baloo 2',sans-serif;background:var(--cc);color:#fff;border:0;border-radius:999px;padding:9px 22px;cursor:pointer;margin-top:6px;text-decoration:none;display:inline-block}
+.btn.big{font-size:18px;padding:12px 30px;background:var(--ok)}.btn:disabled{opacity:.5}
+.res{text-align:center;font:800 20px 'Baloo 2',sans-serif;background:var(--card);border-radius:18px;padding:18px;margin-top:16px}
+.kw{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.kw span{background:var(--cc);color:#fff;border-radius:999px;padding:4px 14px;font-weight:800;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">‹ До зошитів</a>
+  <h1>🧸 Урок 6. Мої улюблені речі: цей, ця, це, ці</h1>
+  <p class="sub">Мета: розповідати про улюблені речі, добирати слова мій / моя / моє / мої та цей / ця / це / ці і прочитати текст про українські винаходи.</p>
+  <div class="top">
+    <div class="bar"><span id="st">⭐ 0</span><i><b id="pb"></b></i><span id="pc"></span></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+
+  <div class="sec on" id="s0"><div class="card"><span class="lab">1</span><h2>Мої улюблені речі</h2>
+    <p class="d">Натисни на картку, щоб перевернути. Зверни увагу на слова мій / моя / моє / мої та цей / ця / це / ці!</p><div class="fcs" id="vocab"></div></div></div>
+
+  <div class="sec" id="s1"><div class="card"><span class="lab">2</span><h2>Мій, цей: слова-помічники</h2>
+    <p class="d">Слова мій, цей змінюються так само, як іменник. Підстав їх перед словом і дізнаєшся його рід чи число.</p>
+    <div class="gs">
+      <div class="g m"><h3>він</h3><div class="my">мій · цей</div>Один предмет, чоловічий рід.<br><b>мій м’яч, цей велосипед</b></div>
+      <div class="g f"><h3>вона</h3><div class="my">моя · ця</div>Один предмет, жіночий рід.<br><b>моя іграшка, ця книжка</b></div>
+      <div class="g n"><h3>воно</h3><div class="my">моє · це</div>Один предмет, середній рід.<br><b>моє кошеня, це ліжко</b></div>
+      <div class="g p"><h3>вони</h3><div class="my">мої · ці</div>Кілька предметів: для всіх родів однаково!<br><b>мої навушники, ці м’ячі</b></div>
+    </div>
+    <div class="mn"><b>мій</b> цей · <b>моя</b> ця · <b>моє</b> це · <b>мої</b> ці</div>
+    <div class="trick"><b>⚠️ Пастка!</b> Є слова, які вживаємо лише в множині: окуляри, ножиці, штани, ковзани. Тому кажемо мої окуляри, ці ножиці. А слово це — і вказівне (це кошеня), і початок речення: Це моє кошеня.</div>
+    <p class="d">Мій, моя, моє, мої показують, чиє це. Цей, ця, це, ці — на який предмет ми вказуємо пальцем.</p></div></div>
+
+  <div class="sec" id="s2"><div id="ex-p"></div></div>
+
+  <div class="sec" id="s3"><div class="story"><h2>🚁 Українські винаходи, якими користується весь світ</h2>Україна дала світові багато талановитих людей. Ось їхні винаходи.<br>Ігор Сікорський народився в Києві. Він створив один із перших гелікоптерів. Цей гелікоптер злітає прямо вгору й рятує людей.<br>Іван Пулюй створив особливу лампу. Ця лампа допомагає лікарям побачити кістки. Її називають лампою Пулюя.<br>Ці винаходи знає весь світ. Ми можемо пишатися нашими винахідниками! 🇺🇦</div><div id="ex-t"></div></div>
+
+  <div class="sec" id="s4"><div class="card"><span class="lab">4</span><h2>Пригадай з уроку 5</h2><p class="d">Повторюємо рід іменників: мій, моя, моє.</p></div><div id="ex-r"></div><div style="text-align:center"><button class="btn big" id="fin">Завершити й надіслати результат</button></div><div class="res" id="res" style="display:none"></div></div>
+</div>
+<script>
+const API="https://script.google.com/macros/s/AKfycbwi1AzxlGzRW8HrejKj9aJuB19bgpdrBaKGp0i85SwyYShcp2rf0n5gUnomIBB77LPi/exec";
+const NAME="Урок 6. Мої улюблені речі";
+const C=(p,o,a,e)=>({k:'c',p,o,a,e}),X=(p,...a)=>({k:'t',p,a}),M=(p,o,a)=>({k:'m',p,o,a}),O=(w)=>({k:'o',p:'Збери речення:',w});
+const G=(w,g)=>C(w,['він','вона','воно','вони'],'mfnp'.indexOf(g));
+const B=(p,v,e)=>C(p,['Правда','Неправда'],v?0:1,e);
+const D=(w)=>({k:'t',p:'🔊 Послухай і впиши слово',a:[w],sp:w});
+const MP=l=>{const o=l.map(x=>x[1]).sort();return l.map(x=>({k:'s',p:x[0],o,a:o.indexOf(x[1])}));};
+const MY=['Мій','Моя','Моє','Мої'],CY=['Цей','Ця','Це','Ці'];
+const V=[["⚽","м’яч","кругла іграшка для гри","Мій м’яч новий. Цей м’яч червоний."],["🧸","іграшка","з нею граються","Моя іграшка м’яка. Ця іграшка улюблена."],["📚","книжка","у ній читають казки","Моя книжка цікава."],["🚲","велосипед","на ньому катаються","Мій велосипед швидкий."],["⌚","годинник","показує час","Мій годинник блищить."],["🖼️","малюнок","його малюють","Цей малюнок яскравий."],["🐱","кошеня","маленький котик","Моє кошеня пухнасте. Це кошеня моє."],["🛏️","ліжко","у ньому сплять","Моє ліжко зручне."],["🧱","конструктор","іграшка, з якої збирають","Мій конструктор великий."],["🎧","навушники","у них слухають музику","Мої навушники нові. Ці навушники мої."],["⛸️","ковзани","взуття для льоду","Мої ковзани гострі."],["🕶️","окуляри","захищають очі від сонця","Мої окуляри темні. Ці окуляри мої."]];
+document.getElementById('vocab').innerHTML=V.map(v=>`<div class="fc"><div class="fi">${v[0]}</div><b>${v[1]}</b><div class="bk">${v[2]}<br><i>${v[3]}</i></div></div>`).join('');
+const T=[
+{s:'p',h:'Швидке сортування',d:'Для кожного слова обери: він, вона, воно чи вони.',q:[G('м’яч','m'),G('іграшка','f'),G('кошеня','n'),G('навушники','p'),G('велосипед','m'),G('книжка','f'),G('ліжко','n'),G('окуляри','p'),G('годинник','m'),G('малюнок','m'),G('конструктор','m'),G('ковзани','p')]},
+{s:'p',h:'Мій, моя, моє чи мої?',d:'Підстав потрібне слово.',q:[C('___ м’яч',MY,0),C('___ книжка',MY,1),C('___ кошеня',MY,2),C('___ навушники',MY,3),C('___ ліжко',MY,2),C('___ ковзани',MY,3),C('___ велосипед',MY,0),C('___ малюнки',MY,3)]},
+{s:'p',h:'Цей, ця, це чи ці?',d:'Показуємо пальцем на предмет. Підстав потрібне слово.',q:[C('___ годинник',CY,0),C('___ іграшка',CY,1),C('___ ліжко',CY,2),C('___ окуляри',CY,3),C('___ кошеня',CY,2),C('___ книжка',CY,1),C('___ м’ячі',CY,3),C('___ малюнок',CY,0)]},
+{s:'p',h:'Впиши слово',d:'Впиши мій / моя / моє / мої або цей / ця / це / ці.',q:[X('___ навушники нові (мій, моя, моє, мої)','мої'),X('___ велосипед швидкий (мій, моя, моє, мої)','мій'),X('___ ліжко зручне (мій, моя, моє, мої)','моє'),X('___ іграшка улюблена (мій, моя, моє, мої)','моя'),X('___ годинник (цей, ця, це, ці)','цей'),X('___ кошеня (цей, ця, це, ці)','це'),X('___ книжка (цей, ця, це, ці)','ця'),X('___ ковзани (цей, ця, це, ці)','ці')]},
+{s:'p',h:'Збери речення',d:'Натискай слова по черзі.',q:[O(["Ця","іграшка","моя","улюблена"]),O(["Мої","нові","навушники","лежать","на","столі"]),O(["Це","моє","маленьке","кошеня"]),O(["Цей","мій","велосипед","дуже","швидкий"])]},
+{s:'p',h:'Слово — значення',d:'Обери для кожного слова його значення.',q:MP([["м’яч","кругла іграшка для гри"],["конструктор","іграшка, з якої збирають"],["ковзани","взуття для льоду"],["годинник","показує час"],["навушники","у них слухають музику"],["окуляри","допомагають бачити"]])},
+{s:'p',h:'Малюнок — слово',d:'Яке слово підходить до малюнка?',q:[C('⚽',['м’яч','ліжко','годинник'],0),C('🧸',['книжка','іграшка','малюнок'],1),C('🚲',['конструктор','ковзани','велосипед'],2),C('🎧',['навушники','окуляри','годинник'],0),C('⛸️',['велосипед','ковзани','м’яч'],1),C('🐱',['іграшка','ліжко','кошеня'],2)]},
+{s:'p',h:'Диктант',d:'Натисни 🔊, послухай і впиши слово без підказки.',q:[D('іграшка'),D('велосипед'),D('навушники'),D('кошеня'),D('годинник')]},
+{s:'p',h:'Іменник + прикметник',d:'Який прикметник пасує до іменника?',q:MP([["іграшка","м’яка"],["велосипед","швидкий"],["кошеня","пухнасте"],["навушники","нові"],["ліжко","зручне"],["книжка","цікава"]])},
+{s:'p',h:'Правда чи неправда?',d:'Швидко: правда чи неправда?',q:[B('Слово «навушники» — множина: мої навушники.',1),B('Кажемо «мій окуляри».',0,'Окуляри — множина: мої окуляри.'),B('Слово «кошеня» — середнього роду: моє кошеня.',1),B('Слово «іграшка» — чоловічого роду.',0,'Моя іграшка — вона, жіночий рід.'),B('Слово «ножиці» вживаємо лише в множині: мої ножиці.',1),B('Кажемо «цей книжка».',0,'Книжка — вона: ця книжка.')]},
+{s:'p',h:'Знайди й виправ помилку',d:'У кожному реченні перше слово вжито неправильно. Впиши слово, яке має бути замість нього.',q:[X('Мій іграшка лежить на ліжку.','моя'),X('Моя ковзани дуже гострі.','мої'),X('Ця велосипед швидкий.','цей'),X('Цей кошеня пухнасте.','це')]},
+{s:'t',h:'Читаємо текст про винаходи',d:'Прочитай текст «Українські винаходи» і дай відповіді.',q:[C('Хто народився в Києві й створив гелікоптер?',['Ігор Сікорський','Іван Пулюй','Тарас Шевченко'],0),C('Що допомагає лікарям побачити кістки?',['гелікоптер','лампа Пулюя','велосипед'],1),C('Що злітає прямо вгору й рятує людей?',['лампа','гелікоптер','м’яч'],1),C('Де народився Ігор Сікорський?',['у Києві','у Львові','в Одесі'],0)]},
+{s:'t',h:'Цей, ця, це, ці у тексті',d:'Добери слово зі змісту тексту.',q:[X('___ гелікоптер злітає прямо вгору (цей, ця, це, ці)','цей'),X('___ лампа допомагає лікарям (цей, ця, це, ці)','ця'),X('___ винахідник створив гелікоптер (цей, ця, це, ці)','цей'),X('Тут два винаходи. ___ винаходи знає весь світ (цей, ця, це, ці)','ці'),M('Познач іменники чоловічого роду (мають «мій»):',['гелікоптер','лампа','Київ','кістка','світ'],[0,2,4]),C('Яке слово в тексті стоїть у множині?',['винаходи','лампа','гелікоптер'],0)]},
+{s:'r',h:'Повтор: рід іменників',d:'З уроку 5.',q:[C('___ парта',['Мій','Моя','Моє'],1),C('___ вікно',['Мій','Моя','Моє'],2),C('Слово «портфель» — який рід?',['він','вона','воно'],0),C('Яке слово ЗАЙВЕ (інший рід)?',['зошит','олівець','дошка','підручник'],2)]}
+];
+const S=T.map(t=>t.q.map(()=>({v:null,n:0,f:null,lock:false})));
+const norm=s=>(s||'').toLowerCase().trim().replace(/[.!?,…]+$/,'').replace(/\s+/g,' ');
+const shuf=a=>a.map(x=>[Math.random(),x]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+['p','t','r'].forEach(sec=>{
+ let n=0;
+ document.getElementById('ex-'+sec).innerHTML=T.map((t,ti)=>t.s!==sec?'':`<div class="card tk" data-t="${ti}"><span class="lab">Завдання ${ti+1}</span><h2>${t.h}</h2><p class="d">${t.d}</p>`+
+ t.q.map((q,qi)=>`<div class="q" data-q="${qi}"><div class="p">${q.p}${q.sp?` <button class="spk" data-sp="${q.sp}">🔊</button>`:''}</div>`+
+  (q.k==='t'?`<input class="in" autocomplete="off" placeholder="твоя відповідь">`:
+   q.k==='s'?`<select class="in"><option value="">— обери —</option>${q.o.map((o,i)=>`<option value="${i}">${o}</option>`).join('')}</select>`:
+   q.k==='o'?`<div class="ops">${shuf(q.w).map(o=>`<button class="op">${o}</button>`).join('')}</div><div class="ans"></div>`:
+   `<div class="ops">${q.o.map((o,i)=>`<button class="op" data-i="${i}">${o}</button>`).join('')}</div>`)+
+  `<div class="fb"></div></div>`).join('')+`<button class="btn" data-chk="${ti}">Перевірити</button></div>`).join('');
+});
+document.addEventListener('click',e=>{
+ const sp=e.target.closest('.spk');
+ if(sp){try{const u=new SpeechSynthesisUtterance(sp.dataset.sp);u.lang='uk-UA';u.rate=.8;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(x){}return;}
+ const fc=e.target.closest('.fc');if(fc){fc.classList.toggle('on');return;}
+ const b=e.target.closest('.op');
+ if(b){const row=b.closest('.q'),tk=b.closest('.tk');if(!tk)return;const ti=+tk.dataset.t,qi=+row.dataset.q,s=S[ti][qi],q=T[ti].q[qi];
+  if(s.lock)return;
+  if(q.k==='o'){if(b.classList.contains('used'))return;b.classList.add('used','sel');(s.v=s.v||[]).push(b.textContent);row.querySelector('.ans').textContent=s.v.join(' ');return;}
+  const i=+b.dataset.i;
+  if(q.k==='c'){row.querySelectorAll('.op').forEach(x=>x.classList.remove('sel','wrong'));b.classList.add('sel');s.v=i;}
+  else{s.v=s.v||[];const k=s.v.indexOf(i);k>-1?s.v.splice(k,1):s.v.push(i);b.classList.toggle('sel');b.classList.remove('wrong');}
+  return;}
+ const c=e.target.closest('[data-chk]');if(c)check(+c.dataset.chk);
+});
+function check(ti){
+ const card=document.querySelector(`.tk[data-t="${ti}"]`);
+ T[ti].q.forEach((q,qi)=>{
+  const s=S[ti][qi];if(s.lock)return;
+  const row=card.querySelector(`[data-q="${qi}"]`),fb=row.querySelector('.fb'),inp=row.querySelector('.in');
+  let ok=false,ans='',empty=false;
+  if(q.k==='c'){ok=s.v===q.a;ans=q.o[q.a];empty=s.v===null;}
+  else if(q.k==='m'){const v=(s.v||[]).slice().sort().join();ok=v===q.a.slice().sort().join();ans=q.a.map(i=>q.o[i]).join(', ');empty=!(s.v||[]).length;}
+  else if(q.k==='t'){ok=q.a.map(norm).indexOf(norm(inp.value))>-1;ans=q.a[0];empty=!inp.value.trim();}
+  else if(q.k==='s'){ok=inp.value!==''&&+inp.value===q.a;ans=q.o[q.a];empty=inp.value==='';}
+  else{ok=(s.v||[]).join(' ')===q.w.join(' ');ans=q.w.join(' ');empty=!(s.v||[]).length;}
+  if(empty){fb.textContent='Спочатку дай відповідь';return;}
+  s.n++;if(s.f===null)s.f=ok;
+  row.classList.remove('ok','bad');row.classList.add(ok?'ok':'bad');
+  if(ok){s.lock=true;fb.textContent='✓ Правильно!';if(inp)inp.disabled=true;row.querySelectorAll('.op.sel').forEach(x=>x.classList.add('good'));}
+  else if(s.n>=2){s.lock=true;fb.textContent='Правильна відповідь: '+ans+(q.e?' — '+q.e:'');if(inp)inp.disabled=true;}
+  else{fb.textContent='Ще не те. Спробуй ще раз!';
+   if(q.k==='c')row.querySelectorAll('.op.sel').forEach(x=>{x.classList.remove('sel');x.classList.add('wrong');});
+   if(q.k==='o'){s.v=[];row.querySelectorAll('.op').forEach(x=>x.classList.remove('used','sel'));row.querySelector('.ans').textContent='';}}
+ });
+ upd();
+}
+const total=S.reduce((a,t)=>a+t.length,0);
+function upd(){let r=0,d=0;S.forEach(t=>t.forEach(s=>{if(s.f===true)r++;if(s.f!==null)d++;}));
+ st.textContent='⭐ '+r;pc.textContent=d+'/'+total;pb.style.width=Math.round(d/total*100)+'%';}
+upd();
+const names=['Слова','Правило','Практика','Винаходи 🚁','Пригадай'];
+tabs.innerHTML=names.map((n,i)=>`<button class="tab${i?'':' on'}" data-i="${i}">${n}</button>`).join('');
+tabs.onclick=e=>{const b=e.target.closest('.tab');if(!b)return;
+ document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===b));
+ document.querySelectorAll('.sec').forEach((x,i)=>x.classList.toggle('on',i==b.dataset.i));window.scrollTo(0,0);};
+let sent=false;
+fin.onclick=function(){
+ let r=0,d=0;const wrong=[];
+ S.forEach((t,ti)=>t.forEach((s,qi)=>{if(s.f!==null)d++;if(s.f===true)r++;if(s.f===false)wrong.push((ti+1)+'.'+(qi+1));}));
+ res.style.display='block';
+ res.innerHTML=(d<total?'Виконано '+d+' із '+total+'. ':'')+'⭐ '+r+' з '+total+(r===d&&d>0?' — чудово! 🎉':' — молодець, що старався(-лась)!');
+ if(sent)return;sent=true;this.disabled=true;
+ const who=new URLSearchParams(location.search).get('student')||'Без імені';
+ try{fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},
+  body:JSON.stringify({type:'quiz_result',student:who,testName:NAME,correct:r,answered:d,total:total,wrongList:wrong,flaggedList:[]})});}catch(e){}
+};
+</script>
+</body>
+</html>
