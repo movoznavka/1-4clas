@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ДЗ · Урок 8. Настрій та емоції</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCF0DC;--card:#FFFBF2;--ink:#3A2016;--soft:#8A6552;--line:#BFD7EA;--margin:#E8837A;--shadow:rgba(58,32,22,.4);--cc:#8A5BB5;--ok:#2E8B57;--bad:#D6453D}
+:root:not([data-theme="light"]){color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--margin:#a8544d;--shadow:rgba(0,0,0,.6)}}
+:root[data-theme="dark"]{--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--margin:#a8544d;--shadow:rgba(0,0,0,.6)}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Quicksand',sans-serif;padding:18px 14px 70px;font-size:16px}
+.wrap{max-width:780px;margin:0 auto}
+a.back{color:var(--soft);font-weight:700;text-decoration:none;font-size:14px}
+h1{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(24px,6vw,34px);margin:6px 0 4px}
+.sub{color:var(--soft);font-weight:600;margin:0 0 8px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:6px 0 8px}
+.bar{display:flex;align-items:center;gap:12px;font:800 14px 'Baloo 2',sans-serif}
+.bar i{flex:1;height:10px;border-radius:9px;background:var(--line);overflow:hidden;display:block}
+.bar b{display:block;height:100%;width:0;background:var(--cc);transition:width .3s}
+.card{position:relative;background:var(--card);border-radius:6px 18px 18px 6px;border-left:10px solid var(--cc);padding:16px 18px 16px 48px;margin:16px 0 18px;box-shadow:0 16px 28px -18px var(--shadow);
+background-image:repeating-linear-gradient(transparent 0 25px,var(--line) 25px 26px);background-size:100% 100%}
+.card::before{content:'';position:absolute;left:34px;top:0;bottom:0;width:2px;background:var(--margin);opacity:.6}
+.card h2{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;margin:0 0 4px;line-height:1.25}
+.lab{display:inline-block;background:var(--cc);color:#fff;border-radius:8px;padding:1px 10px;font:800 12px 'Baloo 2',sans-serif;margin-bottom:6px}
+.d{margin:0 0 10px;color:var(--soft);font-weight:600;font-size:14px}
+.story{background:linear-gradient(180deg,#CDE6FF,#FFE9A8);border-radius:18px;padding:14px 16px;margin:14px 0;color:#2a2a2a;font-weight:600;line-height:1.7}
+.story h2{margin:0 0 6px;color:#0B3D8C;font:800 20px 'Baloo 2',sans-serif}
+.q{background:var(--card);border-radius:12px;padding:8px 10px;margin:8px 0;border:2px solid transparent}
+.q.ok{border-color:var(--ok)}.q.bad{border-color:var(--bad)}
+.p{font-weight:700;margin-bottom:6px}
+.ops{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.op,.spk{font:700 15px 'Quicksand',sans-serif;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:7px 14px;cursor:pointer}
+.op.sel{border-color:var(--cc);background:var(--cc);color:#fff}.op.used{opacity:.5}
+.op.good{border-color:var(--ok);background:var(--ok);color:#fff}.op.wrong{border-color:var(--bad);background:var(--bad);color:#fff}
+.ans{font-weight:800;min-height:26px;margin-top:6px;color:var(--cc)}
+.in{width:100%;font:600 16px 'Quicksand',sans-serif;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:8px 10px}
+.in:focus{outline:2px solid var(--cc)}
+.fb{font-size:13px;font-weight:700;margin-top:5px}
+.q.ok .fb{color:var(--ok)}.q.bad .fb{color:var(--bad)}
+.btn{font:800 15px 'Baloo 2',sans-serif;background:var(--cc);color:#fff;border:0;border-radius:999px;padding:9px 22px;cursor:pointer;margin-top:6px}
+.btn.big{font-size:18px;padding:12px 30px;background:var(--ok)}.btn:disabled{opacity:.5}
+.res{text-align:center;font:800 20px 'Baloo 2',sans-serif;background:var(--card);border-radius:18px;padding:18px;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">‹ До зошитів</a>
+  <h1>📝 Домашнє завдання · Урок 8</h1>
+  <p class="sub">Закріплюємо: мені весело / сумно / цікаво; я почуваюся. Згадуємо урок 7.</p>
+  <div class="top">
+    <div class="bar"><span id="st">⭐ 0</span><i><b id="pb"></b></i><span id="pc"></span></div>
+  </div>
+
+  <div id="ex-p"></div>
+  <div class="story"><h2>🎭 Марійка й Андрій</h2>Марійка й Андрій — друзі. Сьогодні Марійці весело: вона йде на свято. Андрієві сумно, бо він хворіє й почувається погано. Марійка каже: — Не сумуй! Ми разом подивимося цікавий мультфільм. Андрієві стало цікаво, і він усміхнувся.</div>
+  <div id="ex-t"></div><div id="ex-r"></div>
+  <div style="text-align:center"><button class="btn big" id="fin">Завершити й надіслати результат</button></div>
+  <div class="res" id="res" style="display:none"></div>
+</div>
+<script>
+const API="https://script.google.com/macros/s/AKfycbwi1AzxlGzRW8HrejKj9aJuB19bgpdrBaKGp0i85SwyYShcp2rf0n5gUnomIBB77LPi/exec";
+const NAME="Урок 8 · Настрій та емоції";
+const C=(p,o,a,e)=>({k:'c',p,o,a,e}),X=(p,...a)=>({k:'t',p,a}),M=(p,o,a)=>({k:'m',p,o,a}),O=(w)=>({k:'o',p:'Збери речення:',w});
+const B=(p,v,e)=>C(p,['Правда','Неправда'],v?0:1,e);
+const D=(w)=>({k:'t',p:'🔊 Послухай і впиши слово',a:[w],sp:w});
+const MY=['Мій','Моя','Моє','Мої'];
+const T=[
+{s:'p',h:'Обери слово',d:'Підстав потрібне слово: мені, тобі, йому, їй, нам, вам, їм.',q:[C('___ весело на святі. (я)',['мені','я','мене'],0),C('___ сумно без друга. (ти)',['тебе','тобі','ти'],1),C('___ цікаво читати. (він)',['його','він','йому'],2),C('___ страшно в темряві. (вона)',['їй','її','вона'],0),C('___ нудно на уроці. (ми)',['нас','нам','ми'],1)]},
+{s:'p',h:'Я почуваюся…',d:'Обери правильну форму слова «почуватися».',q:[C('Я ___ добре.',['почуваюся','почуваєшся','почувається'],0),C('Ти ___ погано?',['почуваюся','почуваєшся','почувається'],1),C('Він ___ спокійно.',['почуваюся','почувається','почуваються'],1),C('Ми ___ радісно.',['почуваємося','почуваєтеся','почуваються'],0),C('Вони ___ весело.',['почуваємося','почуваєтеся','почуваються'],2)]},
+{s:'p',h:'Який настрій?',d:'Обери речення до смайлика.',q:[C('😄',['Мені весело','Мені сумно','Мені нудно'],0),C('😢',['Мені цікаво','Мені весело','Мені сумно'],2),C('🤔',['Мені цікаво','Мені страшно','Мені нудно'],0)]},
+{s:'p',h:'Впиши слово',d:'Впиши потрібне слово.',q:[X('___ весело. (я)','мені'),X('___ сумно. (ти)','тобі'),X('Вона ___ добре. (почуватися)','почувається'),X('Ми ___ спокійно. (почуватися)','почуваємося')]},
+{s:'p',h:'Збери речення',d:'Натискай слова по черзі.',q:[O(['Мені','цікаво','читати','книжки']),O(['Я','почуваюся','добре'])]},
+{s:'p',h:'Диктант',d:'Натисни 🔊, послухай і впиши слово без підказки.',q:[D('весело'),D('сумно'),D('цікаво')]},
+{s:'p',h:'Правда чи неправда?',d:'Швидко: правда чи неправда?',q:[B('Кажемо «Мені весело».',1),B('Кажемо «Я сумно».',0,'Правильно: Мені сумно.'),B('Кажемо «Вона почувається добре».',1)]},
+{s:'t',h:'Читаємо текст «Марійка й Андрій»',d:'Прочитай текст вище й виконай завдання.',q:[C('Кому весело?',['Марійці','Андрієві','нікому'],0),C('Чому Андрієві сумно?',['бо він хворіє','бо він голодний','бо він втратив іграшку'],0),C('Що подивляться діти?',['цікавий мультфільм','новини','нічого'],0),F('Марійка йде на ___ . (одне слово)',['свято']),F('Андрієві стало ___ . (цікаво / нудно)',['цікаво'])]},
+{s:'r',h:'Повтор: уміти, могти, хотіти',d:'З уроку 7.',q:[C('Я ___ (хотіти) співати.',['хочу','хоче','хочуть'],0),C('Вона ___ (уміти) малювати.',['вмію','вміє','вміють'],1),C('Вони ___ (могти) грати.',['можу','можемо','можуть'],2)]}
+];
+function F(p,a){return X(p,...a);}
+const S=T.map(t=>t.q.map(()=>({v:null,n:0,f:null,lock:false})));
+const norm=s=>(s||'').toLowerCase().trim().replace(/[.!?,…]+$/,'').replace(/\s+/g,' ');
+const shuf=a=>a.map(x=>[Math.random(),x]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+['p','t','r'].forEach(sec=>{
+ const el=document.getElementById('ex-'+sec);if(!el)return;
+ el.innerHTML=T.map((t,ti)=>t.s!==sec?'':`<div class="card tk" data-t="${ti}"><span class="lab">Завдання ${ti+1}</span><h2>${t.h}</h2><p class="d">${t.d}</p>`+
+ t.q.map((q,qi)=>`<div class="q" data-q="${qi}"><div class="p">${q.p}${q.sp?` <button class="spk" data-sp="${q.sp}">🔊</button>`:''}</div>`+
+  (q.k==='t'?`<input class="in" autocomplete="off" placeholder="твоя відповідь">`:
+   q.k==='o'?`<div class="ops">${shuf(q.w).map(o=>`<button class="op">${o}</button>`).join('')}</div><div class="ans"></div>`:
+   `<div class="ops">${q.o.map((o,i)=>`<button class="op" data-i="${i}">${o}</button>`).join('')}</div>`)+
+  `<div class="fb"></div></div>`).join('')+`<button class="btn" data-chk="${ti}">Перевірити</button></div>`).join('');
+});
+document.addEventListener('click',e=>{
+ const sp=e.target.closest('.spk');
+ if(sp){try{const u=new SpeechSynthesisUtterance(sp.dataset.sp);u.lang='uk-UA';u.rate=.8;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(x){}return;}
+ const b=e.target.closest('.op');
+ if(b){const row=b.closest('.q'),tk=b.closest('.tk');if(!tk)return;const ti=+tk.dataset.t,qi=+row.dataset.q,s=S[ti][qi],q=T[ti].q[qi];
+  if(s.lock)return;
+  if(q.k==='o'){if(b.classList.contains('used'))return;b.classList.add('used','sel');(s.v=s.v||[]).push(b.textContent);row.querySelector('.ans').textContent=s.v.join(' ');return;}
+  const i=+b.dataset.i;
+  if(q.k==='c'){row.querySelectorAll('.op').forEach(x=>x.classList.remove('sel','wrong'));b.classList.add('sel');s.v=i;}
+  return;}
+ const c=e.target.closest('[data-chk]');if(c)check(+c.dataset.chk);
+});
+function check(ti){
+ const card=document.querySelector(`.tk[data-t="${ti}"]`);
+ T[ti].q.forEach((q,qi)=>{
+  const s=S[ti][qi];if(s.lock)return;
+  const row=card.querySelector(`[data-q="${qi}"]`),fb=row.querySelector('.fb'),inp=row.querySelector('.in');
+  let ok=false,ans='',empty=false;
+  if(q.k==='c'){ok=s.v===q.a;ans=q.o[q.a];empty=s.v===null;}
+  else if(q.k==='t'){ok=q.a.map(norm).indexOf(norm(inp.value))>-1;ans=q.a[0];empty=!inp.value.trim();}
+  else{ok=(s.v||[]).join(' ')===q.w.join(' ');ans=q.w.join(' ');empty=!(s.v||[]).length;}
+  if(empty){fb.textContent='Спочатку дай відповідь';return;}
+  s.n++;if(s.f===null)s.f=ok;
+  row.classList.remove('ok','bad');row.classList.add(ok?'ok':'bad');
+  if(ok){s.lock=true;fb.textContent='✓ Правильно!';if(inp)inp.disabled=true;row.querySelectorAll('.op.sel').forEach(x=>x.classList.add('good'));}
+  else if(s.n>=2){s.lock=true;fb.textContent='Правильна відповідь: '+ans+(q.e?' — '+q.e:'');if(inp)inp.disabled=true;}
+  else{fb.textContent='Ще не те. Спробуй ще раз!';
+   if(q.k==='c')row.querySelectorAll('.op.sel').forEach(x=>{x.classList.remove('sel');x.classList.add('wrong');});
+   if(q.k==='o'){s.v=[];row.querySelectorAll('.op').forEach(x=>x.classList.remove('used','sel'));row.querySelector('.ans').textContent='';}}
+ });
+ upd();
+}
+const total=S.reduce((a,t)=>a+t.length,0);
+function upd(){let r=0,d=0;S.forEach(t=>t.forEach(s=>{if(s.f===true)r++;if(s.f!==null)d++;}));
+ st.textContent='⭐ '+r;pc.textContent=d+'/'+total;pb.style.width=Math.round(d/total*100)+'%';}
+upd();
+let sent=false;
+fin.onclick=function(){
+ let r=0,d=0;const wrong=[];
+ S.forEach((t,ti)=>t.forEach((s,qi)=>{if(s.f!==null)d++;if(s.f===true)r++;if(s.f===false)wrong.push((ti+1)+'.'+(qi+1));}));
+ res.style.display='block';
+ res.innerHTML=(d<total?'Виконано '+d+' із '+total+'. ':'')+'⭐ '+r+' з '+total+(r===d&&d>0?' — чудово! 🎉':' — молодець, що старався(-лась)!');
+ if(sent)return;sent=true;this.disabled=true;
+ const who=new URLSearchParams(location.search).get('student')||'Без імені';
+ try{fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},
+  body:JSON.stringify({type:'quiz_result',student:who,testName:NAME,correct:r,answered:d,total:total,wrongList:wrong,flaggedList:[]})});}catch(e){}
+};
+</script>
+</body>
+</html>
