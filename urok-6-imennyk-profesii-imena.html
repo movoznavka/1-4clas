@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Іменник: професії та імена людей · 2 клас</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCF0DC;--card:#FFFBF2;--ink:#3A2016;--soft:#8A6552;--line:#BFD7EA;--margin:#E8837A;--shadow:rgba(58,32,22,.4);--cc:#D98A1F;--ok:#2E8B57;--bad:#D6453D;--who:#E0592F;--what:#5B6FD6}
+:root:not([data-theme="light"]){color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--margin:#a8544d;--shadow:rgba(0,0,0,.6)}}
+:root[data-theme="dark"]{--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--margin:#a8544d;--shadow:rgba(0,0,0,.6)}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Quicksand',sans-serif;padding:20px 14px 70px;min-height:100%;font-size:16px}
+.wrap{max-width:760px;margin:0 auto}
+a.back{color:var(--soft);font-weight:700;text-decoration:none;font-size:14px}
+h1{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(24px,6vw,34px);margin:8px 0 4px}
+.sub{color:var(--soft);font-weight:600;margin:0 0 14px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:8px 0;display:flex;align-items:center;gap:12px;font:800 14px 'Baloo 2',sans-serif}
+.bar i{flex:1;height:10px;border-radius:9px;background:var(--line);overflow:hidden;display:block}
+.bar b{display:block;height:100%;width:0;background:var(--cc);transition:width .3s}
+.card{position:relative;background:var(--card);border-radius:6px 18px 18px 6px;border-left:10px solid var(--cc);padding:16px 18px 16px 48px;margin:0 0 22px;box-shadow:0 16px 28px -18px var(--shadow);
+background-image:repeating-linear-gradient(transparent 0 25px,var(--line) 25px 26px);background-size:100% 100%}
+.card::before{content:'';position:absolute;left:34px;top:0;bottom:0;width:2px;background:var(--margin);opacity:.6}
+.card h2{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:19px;margin:0 0 4px;line-height:1.25}
+.lab{display:inline-block;background:var(--cc);color:#fff;border-radius:8px;padding:1px 10px;font:800 12px 'Baloo 2',sans-serif;margin-bottom:6px}
+.d{margin:0 0 12px;color:var(--soft);font-weight:600;font-size:14px}
+.rule{background:var(--card);border:2px dashed var(--cc);border-radius:14px;padding:10px 14px;margin:10px 0;font-weight:600}
+.rule b{color:var(--cc)}
+.who{color:var(--who);font-weight:800}.what{color:var(--what);font-weight:800}
+.q{background:var(--card);border-radius:12px;padding:8px 10px;margin:8px 0;border:2px solid transparent}
+.q.ok{border-color:var(--ok)}.q.bad{border-color:var(--bad)}
+.p{font-weight:700;margin-bottom:6px}
+.ops{display:flex;flex-wrap:wrap;gap:8px}
+.op{font:700 15px 'Quicksand',sans-serif;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:7px 14px;cursor:pointer}
+.op.sel{border-color:var(--cc);background:var(--cc);color:#fff}
+.op.good{border-color:var(--ok);background:var(--ok);color:#fff}
+.op.wrong{border-color:var(--bad);background:var(--bad);color:#fff}
+.op:disabled{opacity:.45;cursor:default}
+.op.good:disabled{opacity:.85}
+.in{width:100%;font:600 16px 'Quicksand',sans-serif;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:8px 10px}
+.in:focus{outline:2px solid var(--cc)}
+.fb{font-size:13px;font-weight:700;margin-top:5px}
+.q.ok .fb,.fb.yes{color:var(--ok)}.q.bad .fb,.fb.no{color:var(--bad)}
+.btn{font:800 15px 'Baloo 2',sans-serif;background:var(--cc);color:#fff;border:0;border-radius:999px;padding:9px 22px;cursor:pointer;margin-top:6px}
+.btn.big{font-size:18px;padding:12px 30px;background:var(--ok)}
+.btn.sm{font-size:13px;padding:5px 14px;background:var(--soft)}
+.btn:disabled{opacity:.5;cursor:default}
+.story{background:var(--card);border:2px solid var(--cc);border-radius:14px;padding:12px 14px;margin:8px 0 12px;font-weight:600;line-height:1.7}
+.mas{display:flex;align-items:flex-end;gap:10px;margin:2px 0 10px}
+.em{font-size:46px;line-height:1;display:inline-block}.em.hop{animation:hop .7s}
+@keyframes hop{30%{transform:translateY(-16px) rotate(-8deg)}60%{transform:translateY(0) rotate(6deg)}}
+.bub{background:var(--card);border:2px solid var(--cc);border-radius:16px 16px 16px 4px;padding:8px 12px;font-weight:700;font-size:14px}
+.zoo{font-size:34px;letter-spacing:4px;margin:2px 0 6px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}
+.col{background:var(--card);border-radius:14px;padding:8px 10px;text-align:center}
+.col.w{border:3px solid var(--who)}.col.t{border:3px solid var(--what)}
+.col h3{margin:0;font:800 22px 'Baloo 2',sans-serif}
+.col.w h3{color:var(--who)}.col.t h3{color:var(--what)}
+.col .ex{font-size:30px;margin:2px 0}.col p{margin:2px 0;font-weight:700;font-size:14px}
+.built{min-height:44px;font:800 26px 'Baloo 2',sans-serif;letter-spacing:4px;border-bottom:3px dashed var(--cc);margin:4px 0 8px;color:var(--cc)}
+.built.wdb{font-size:20px;letter-spacing:1px}
+.lt{font:800 20px 'Baloo 2',sans-serif;min-width:44px}
+.op.wd{font:800 16px 'Baloo 2',sans-serif;min-width:0}
+.res{text-align:center;font:800 20px 'Baloo 2',sans-serif;background:var(--card);border-radius:18px;padding:18px;box-shadow:0 16px 28px -18px var(--shadow)}
+/* пари */
+.pr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pc{display:flex;flex-direction:column;gap:7px}
+.pb{text-align:left;width:100%}
+.pb.sel{border-color:var(--what);background:var(--what);color:#fff}
+/* паспорти */
+.ids{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
+@media (max-width:520px){.ids{grid-template-columns:1fr}}
+.idc{background:var(--card);border:3px solid var(--who);border-radius:12px;padding:6px 8px;text-align:center}
+.idc small{display:block;font:800 10px 'Quicksand',sans-serif;letter-spacing:.08em;color:var(--soft);text-transform:uppercase}
+.idc b{font:800 22px 'Baloo 2',sans-serif;color:var(--who)}
+.idc.pt{border-color:var(--what)}.idc.pt b{color:var(--what)}
+.idc.sn{border-color:var(--cc)}.idc.sn b{color:var(--cc)}
+/* країна */
+.sky{display:flex;justify-content:space-between;font-size:28px;letter-spacing:4px;margin:4px 0 0}
+.towns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}
+.town{border-radius:16px;padding:8px 10px;min-height:130px;background:var(--card)}
+.town.sm{border:3px solid var(--what)}.town.bg{border:3px solid var(--who)}
+.town h3{margin:0 0 2px;font:800 15px 'Baloo 2',sans-serif;line-height:1.2}
+.town.sm h3{color:var(--what)}.town.bg h3{color:var(--who)}
+.tally{min-height:26px;font-size:20px;line-height:1.1;word-break:break-all}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{background:var(--bg);border-radius:10px;padding:2px 9px;font-weight:800;font-size:14px;animation:pop .3s}
+@keyframes pop{0%{transform:scale(.3)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+.cargo{text-align:center;background:var(--card);border:3px dashed var(--cc);border-radius:16px;padding:10px;margin:8px 0}
+.cargo .cl{font-weight:700;font-size:13px;color:var(--soft)}
+.cargo .cw{font:800 32px 'Baloo 2',sans-serif;margin:2px 0 6px}
+.go{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.go .btn{margin-top:0}
+.gos{background:var(--what)!important}.gob{background:var(--who)!important}
+.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@media (prefers-reduced-motion:reduce){.em.hop,.chip,.shake{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">‹ До зошитів</a>
+  <h1>Іменник: професії та імена людей</h1>
+  <div class="zoo">🐦 🧭 ⚓ 🗺️ 🧒</div>
+  <p class="sub">2 клас · урок + 16 завдань (приблизно година)</p>
+
+  <div class="card">
+    <span class="lab">Досліджуй</span>
+    <h2>Іменники-професії</h2>
+    <div class="mas"><span class="em">🐦</span><div class="bub">Привіт! Це Щебетунчик. Я мрію попливти на кораблі. Допоможеш мені розібратися, хто працює на судні?</div></div>
+    <div class="cols">
+      <div class="col w"><h3>ХТО?</h3><div class="ex">👨‍✈️ 👩‍🍳 👩‍⚕️</div><p>люди за професією</p><p>капітан, кок, лікар</p></div>
+      <div class="col t"><h3>ЩО?</h3><div class="ex">🧭 🍲 🩺</div><p>предмети, якими вони працюють</p><p>компас, каструля, фонендоскоп</p></div>
+    </div>
+    <div class="rule"><b>Професія</b> — це робота, яку людина вміє й виконує. Назви професій — іменники, вони відповідають на питання <span class="who">хто?</span>: капітан, штурман, боцман, пекар, лікар.<br>Предмети, з якими вони працюють, відповідають на питання <span class="what">що?</span>: штурвал, ножиці, скрипка.</div>
+  </div>
+
+  <div id="tasks"></div>
+  <div style="text-align:center"><button class="btn big" id="fin">Завершити й надіслати результат</button></div>
+  <div class="res" id="res" style="display:none;margin-top:20px"></div>
+</div>
+<script>
+const API="https://script.google.com/macros/s/AKfycbwi1AzxlGzRW8HrejKj9aJuB19bgpdrBaKGp0i85SwyYShcp2rf0n5gUnomIBB77LPi/exec";
+const NAME="Іменник: професії та імена людей";
+const C=(p,o,a)=>({k:'c',p,o,a}),X=(p,...a)=>({k:'t',p,a}),M=(p,o,a)=>({k:'m',p,o,a});
+const Z=(p,...a)=>({k:'z',p,a}),F=(p,r)=>({k:'f',p,r}),N=(p,min)=>({k:'n',p,min});
+const B=(p,w)=>({k:'b',p,u:w.split(''),sep:'',a:[w]});
+const W=(p,u,...alts)=>({k:'b',p,u,sep:' ',a:[u.join(' ')].concat(alts)});
+const P=(p,L,R)=>({k:'p',p,L,R});
+const L=(w,a,h)=>({k:'l',p:w,a,h});
+const HS=['ХТО?','ЩО?'];
+const H=(w,a)=>C(w,HS,a);
+const HP='Це ім’я, по батькові чи прізвище конкретної людини (або героя) — таке слово пишемо з великої літери.';
+const HC='Це назва професії чи людини взагалі, а не ім’я однієї конкретної людини — пишемо з малої літери.';
+const T=[
+{h:'Шифр капітана',a:'🐦',m:'Лист від капітана зашифрований: літери перемішалися! Допоможеш його прочитати?',d:'Склади слово з літер, натискаючи на них по порядку. Можна стерти останню літеру.',q:[
+ B('Хто прокладає курс корабля? 🧭','штурман'),
+ B('Хто стежить за порядком на судні? ⚓','боцман'),
+ B('Хто готує їжу для команди? 🍲','кок'),
+ B('Хто виконує роботу на палубі? 🧹','матрос'),
+ B('Хто керує всім кораблем? 🚢','капітан')]},
+{h:'Хто що робить?',a:'👩‍🍳',m:'У кожної професії своя справа. Обери професію зліва, а потім — що вона робить справа.',d:'З’єднай пари: спочатку натисни зліва, потім справа.',q:[
+ P('З’єднай професію з її справою:',['пекар','лікар','вчитель','кухар','будівельник','пожежник'],['випікає хліб','лікує хворих','навчає дітей','готує обід','будує будинки','гасить пожежу'])]},
+{h:'Знайди зайве слово',a:'🦉',m:'Я сова. Три слова відповідають на одне питання, а одне — на інше. Знайди його!',d:'Обери слово, яке не підходить до решти.',q:[
+ C('Зайве слово:',['лікар','пекар','ложка','кухар'],2),
+ C('Зайве слово:',['капітан','штурвал','матрос','боцман'],1),
+ C('Зайве слово:',['ножиці','гребінець','перукар','мікрофон'],2),
+ C('Зайве слово:',['співак','художник','пензлик','вчитель'],2)]},
+{h:'Предмети й професії',a:'📖',m:'Я Читалочка. Кожна професія має свої інструменти. Знайди, кому що потрібно!',d:'З’єднай предмет із людиною, яка ним працює. Потім склади речення.',q:[
+ P('З’єднай предмет і професію:',['✂️ ножиці','🎤 мікрофон','🎻 скрипка','🩺 фонендоскоп','🖌️ пензлик'],['перукар','співак','скрипаль','лікар','художник']),
+ F('Склади речення про один із предметів і людину, яка ним працює (наприклад: «Ножицями працює перукар.»):','.')]},
+{h:'Чим пахне професія?',a:'👃',m:'Читалочка каже, що професії «пахнуть». Прочитай і перевір, чи вона має рацію.',story:'<b>Чим пахне професія?</b><br>Оленка й Тарас сперечалися на перерві.<br>— Моя мама пахне свіжим хлібом, — сказала Оленка. — Вона пекар.<br>— А моя мама пахне м’ятними краплями, — відповів Тарас. — Вона лікар.<br>— А мій тато пахне фарбою, — додала Оленка. — Він маляр.<br>— Виходить, професії мають свій запах! — зрадів Тарас.',d:'Відповіді шукай у тексті.',q:[
+ C('Ким працює мама Оленки?',['пекар','лікар','маляр'],0),
+ C('Чим пахне Тарасова мама?',['хлібом','м’ятними краплями','фарбою'],1),
+ C('Ким працює Оленин тато?',['пекар','лікар','маляр'],2),
+ M('Познач усі слова, що відповідають на питання ХТО?',['мама','хліб','пекар','фарба','тато','лікар'],[0,2,4,5]),
+ F('Чим пахне професія твоєї мами чи тата? Напиши 1–2 речення.','.')]},
+{h:'Склади речення про професію',a:'🍞',m:'Слова розбіглися, як матроси по палубі. Збери їх у речення!',d:'Натискай на слова по порядку. Не забудь про крапку в кінці.',q:[
+ W('Склади речення:',['Пекар','випікає','запашний','хліб.'],'Запашний хліб випікає пекар.'),
+ W('Склади речення:',['Лікар','лікує','хворих','дітей.']),
+ W('Склади речення:',['Кухар','готує','обід','для','команди.'],'Обід для команди готує кухар.'),
+ W('Склади речення:',['Капітан','керує','великим','кораблем.'],'Великим кораблем керує капітан.')]},
+
+{h:'Власні й загальні назви',c:'#8A5BB5',theory:`
+ <div class="mas"><span class="em">⚓</span><div class="bub">Я Ґаджик, помічник капітана. Знайомтеся: корабельна команда! Зверни увагу, як записані імена.</div></div>
+ <div class="ids">
+  <div class="idc"><small>Ім’я</small><b>Іван</b></div>
+  <div class="idc pt"><small>По батькові</small><b>Васильович</b></div>
+  <div class="idc sn"><small>Прізвище</small><b>Кузьменко</b></div>
+ </div>
+ <div class="rule"><b>Імена, по батькові та прізвища</b> людей пишемо з <b>великої букви</b>: <b>Іван Васильович Кузьменко</b>. Вони називають одну певну людину — це <b>власні назви</b>.<br>Слова <b>капітан, кок, хлопчик, лікар</b> називають багатьох людей — це <b>загальні назви</b>. Їх пишемо з малої літери.</div>
+ <div class="rule"><b>Як утворити по батькові?</b> Візьми ім’я тата й додай закінчення: синові — <b>-ович</b>, доньці — <b>-івна</b>.<br>Тато Роман → <b>Андрій Романович</b>, <b>Оленка Романівна</b>.</div>
+ <div class="rule"><b>Словник.</b> <b>Сім’я</b> — близькі родичі, які живуть разом: мама, тато, діти, бабуся, дідусь.</div>`,q:[]},
+
+{h:'Країна Іменників',a:'🗺️',m:'Ласкаво просимо до Країни Іменників! Тут два міста, і кожне слово шукає свій дім.',land:true,d:'Подивись, хто прийшов, і відправ його в потрібне місто: слова-імена — до Міста Великих Літер, а загальні слова — до Міста малих літер.',q:[
+ L('лікар',0,HC),L('іван',1,HP),L('кузьменко',1,HP),L('боцман',0,HC),L('хлопчик',0,HC),L('оленка',1,HP),L('пекар',0,HC),
+ L('васильович',1,HP),L('капітан',0,HC),L('щебетунчик',1,HP),L('учителька',0,HC),L('родзинка',1,HP),L('дівчинка',0,HC),L('гордійчук',1,HP)]},
+
+{h:'Проведи дослідження',a:'🔎',m:'Ми детективи слів! Розберемося, що означають слова з листа капітана.',d:'Обери правильну відповідь.',q:[
+ C('Що називає слово «Іван»?',['ім’я','по батькові','прізвище'],0),
+ C('Що називає слово «Васильович»?',['ім’я','по батькові','прізвище'],1),
+ C('Що називає слово «Кузьменко»?',['ім’я','по батькові','прізвище'],2),
+ C('З якої букви пишемо імена, по батькові та прізвища людей?',['з малої','з великої','з будь-якої'],1),
+ C('Чому слово «кок» пишемо з малої, а «Дмитро» — з великої?',['«кок» — професія, а «Дмитро» — ім’я конкретної людини','бо слово «кок» коротке','бо «Дмитро» довше'],0)]},
+{h:'Як записати правильно?',a:'✅',m:'Хтось із матросів записав імена по-різному. Обери правильний запис.',d:'У кожному рядку лише один запис правильний.',q:[
+ C('Обери правильно:',['Тарас Петрович Шевченко','тарас петрович шевченко','Тарас петрович Шевченко'],0),
+ C('Обери правильно:',['Леся українка','Леся Українка','леся Українка'],1),
+ C('Обери правильно:',['іван франко','Іван франко','Іван Франко'],2),
+ C('Обери правильно:',['Ліна Костенко','ліна Костенко','Ліна костенко'],0)]},
+{h:'Виправ помилки в тексті',a:'🖍️',m:'Тут усі слова записані з малої літери. Познач ті, що мають бути з великої!',d:'Пам’ятай: перше слово речення теж пишемо з великої.',q:[
+ M('Познач слова, які треба писати з великої літери:',['друзі','попросили','капітана','познайомити','їх','з','командою.','боцман','сергій','степанович','гордійчук','стежить','за','порядком.'],[0,7,8,9,10]),
+ M('Познач слова, які треба писати з великої літери:',['мою','бабусю','звати','ніна','петрівна.'],[0,3,4])]},
+{h:'Паспорти команди',a:'🪪',m:'Ґаджик оформлює паспорти. Перепиши кожне ім’я правильно — з великих літер.',d:'Напиши ім’я, по батькові й прізвище так, як треба писати.',q:[
+ Z('штурман: ігор петрович хвильовий','Ігор Петрович Хвильовий'),
+ Z('боцман: сергій степанович гордійчук','Сергій Степанович Гордійчук'),
+ Z('кок: дмитро романович борщенко','Дмитро Романович Борщенко'),
+ Z('капітан: іван васильович кузьменко','Іван Васильович Кузьменко')]},
+{h:'Задачка для Щебетунчика',a:'🐦',m:'Допоможи мені! Я знаю ім’я тата, а по батькові дитини не пам’ятаю.',d:'Утвори по батькові: синові додай -ович, доньці -івна. Напиши ім’я та по батькові з великих літер.',q:[
+ Z('Тато Андрійка — Роман. Запиши ім’я та по батькові Андрійка:','Андрій Романович','Андрійко Романович'),
+ Z('Тато Оленки — Сергій. Запиши ім’я та по батькові Оленки:','Олена Сергіївна','Оленка Сергіївна'),
+ Z('Тато Тараса — Іван. Запиши ім’я та по батькові Тараса:','Тарас Іванович'),
+ Z('Тато Соломійки — Олег. Запиши ім’я та по батькові Соломійки:','Соломія Олегівна','Соломійка Олегівна')]},
+{h:'Наш клас — як сім’я',a:'👨‍👩‍👧',m:'Капітан назвав команду сім’єю. А чи може сім’єю бути клас? Прочитай.',story:'<b>Наш клас — як сім’я</b><br>Мій клас — наче велика родина. Вчителька Ірина Миколаївна піклується про нас, як мама. Однокласники для мене — як брати й сестри. Ми разом святкуємо дні народження й допомагаємо одне одному. Найбільше я дружу з Тарасом Коваленком.',d:'Прочитай текст і дай відповіді.',q:[
+ C('Як вчителька піклується про клас?',['як мама','як сусідка','як лікар'],0),
+ C('Яке по батькові в учительки?',['Миколаївна','Ірина','Коваленко'],0),
+ C('Яке прізвище в друга автора?',['Тарас','Коваленко','Ірина'],1),
+ M('Познач усі іменники, які відповідають на питання ХТО?',['клас','вчителька','мама','дні','друг'],[1,2,4]),
+ C('Чому клас можна назвати сім’єю?',['бо в ньому всі дбають одне про одного','бо клас маленький','бо діти живуть у школі'],0)]},
+{h:'Моя візитка',a:'🧒',m:'Тепер твоя черга! Напиши імена людей так, щоб капітан був задоволений.',d:'Кожне слово пиши з великої літери. Решта букв — малі.',q:[
+ N('Напиши своє ім’я, по батькові та прізвище:',3),
+ N('Напиши ім’я та по батькові своєї вчительки або свого вчителя:',2),
+ N('Напиши ім’я та прізвище найкращого друга чи подруги:',2)]},
+{h:'Складаю сам(а)',a:'🐯',m:'Я тигр. Покажи, як ти вмієш складати речення про людей!',d:'Почни з великої літери, а в кінці постав знак. Пиши щонайменше 15 букв.',q:[
+ F('Напиши 2–3 речення про те, ким працюють твої батьки або знайомі тобі люди:','.'),
+ F('Напиши 2–3 речення про друга чи подругу: як його звати і що ви любите робити разом:','.')]},
+{h:'Фінальна гра',a:'🏆',m:'Остання гра в цій країні! Відповідай уважно — і ти справжній знавець іменників.',d:'Обери правильний запис або питання.',q:[
+ C('Як записати?',['Мого друга звуть Тарас.','Мого друга звуть тарас.'],0),
+ C('Як записати?',['На кораблі працює Кок.','На кораблі працює кок.'],1),
+ C('Як записати?',['Прізвище капітана — Кузьменко.','Прізвище капітана — кузьменко.'],0),
+ C('Як записати?',['Пекар Дмитро Іванович випікає хліб.','Пекар дмитро іванович випікає хліб.'],0),
+ C('Як записати?',['Моя вчителька — Ірина Миколаївна.','Моя Вчителька — ірина миколаївна.'],0),
+ C('Як записати?',['Мій тато працює Лікарем.','Мій тато працює лікарем.'],1),
+ H('штурвал',1),H('штурман',0),H('перукар',0),H('ножиці',1)]}
+];
+const COL=['#D98A1F','#3F8F5B','#5B6FD6','#E0592F','#8A5BB5'];
+const shufA=a=>{const r=a.slice(),o=r.join('|');if(r.length<2)return r;let n=0;do{for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}n++;}while(r.join('|')===o&&n<20);return r;};
+const shufI=n=>shufA(Array.from({length:n},(_,i)=>i));
+const S=T.map(t=>t.q.map(q=>({v:null,n:0,f:null,lock:false,st:[],sel:null,got:0,err:0,perm:q.k==='p'?shufI(q.R.length):null})));
+const norm=s=>(s||'').toLowerCase().trim().replace(/[.!?,…]+$/,'').replace(/\s+/g,' ');
+const nz=s=>(s||'').trim().replace(/\s+/g,' ').replace(/[.!?]+$/,'');
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const box=document.getElementById('tasks');
+const NO=[];let nm=0;
+box.innerHTML=T.map((t,ti)=>{
+ if(t.theory)return `<div class="card" style="--cc:${t.c||'#D98A1F'}"><span class="lab">Досліджуй</span><h2>${t.h}</h2>${t.theory}</div>`;
+ nm++;NO[ti]=nm;
+ const head=`<span class="lab">Завдання ${nm}</span><h2>${t.h}</h2>${t.a?`<div class="mas"><span class="em">${t.a}</span><div class="bub">${t.m}</div></div>`:''}<p class="d">${t.d}</p>${t.story?`<div class="story">${t.story}</div>`:''}`;
+ const cs=`<div class="card" data-t="${ti}" style="--cc:${COL[(nm-1)%5]}">`;
+ if(t.land)return cs+head+`<div class="sky"><span>☁️</span><span>🌳</span><span>☁️</span></div>
+  <div class="towns"><div class="town sm"><h3>🏠 Місто малих літер</h3><div class="tally" data-tally="0"></div><div class="chips" data-town="0"></div></div>
+  <div class="town bg"><h3>🏰 Місто Великих Літер</h3><div class="tally" data-tally="1"></div><div class="chips" data-town="1"></div></div></div>
+  <div class="cargo"><div class="cl">Новий мешканець шукає дім:</div><div class="cw" data-cw></div>
+  <div class="go"><button class="btn gos" data-go="0">🏠 мала літера</button><button class="btn gob" data-go="1">🏰 Велика літера</button></div><div class="fb" data-lfb></div></div></div>`;
+ const rows=t.q.map((q,qi)=>{
+  let inner;
+  if(q.k==='t'||q.k==='z')inner=`<input class="in" autocomplete="off" placeholder="${q.k==='z'?'пиши з великих літер, де треба':'твоя відповідь'}">`;
+  else if(q.k==='n')inner=`<input class="in" autocomplete="off" placeholder="напиши тут">`;
+  else if(q.k==='f')inner=`<textarea class="in" rows="2" placeholder="напиши речення"></textarea>`;
+  else if(q.k==='b')inner=`<div class="built${q.sep?' wdb':''}"></div><div class="ops">${shufA(q.u).map(l=>`<button class="op lt${q.sep?' wd':''}">${l}</button>`).join('')}<button class="btn sm" data-undo>↩ стерти</button></div>`;
+  else if(q.k==='p')inner=`<div class="pr"><div class="pc">${q.L.map((x,i)=>`<button class="op pb" data-pl="${i}">${x}</button>`).join('')}</div><div class="pc">${S[ti][qi].perm.map(j=>`<button class="op pb" data-pr="${j}">${q.R[j]}</button>`).join('')}</div></div>`;
+  else inner=`<div class="ops">${q.o.map((o,i)=>`<button class="op" data-i="${i}">${o}</button>`).join('')}</div>`;
+  return `<div class="q" data-q="${qi}"><div class="p">${q.p}</div>${inner}<div class="fb"></div></div>`;}).join('');
+ return cs+head+rows+(t.q.some(q=>q.k!=='p')?`<button class="btn" data-chk="${ti}">Перевірити</button>`:'')+`</div>`;
+}).join('');
+
+function bUpd(row,s,q){const v=s.st.map(b=>b.textContent).join(q.sep);row.querySelector('.built').textContent=v;s.v=v;}
+function landNext(ti){return T[ti].q.findIndex((q,qi)=>!S[ti][qi].lock);}
+function landShow(ti){
+ const card=box.querySelector(`[data-t="${ti}"]`),i=landNext(ti),w=card.querySelector('[data-cw]'),go=card.querySelector('.go');
+ if(i<0){w.textContent='Усі слова вдома! 🎉';go.style.display='none';}else{w.textContent=T[ti].q[i].p;go.style.display='';}
+}
+function landPlace(card,q){
+ const tw=card.querySelector(`.chips[data-town="${q.a}"]`),c=document.createElement('span');
+ c.className='chip';c.textContent=q.a?cap(q.p):q.p;tw.appendChild(c);
+ card.querySelector(`[data-tally="${q.a}"]`).textContent=(q.a?'🏰':'🏠').repeat(tw.children.length);
+}
+function refreshBubble(ti){
+ const card=box.querySelector(`[data-t="${ti}"]`),ss=S[ti],bub=card.querySelector('.bub'),em=card.querySelector('.em');
+ if(!bub)return;
+ const done=ss.every(x=>x.lock),good=ss.every(x=>x.f===true);
+ if(done){bub.textContent=good?'Ура, ти молодець! 🎉':'Гарна робота! Запам’ятай правильні відповіді 💛';if(good&&em){em.classList.remove('hop');void em.offsetWidth;em.classList.add('hop');}}
+ else if(ss.some(x=>x.f===false&&!x.lock))bub.textContent='Не здавайся — спробуй ще раз! 💪';
+}
+box.addEventListener('click',e=>{
+ const g=e.target.closest('[data-go]');
+ if(g){
+  const card=g.closest('.card'),ti=+card.dataset.t,i=landNext(ti);if(i<0)return;
+  const q=T[ti].q[i],s=S[ti][i],fb=card.querySelector('[data-lfb]'),ch=+g.dataset.go;
+  s.n++;
+  if(ch===q.a){if(s.f===null)s.f=true;s.lock=true;landPlace(card,q);fb.className='fb yes';fb.textContent='✓ Правильно! '+(q.a?cap(q.p)+' — з великої літери.':'«'+q.p+'» — з малої літери.');}
+  else{
+   if(s.f===null)s.f=false;
+   if(s.n>=2){s.lock=true;landPlace(card,q);fb.className='fb no';fb.textContent='Це '+(q.a?'Місто Великих Літер':'Місто малих літер')+'. '+q.h;}
+   else{fb.className='fb no';fb.textContent='Ще не те. Підказка: '+q.h;const cg=card.querySelector('.cargo');cg.classList.remove('shake');void cg.offsetWidth;cg.classList.add('shake');}
+  }
+  landShow(ti);refreshBubble(ti);upd();return;
+ }
+ const pb=e.target.closest('.pb');
+ if(pb){
+  if(pb.disabled)return;
+  const row=pb.closest('.q'),ti=+row.closest('.card').dataset.t,qi=+row.dataset.q,s=S[ti][qi],q=T[ti].q[qi],fb=row.querySelector('.fb');
+  if(s.lock)return;
+  if(pb.dataset.pl!==undefined){row.querySelectorAll('[data-pl]').forEach(x=>x.classList.remove('sel'));pb.classList.add('sel');s.sel=+pb.dataset.pl;return;}
+  if(s.sel===null){fb.textContent='Спочатку обери слово зліва';return;}
+  const j=+pb.dataset.pr,left=row.querySelector(`[data-pl="${s.sel}"]`);
+  if(j===s.sel){
+   pb.disabled=true;left.disabled=true;pb.classList.add('good');left.classList.add('good');left.classList.remove('sel');s.got++;s.sel=null;fb.textContent='З’єднано: '+s.got+' з '+q.L.length;
+   if(s.got===q.L.length){s.lock=true;s.f=(s.err===0);row.classList.add(s.err?'bad':'ok');fb.textContent=s.err?'Усі пари з’єднано! Наступного разу спробуй без помилок 💛':'✓ Усі пари правильні!';refreshBubble(ti);upd();}
+  }else{
+   s.err++;pb.classList.add('wrong');setTimeout(()=>pb.classList.remove('wrong'),500);left.classList.remove('sel');s.sel=null;fb.textContent='Ні, ця пара не підходить. Спробуй ще!';
+  }
+  return;
+ }
+ const row=e.target.closest('.q');
+ if(row){const ti=+row.closest('.card').dataset.t,qi=+row.dataset.q,s=S[ti][qi],q=T[ti].q[qi];
+  if(q.k==='b'&&!s.lock){
+   const l=e.target.closest('.lt');
+   if(l&&!l.disabled){l.disabled=true;s.st.push(l);bUpd(row,s,q);return;}
+   if(e.target.closest('[data-undo]')){const b=s.st.pop();if(b)b.disabled=false;bUpd(row,s,q);return;}
+  }
+  const b=e.target.closest('.op:not(.lt)');
+  if(b){if(s.lock)return;const i=+b.dataset.i;
+   if(q.k==='c'){row.querySelectorAll('.op').forEach(x=>x.classList.remove('sel','wrong'));b.classList.add('sel');s.v=i;}
+   else{s.v=s.v||[];const k=s.v.indexOf(i);k>-1?s.v.splice(k,1):s.v.push(i);b.classList.toggle('sel');b.classList.remove('wrong');}
+   return;}
+ }
+ const c=e.target.closest('[data-chk]');if(c)check(+c.dataset.chk);
+});
+function check(ti){
+ const card=box.querySelector(`[data-t="${ti}"]`);
+ T[ti].q.forEach((q,qi)=>{
+  const s=S[ti][qi];if(s.lock)return;
+  const row=card.querySelector(`[data-q="${qi}"]`),fb=row.querySelector('.fb'),inp=row.querySelector('.in');
+  if(q.k==='p'){fb.textContent='З’єднай усі пари';return;}
+  const val=inp?inp.value:'';
+  if(((q.k==='t'||q.k==='z'||q.k==='f'||q.k==='n')&&!val.trim())||(q.k==='c'&&s.v===null)||(q.k==='b'&&!s.v)||(q.k==='m'&&!(s.v||[]).length)){fb.textContent='Спочатку дай відповідь';return;}
+  let ok=false,ans='',msg='';
+  if(q.k==='c'){ok=s.v===q.a;ans=q.o[q.a];}
+  else if(q.k==='m'){const v=(s.v||[]).slice().sort().join();ok=v===q.a.slice().sort().join();ans=q.a.map(i=>q.o[i]).join(', ');}
+  else if(q.k==='t'){ok=q.a.map(norm).indexOf(norm(val))>-1;ans=q.a[0];}
+  else if(q.k==='z'){ok=q.a.map(nz).indexOf(nz(val))>-1;ans=q.a[0];if(!ok&&q.a.some(x=>nz(x).toLowerCase()===nz(val).toLowerCase()))msg='Майже! Перевір великі літери.';}
+  else if(q.k==='b'){ok=q.a.indexOf(s.v)>-1;ans=q.a[0];}
+  else if(q.k==='n'){
+   const w=val.trim().split(/\s+/),re=/^[А-ЯІЇЄҐ][а-яіїєґ'’ʼ]+(-[А-ЯІЇЄҐ][а-яіїєґ'’ʼ]+)*$/;
+   if(w.length<q.min)msg='Напиши всі слова ('+q.min+').';
+   else if(!w.every(x=>re.test(x)))msg='Кожне слово — з великої літери, а решта букв малі!';
+   else ok=true;
+  }else{
+   const raw=val.trim();
+   if(raw.length<15)msg='Напиши трохи більше — хоча б 15 букв.';
+   else if(!/^[А-ЯІЇЄҐ]/.test(raw))msg='Почни речення з великої літери!';
+   else if(!/[.!?…]$/.test(raw))msg='Не забудь поставити знак у кінці.';
+   else if(q.r&&!new RegExp(q.r,'i').test(raw))msg='Перевір, чи є в реченні потрібне слово.';
+   else ok=true;
+  }
+  s.n++;if(s.f===null)s.f=ok;
+  row.classList.remove('ok','bad');row.classList.add(ok?'ok':'bad');
+  const resetB=()=>{if(q.k==='b'){s.st.forEach(b=>b.disabled=false);s.st=[];bUpd(row,s,q);}};
+  if(ok){s.lock=true;fb.textContent='✓ Правильно!';if(inp)inp.disabled=true;
+   if(q.k==='c'||q.k==='m')row.querySelectorAll('.op.sel').forEach(x=>x.classList.add('good'));
+   if(q.k==='b')row.querySelectorAll('.lt').forEach(x=>x.disabled=true);}
+  else if(s.n>=2&&q.k!=='f'&&q.k!=='n'){s.lock=true;fb.textContent='Правильна відповідь: '+ans;if(inp)inp.disabled=true;
+   if(q.k==='b'){resetB();row.querySelector('.built').textContent=ans;row.querySelectorAll('.lt').forEach(x=>x.disabled=true);}}
+  else{fb.textContent=msg||'Ще не те. Спробуй ще раз!';
+   if(q.k==='c')row.querySelectorAll('.op.sel').forEach(x=>{x.classList.remove('sel');x.classList.add('wrong');});
+   resetB();}
+ });
+ refreshBubble(ti);upd();
+}
+const total=S.reduce((a,t)=>a+t.length,0);
+const bar=document.createElement('div');bar.className='bar';bar.innerHTML='<span id="st">⭐ 0</span><i><b id="pb"></b></i><span id="rn">🐢</span><span id="pc">0/'+total+'</span>';
+document.querySelector('.sub').after(bar);
+function upd(){let r=0,d=0;S.forEach(t=>t.forEach(s=>{if(s.f===true)r++;if(s.f!==null)d++;}));
+ document.getElementById('st').textContent='⭐ '+r;document.getElementById('pc').textContent=d+'/'+total;
+ const pc=Math.round(d/total*100);document.getElementById('pb').style.width=pc+'%';document.getElementById('rn').textContent=pc>=100?'🏆':pc>=66?'🐇':pc>=33?'🐿️':'🐢';}
+T.forEach((t,ti)=>{if(t.land)landShow(ti);});
+let sent=false;
+document.getElementById('fin').onclick=function(){
+ let r=0,d=0;const wrong=[];
+ S.forEach((t,ti)=>t.forEach((s,qi)=>{if(s.f!==null)d++;if(s.f===true)r++;if(s.f===false)wrong.push(NO[ti]+'.'+(qi+1));}));
+ const res=document.getElementById('res');res.style.display='block';
+ res.innerHTML=(d<total?'Виконано '+d+' із '+total+'. ':'')+'⭐ '+r+' з '+total+(r===d&&d>0?' — чудово! 🎉':' — ти молодець, дякую за старання! 🌟');
+ res.scrollIntoView({behavior:'smooth'});
+ if(sent)return;sent=true;this.disabled=true;
+ const who=new URLSearchParams(location.search).get('student')||'Без імені';
+ try{fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},
+  body:JSON.stringify({type:'quiz_result',student:who,testName:NAME,correct:r,answered:d,total:total,wrongList:wrong,flaggedList:[]})});}catch(e){}
+};
+</script>
+</body>
+</html>
