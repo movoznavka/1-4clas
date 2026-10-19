@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Корінь слова · 3 клас</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCF0DC;--card:#FFFBF2;--ink:#3A2016;--soft:#8A6552;--line:#BFD7EA;--shadow:rgba(58,32,22,.4);--red:#E5484D;--ok:#2E8B57;--cc:#3F8F5B;--paper:#FFF6DC}
+:root:not([data-theme="light"]){color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--shadow:rgba(0,0,0,.6);--cc:#5DB27A}}
+:root[data-theme="dark"]{--bg:#241812;--card:#33241c;--ink:#fbeedd;--soft:#c9a98f;--line:#4a5d70;--shadow:rgba(0,0,0,.6);--cc:#5DB27A}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:600 16px 'Quicksand',sans-serif;padding:env(safe-area-inset-top,0px) 16px 70px}
+.wrap{max-width:860px;margin:0 auto}button{font-family:inherit;cursor:pointer}
+.bar{position:sticky;top:0;z-index:20;background:var(--bg);padding:10px 0 8px}
+.bar-in{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:999px;padding:8px 16px;box-shadow:0 8px 18px -12px var(--shadow)}
+.track{flex:1;height:12px;border-radius:99px;background:var(--line);overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,#7bd389,var(--cc));transition:width .5s}
+.stars{font:800 17px 'Baloo 2';white-space:nowrap}.stars.pop{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.35)}}
+.hero{background:linear-gradient(135deg,#17222d,#27394b);color:#fff;border-radius:26px;padding:26px 24px;margin:12px 0 22px;position:relative;overflow:hidden}
+.hero h1{font:800 clamp(30px,8vw,44px)/1.05 'Baloo 2';margin:8px 0 4px}.hero h1 span{display:block;font-weight:600;font-style:italic;color:#ffd86b;font-size:.75em}
+.hero ul{list-style:none;padding:0;margin:14px 0;display:grid;gap:6px}.hero .deco{position:absolute;right:14px;top:10px;font-size:80px;transform:rotate(-12deg)}
+.hero .goal{background:rgba(255,255,255,.92);color:#17222d;border-radius:18px;padding:12px 16px}
+.step{background:var(--card);border-radius:22px;padding:20px;margin:0 0 22px;box-shadow:0 16px 28px -18px var(--shadow);border-top:8px solid var(--cc);scroll-margin-top:80px}
+.sh2{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.num{flex:none;width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--card);display:grid;place-items:center;font:800 20px 'Baloo 2'}
+.sh2 h2{flex:1;margin:0;font:800 21px/1.15 'Baloo 2'}.time{font-size:12px;color:var(--soft);white-space:nowrap}
+.task{margin:6px 0 14px;color:var(--soft)}
+.tip{background:rgba(224,170,60,.18);border-radius:16px;padding:10px 14px;margin-top:14px;font-size:14px}
+.fb{min-height:24px;margin-top:12px;font-weight:700}.fb.good{color:var(--ok)}.fb.bad{color:var(--red)}
+.shake{animation:shake .4s}@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.btn{border:none;background:var(--cc);color:#fff;border-radius:16px;padding:12px 22px;font:800 16px 'Baloo 2';box-shadow:0 6px 0 rgba(0,0,0,.2);margin-top:10px}
+.env{text-align:center}.env .big{font-size:90px;display:block}
+.papers{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:6px 0 16px}
+.paper{background:var(--paper);color:#3A2016;padding:12px 26px;border-radius:4px;font:800 26px 'Baloo 2';box-shadow:0 8px 14px -8px var(--shadow)}
+.choice{display:grid;gap:10px}.opts-row{display:flex;flex-wrap:wrap;gap:10px}
+.opt{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:12px 16px;text-align:left;font:700 16px 'Quicksand'}
+.opt.right{border-color:var(--ok);background:rgba(46,139,87,.16)}.opt.wrong{border-color:var(--red);background:rgba(229,72,77,.12)}.opt.sel{border-color:var(--cc);background:rgba(63,143,91,.18)}
+.forest{font-size:32px;text-align:center;background:linear-gradient(#cfe9ff,#e8f6df);border-radius:16px 16px 0 0;padding:10px 0 0}
+.words2{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;background:linear-gradient(#e8f6df,#bfe0a6);padding:14px 10px 18px;border-radius:0 0 16px 16px}
+.w2{background:#fffdf5;color:#3A2016;border-radius:12px;padding:10px 14px;font:800 24px 'Baloo 2';display:flex}
+.seg{cursor:pointer;border-bottom:3px solid transparent}.seg.root{color:#C0392B;border-bottom-color:#C0392B}
+.rootbig{display:inline-block;margin-top:14px;background:#17222d;color:#fff;border-radius:99px;padding:8px 26px;font:800 24px 'Baloo 2'}.center{text-align:center}
+/* LEGO */
+.table{background:#e9c58f;border-radius:16px;padding:18px 16px;display:grid;gap:22px}
+.pool,.tray{display:flex;flex-wrap:wrap;gap:22px 14px;min-height:56px;padding-top:8px}
+.tray{border:3px dashed rgba(58,32,22,.4);border-radius:14px;padding:18px 10px 10px;align-items:center}
+.tray:empty::before{content:'Сюди складай слова-родичі';color:#6b4a35;font-size:14px}
+.brick{--b:#C0392B;position:relative;border:none;border-radius:4px 4px 6px 6px;padding:14px 22px 12px;color:#fff;font:800 18px 'Baloo 2';background:linear-gradient(rgba(255,255,255,.18),rgba(0,0,0,.12)),var(--b);box-shadow:inset 0 -5px 0 rgba(0,0,0,.25),0 5px 0 rgba(0,0,0,.35);text-shadow:0 1px 2px rgba(0,0,0,.4);transition:transform .15s}
+.brick::before{content:'';position:absolute;left:8px;right:8px;top:-8px;height:9px;background:radial-gradient(ellipse 9px 5px at 50% 55%,var(--b) 96%,transparent) 0 0/26px 9px repeat-x;filter:brightness(1.15)}
+.brick:hover:not(:disabled){transform:translateY(-3px)}.brick u{text-decoration:none;border-bottom:3px solid #ffd86b}.brick:disabled{cursor:default}
+.brick.base{justify-self:start;--b:#17222d;font-size:24px}
+/* риби */
+.pond{background:radial-gradient(circle at 20% 90%,rgba(255,255,255,.25) 0 6px,transparent 7px),linear-gradient(#8fd0ee,#2d86b8);border-radius:18px;padding:18px 10px;display:flex;flex-wrap:wrap;gap:6px 10px;justify-content:center;min-height:150px}
+.fish{border:none;background:none;padding:0;width:132px;transition:transform .2s;animation:swim 3s ease-in-out infinite;filter:drop-shadow(0 4px 4px rgba(0,0,0,.3))}
+.fish:nth-child(2n){animation-delay:-1.2s}.fish:nth-child(3n){animation-delay:-2s}
+@keyframes swim{50%{transform:translate(5px,-6px) rotate(2deg)}}
+.fish svg{width:100%;display:block}.fish .bd{fill:var(--fc)}
+.fish:nth-child(4n+1){--fc:#ffb44a}.fish:nth-child(4n+2){--fc:#ff8fb0}.fish:nth-child(4n+3){--fc:#9be07a}.fish:nth-child(4n){--fc:#b89cf0}
+.fish.sel{transform:scale(1.15) rotate(-4deg);animation:none;filter:drop-shadow(0 0 6px #fff)}
+.baskets{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.basket{border:3px dashed var(--cc);background:var(--card);color:var(--ink);border-radius:16px;padding:10px;min-height:96px;font:800 15px 'Baloo 2'}.basket.trap{border-color:var(--red)}
+.basket .in{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:6px}
+.chip{background:rgba(63,143,91,.2);border-radius:99px;padding:2px 12px;font:700 14px 'Quicksand'}.basket.trap .chip{background:rgba(229,72,77,.18)}
+.rows5{display:grid;gap:12px}.row5{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:rgba(191,215,234,.25);border-radius:16px;padding:10px}
+.row5 .ic{font-size:28px;width:40px;text-align:center}.row5 .opt{padding:8px 14px}.row5 .why{flex-basis:100%;font-size:14px;color:var(--ok)}
+.story{display:flex;gap:14px;flex-wrap:wrap}.garden{font-size:54px;text-align:center;background:linear-gradient(#d9f0ff,#d6f2b8);border-radius:18px;padding:14px 16px}
+.text6{flex:1;min-width:240px;background:var(--paper);color:#3A2016;border-radius:6px;padding:16px 18px;font-size:19px;line-height:2}
+.word{cursor:pointer;border-radius:6px;padding:0 2px}.word.root{background:#ffd9d6;color:#B0302A}.counter{font:800 15px 'Baloo 2';margin-top:10px}
+textarea{width:100%;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);font:600 16px 'Quicksand';padding:10px 14px;min-height:80px}
+.mini{margin-top:16px;border-top:2px dashed var(--line);padding-top:14px}.minires{margin-top:10px;font-size:18px}.minires b{color:var(--red);border-bottom:2px solid var(--red)}
+.book{background:var(--paper);color:#3A2016;border-radius:8px;padding:16px 18px;border-left:8px solid #E0592F;line-height:1.7}
+.book h3{margin:0 0 6px;font:800 18px 'Baloo 2'}
+.sub3{margin-top:18px;border-top:2px dashed var(--line);padding-top:12px}.sub3 h3{margin:0 0 4px;font:800 17px 'Baloo 2'}
+.qt{background:rgba(191,215,234,.25);border-radius:16px;padding:14px;margin-bottom:14px}.qt h3{margin:0 0 8px;font:800 16px 'Baloo 2'}
+.chestbox{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;background:rgba(224,170,60,.15);border-radius:18px;padding:14px}
+.chest{font-size:70px;transition:transform .5s}.chest.open{transform:scale(1.25) rotate(-6deg)}
+.code{display:flex;gap:10px}.code div{width:52px;height:62px;border-radius:12px;border:3px dashed var(--soft);display:grid;place-items:center;font:800 30px 'Baloo 2';color:var(--cc)}.code div.got{border-style:solid;border-color:var(--cc);animation:pop .5s}
+.finale{background:linear-gradient(135deg,#ffe27a,#ff9a3d);color:#5a2a00;border-radius:22px;padding:22px;text-align:center;margin-bottom:22px;font:800 22px/1.3 'Baloo 2'}
+.hw{border-top-color:#E0592F}.hw ol{margin:0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:h}
+.hw li{counter-increment:h;display:flex;gap:12px}.hw li::before{content:counter(h);flex:none;width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--card);display:grid;place-items:center;font:800 15px 'Baloo 2'}
+.hw li div{flex:1}.hw label{display:flex;gap:8px;margin-top:6px;font-size:14px;color:var(--soft)}
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.card{min-height:70px;border:none;border-radius:14px;background:linear-gradient(135deg,#E0592F,#f0a04b);color:#fff;font:800 20px 'Baloo 2';box-shadow:0 5px 0 rgba(0,0,0,.25)}.card.up{background:var(--paper);color:#3A2016;font-size:16px}.card.ok{background:rgba(46,139,87,.25);color:var(--ink);font-size:16px}
+.btn.gr{background:#2E8B57}.btn.rd{background:#E5484D}.eq{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:8px 0;font:800 18px 'Baloo 2'}.eq input{width:150px;border:2px solid var(--line);border-radius:12px;padding:6px 10px;background:var(--card);color:var(--ink);font:700 16px 'Quicksand'}.eq.ok input{border-color:var(--ok);background:rgba(46,139,87,.15)}
+@media (max-width:520px){.baskets{grid-template-columns:1fr}.mem{grid-template-columns:repeat(3,1fr)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head>
+<body><div class="wrap">
+<div class="bar"><div class="bar-in"><div class="track"><div class="fill" id="fill"></div></div><div class="stars">⭐ <span id="starN">0</span>/10</div></div></div>
+<header class="hero"><div class="deco">🔍</div><div>Українська мова · 3 клас</div>
+<h1>Урок<span>Будова слова: корінь слова</span></h1>
+<ul><li>⏱ 75 хвилин</li><li>👤 Індивідуальне заняття</li><li>⭐ Мовна детективна справа + казка про Нямликів</li></ul>
+<div class="goal">Сьогодні ми знайдемо спільну частину в словах, розкриємо, що таке корінь, і пошукаємо родичів у казці!</div></header>
+
+<section class="step"><div class="sh2"><div class="num">1</div><h2>Таємничий конверт</h2><div class="time">⏱ 5 хв</div></div>
+<p class="task">Прочитай слова і подумай, що їх об'єднує.</p>
+<div class="env" id="envBox"><span class="big">✉️</span><button class="btn" id="openEnv">Відкрити конверт</button></div>
+<div id="papers" hidden><div class="papers"><div class="paper">ліс</div><div class="paper">лісок</div><div class="paper">лісник</div></div>
+<div class="choice" data-award="s1" data-good="Правильно! Спільна частина — ліс, і значення спільне: про ліс.">
+<button class="opt" data-hint="Вони не про їжу. Спробуй ще!">Усі вони про їжу</button>
+<button class="opt" data-ok="1">Спільна частина «ліс» і спільне значення</button>
+<button class="opt" data-hint="Закінчення різні: -ок, -ник. Спробуй ще!">Однакове закінчення</button></div><div class="fb"></div></div></section>
+
+<section class="step"><div class="sh2"><div class="num">2</div><h2>Відкриваємо секрет кореня</h2><div class="time">⏱ 8 хв</div></div>
+<p class="task">Торкнися спільної частини в кожному слові.</p>
+<div class="forest">🌲🌳🌲🌲🌳🌲</div><div class="words2" id="words2"></div>
+<div class="center" id="rootbig" hidden><div class="rootbig">ліс- — це корінь!</div></div><div class="fb" id="fb2"></div>
+<div class="tip">🌱 <b>Корінь</b> — це спільна частина споріднених слів, яка має спільне значення.</div></section>
+
+<section class="step"><div class="sh2"><div class="num">3</div><h2>LEGO-фабрика слів</h2><div class="time">⏱ 10 хв</div></div>
+<p class="task">Збери родину з цеглинок. Бери лише ті, що мають корінь <b>вод-</b>. Обережно — серед них є пастки!</p>
+<div class="table"><div class="brick base">вод-</div><div class="pool" id="pool3"></div><div class="tray" id="tray3"></div></div>
+<div class="fb" id="fb3"></div></section>
+
+<section class="step"><div class="sh2"><div class="num">4</div><h2>Риболовля споріднених слів</h2><div class="time">⏱ 10 хв</div></div>
+<p class="task">Піймай рибку (торкнись) і поклади в кошик. Корінь родини — <b>сніг-</b>.</p>
+<div class="pond" id="pond"></div>
+<div class="baskets"><button class="basket" data-k="fam">🧺 Родина слів<div class="in"></div></button><button class="basket trap" data-k="trap">⚠️ Слова-пастки<div class="in"></div></button></div>
+<div class="fb" id="fb4"></div></section>
+
+<section class="step"><div class="sh2"><div class="num">5</div><h2>Знайди зайве</h2><div class="time">⏱ 8 хв</div></div>
+<p class="task">У кожному ряду знайди слово, що не належить до родини.</p><div class="rows5" id="rows5"></div>
+<div class="tip">🔎 Однаковий початок слова не завжди означає спільний корінь!</div></section>
+
+<section class="step"><div class="sh2"><div class="num">6</div><h2>Мовна майстерня</h2><div class="time">⏱ 9 хв</div></div>
+<p class="task">Торкайся слів зі спільним коренем <b>сад-</b>.</p>
+<div class="story"><div class="garden">🏡<br>🌻🌷</div><div class="text6" id="text6"></div></div>
+<div class="counter" id="cnt6"></div><div class="fb" id="fb6"></div>
+<div class="mini" id="mini" hidden><p class="task"><b>✍️ Свій міні-текст</b> (2 речення) зі словами: <b>ліс, лісник, лісовий</b>.</p>
+<textarea id="mytext" placeholder="Напиши тут…"></textarea><button class="btn" id="chk6">Виділити корінь</button><div class="minires" id="minires"></div></div></section>
+
+<section class="step" style="border-top-color:#E0592F"><div class="sh2"><div class="num" style="background:#E0592F;color:#fff">7</div><h2>Читаємо казку: Нямлики</h2><div class="time">⏱ 15 хв</div></div>
+<div class="sub3" style="margin:0 0 14px;border:0;padding:0"><h3>📚 Перед читанням</h3><p class="task">Розігрійся: ці завдання допоможуть краще зрозуміти казку.</p></div>
+<div class="sub3"><h3>🔮 А. Прогноз</h3><p class="task">Прочитай назву: «Прибулець з країни Нямликів». Як гадаєш, хто такі нямлики і чим вони можуть займатися? Напиши 2 речення.</p><textarea data-save="pre1" placeholder="Я думаю, що нямлики…"></textarea></div>
+<div class="sub3"><h3>🧠 Б. Пригадай правило</h3><p class="task">Що таке корінь слова?</p><div class="choice" data-award="x10" data-good="Так! Корінь — спільна частина споріднених слів зі спільним значенням."><button class="opt" data-hint="Закінчення змінюється, а корінь — ні. Подумай ще!">Змінна частина слова</button><button class="opt" data-ok="1">Спільна частина споріднених слів зі спільним значенням</button><button class="opt" data-hint="Це не про початок слова. Корінь може бути й посередині.">Будь-який початок слова</button></div><div class="fb"></div></div>
+<div class="sub3"><h3>🥣 В. Родина «каш-»</h3><p class="task">Олянка не любить манну кашу. Обери слова з коренем <b>каш-</b>.</p><div class="pick" id="pk8"></div></div>
+<div class="sub3"><h3>🌧 Г. Родина «дощ-»</h3><p class="task">Надворі йде дощ. Обери слова з коренем <b>дощ-</b>.</p><div class="pick" id="pk9"></div></div>
+<div class="sub3"><h3>👦 Д. Родина «хлоп-»</h3><p class="task">У казці є хлопчик Сашко. Обери слова з коренем <b>хлоп-</b>.</p><div class="pick" id="pk10"></div></div>
+<div class="sub3"><h3>🔍 Е. Знайди корінь</h3><p class="task">У словах <b>гном, гномик, гномів</b> знайди спільну частину.</p><div class="choice opts-row" data-award="x11" data-good="Так! Корінь — гном-."><button class="opt" data-hint="Це лише частина кореня.">гн-</button><button class="opt" data-ok="1">гном-</button><button class="opt" data-hint="-ик є не в кожному слові.">-ик</button></div><div class="fb"></div></div>
+<div class="sub3"><h3>🕵️ Є. Знайди зайве</h3><p class="task">Яке слово не з родини?</p><div class="choice opts-row" data-award="x12" data-good="Так! Казан — інший корінь, це слово-пастка."><button class="opt" data-hint="Це родич слова казка.">казка</button><button class="opt" data-hint="Це родич слова казка.">казковий</button><button class="opt" data-ok="1">казан</button><button class="opt" data-hint="Це родич слова казка.">казкар</button></div><div class="fb"></div></div>
+<div class="sub3"><h3>✏️ Ж. Допиши родину</h3><p class="task">Запиши по 3 слова до слів: <b>казка, дім, ніч</b>.</p><textarea data-save="pre2" placeholder="казка — …"></textarea></div>
+<div class="sub3"><h3>🃏 З. Гра «Знайди пару»</h3><p class="task">Перевертай картки й шукай пари споріднених слів.</p><div class="mem" id="mem"></div><div class="fb" id="fbm"></div></div>
+<div class="sub3"><h3>🚦 И. Світлофор слів</h3><p class="task">Подивись на пару слів. Якщо вони родичі — тисни зелене, якщо слова-пастка — червоне.</p><div class="center" id="lt"></div><div class="fb center" id="fbl"></div></div>
+<div class="sub3"><h3>➕ І. Словесна математика</h3><p class="task">Додай частини й запиши готове слово.</p><div id="eqs"></div><button class="btn" id="chkE">Перевірити</button><div class="fb" id="fbe"></div></div>
+<div class="sub3"><h3>🎭 Ї. Вигадай нямлика</h3><p class="task">Уяви малесенького чоловічка з казкової країни. Опиши його у 2–3 реченнях і використай 3 слова з коренем <b>казк-</b> (казка, казковий, казкар…).</p><textarea data-save="pre3" placeholder="Мій нямлик…"></textarea></div>
+<div class="sub3" style="margin-bottom:14px"><h3>📖 Тепер читаємо!</h3></div>
+<div class="book"><h3>Розділ перший. У якому ми дізнаємося, що дівчинка Олянка терпіти не може манну кашу, а просто зі стіни її кімнати з’являється…</h3>
+<p>📖 <i>З повісті «Прибулець з країни Нямликів». Прочитай розділ (текст нижче або в книжці), а тоді виконуй завдання.</i></p><details><summary>📋 Вставити текст розділу (для вчителя)</summary><textarea data-save="chtext" id="chtext" placeholder="Встав сюди текст розділу…" style="margin-top:8px"></textarea><div id="chshow" style="white-space:pre-wrap;margin-top:10px;font-size:18px;line-height:1.8"></div></details></div>
+<div class="sub3"><h3>🐸 7а. Родина «стриб-»</h3><p class="task">Обери слова з коренем <b>стриб-</b>: чоловічок вистрибнув зі стіни, а тато біг, перестрибуючи сходинки.</p><div class="pick" id="pk1"></div></div>
+<div class="sub3"><h3>😊 7б. Родина «смі-»</h3><p class="task">Чоловічок усміхнувся. Обери слова з коренем <b>смі-/сміх-</b>.</p><div class="pick" id="pk2"></div></div>
+<div class="sub3"><h3>🌼 7в. Родина «квіт-»</h3><p class="task">Шпалери були в блакитних квіточках. Обери слова з коренем <b>квіт-</b>.</p><div class="pick" id="pk3"></div></div>
+<div class="sub3"><h3>🎒 7г. Родина «кишен-»</h3><p class="task">Буцик заскочив у кишеньку рюкзака. Обери слова з коренем <b>кишен-</b>.</p><div class="pick" id="pk4"></div></div>
+<div class="sub3"><h3>😠 7д. Родина «серд-»</h3><p class="task">Олянка не хотіла сердитися. Обери слова з коренем <b>серд-</b>.</p><div class="pick" id="pk5"></div></div>
+<div class="sub3"><h3>🧙 7е. Родина «гном-»</h3><p class="task">Олянка читала про гномів. Обери слова з коренем <b>гном-</b>.</p><div class="pick" id="pk6"></div></div>
+<div class="sub3"><h3>😢 7є. Родина «обра-»</h3><p class="task">Олянка образилася на малюка. Обери слова з коренем <b>обра-</b>.</p><div class="pick" id="pk7"></div></div>
+<div class="sub3"><h3>🔎 7ж. Знайди корінь</h3><p class="task">У словах <b>кишеня, кишенька, кишеньковий</b> знайди спільну частину.</p><div class="choice opts-row" data-award="x1" data-good="Так! Корінь — кишен-."><button class="opt" data-hint="Це лише початок кореня.">киш-</button><button class="opt" data-ok="1">кишен-</button><button class="opt" data-hint="-ька є не в кожному слові.">-ька</button></div><div class="fb"></div></div>
+<div class="sub3"><h3>🕵️ 7з. Знайди зайве</h3><p class="task">Надворі дощ. Яке слово не з родини?</p><div class="choice opts-row" data-award="x2" data-good="Так! Дошка — не про дощ, це слово-пастка."><button class="opt" data-hint="Це родич слова дощ.">дощ</button><button class="opt" data-hint="Це родич слова дощ.">дощовий</button><button class="opt" data-ok="1">дошка</button><button class="opt" data-hint="Це родич слова дощ.">дощик</button></div><div class="fb"></div></div>
+<div class="sub3"><h3>🕵️ 7и. Знайди зайве</h3><p class="task">Яке слово не з родини?</p><div class="choice opts-row" data-award="x3" data-good="Так! Тарілка — інший корінь."><button class="opt" data-hint="Це родич слова тато.">тато</button><button class="opt" data-hint="Це родич слова тато.">татусь</button><button class="opt" data-ok="1">тарілка</button><button class="opt" data-hint="Це родич слова тато.">татів</button></div><div class="fb"></div></div>
+<div class="sub3"><h3>✍️ 7к. Підбери родичів</h3><p class="task">Запиши по 3 слова до кожного кореня: <b>дощ-, стіна-, кіска-</b>.</p><textarea data-save="ch2" placeholder="дощ — …"></textarea></div>
+<div class="sub3"><h3>✍️ 7л. Подумай і напиши</h3><p class="task">Чому Буцик «нагадував» Сашка? Напиши 2 речення про Буцика, використай 2 слова з коренем <b>гном-</b> або <b>нямлик-</b>.</p><textarea data-save="ch"></textarea></div></section>
+
+<section class="step"><div class="sh2"><div class="num">8</div><h2>Фінальний квест</h2><div class="time">⏱ 8 хв</div></div>
+<p class="task">Виконай 3 завдання — кожне відкриє літеру коду.</p>
+<div class="qt"><h3>🔍 1. Знайди корінь</h3><p class="task" style="margin:0 0 8px">У словах <b>казка, казковий, казкар</b> знайди спільну частину.</p>
+<div class="choice opts-row" data-slot="0" data-letter="Л" data-good="Так! Корінь — казк-. Літера Л.">
+<button class="opt" data-hint="Це лише частина кореня. Спільна довша!">каз-</button><button class="opt" data-ok="1">казк-</button><button class="opt" data-hint="-овий є тільки в одному слові.">-овий</button></div><div class="fb"></div></div>
+<div class="qt"><h3>🧩 2. Знайди родича</h3><p class="task" style="margin:0 0 8px">До слова <b>гора</b> добери два споріднені слова.</p>
+<div class="opts-row" id="multi"><button class="opt" data-ok="1">гірський</button><button class="opt" data-ok="1">гірка</button><button class="opt">горобина</button><button class="opt">горох</button></div>
+<button class="btn" id="chk7">Перевірити</button><div class="fb" id="fb7b"></div></div>
+<div class="qt"><h3>💡 3. Викрий підступ</h3><p class="task" style="margin:0 0 8px">Слова <b>вода</b> і <b>водій</b> — споріднені?</p>
+<div class="choice opts-row" data-slot="2" data-letter="С" data-good="Ні! Водій — від слова водити. Літера С.">
+<button class="opt" data-hint="Значення різне. Подумай, що означає «водій».">Так</button><button class="opt" data-ok="1">Ні</button></div><div class="fb"></div></div>
+<div class="chestbox"><div class="chest" id="chest">🧰</div><div class="code" id="code"><div></div><div></div><div></div></div></div><div class="fb center" id="fb7c"></div></section>
+
+<div class="finale" id="finale" hidden>🎉 Усі 10 зірок твої!<br><small>Твої слова — це твої суперсили!</small></div>
+
+<section class="step hw"><div class="sh2"><div class="num" style="background:#E0592F;color:#fff">🏠</div><h2>Домашнє завдання «Розшукувач слів»</h2><div class="time">⏱ 15–20 хв</div></div>
+<ol><li><div><b>Збери родини.</b> По 3 споріднені слова до: ліс, сніг, квітка, вода.<textarea data-save="hw1" placeholder="ліс — …"></textarea></div></li>
+<li><div><b>Слова з казки.</b> Випиши з розділу про Олянку по 2 слова до коренів: стриб-, сміх-, кишен-.<textarea data-save="hw5"></textarea></div></li>
+<li><div><b>Комікс.</b> Намалюй Буцика й підпиши споріднені слова, виділи корінь.<label><input type="checkbox" data-save="hw2"> Намальовано</label></div></li>
+<li><div><b>Поясни вдома,</b> що таке корінь. Наведи 2 приклади.<textarea data-save="hw3" placeholder="Корінь — це…"></textarea></div></li>
+<li><div><b>Слова-пастки.</b> Придумай 2 пари слів, схожих на вигляд, але не споріднених.<textarea data-save="hw6"></textarea></div></li></ol></section>
+</div>
+<script>
+const $=s=>document.querySelector(s),TOTAL=10,done={};let stars=0;
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+function award(k){if(done[k]||k[0]==='x')return;done[k]=1;stars++;$('#starN').textContent=stars;$('#fill').style.width=stars*10+'%';const s=$('.stars');s.classList.remove('pop');void s.offsetWidth;s.classList.add('pop');if(stars===TOTAL){$('#finale').hidden=false;setTimeout(()=>$('#finale').scrollIntoView({behavior:'smooth',block:'center'}),400)}}
+function shake(e){e.classList.remove('shake');void e.offsetWidth;e.classList.add('shake')}
+function say(e,m,ok){e.textContent=m;e.className='fb'+(e.classList.contains('center')?' center':'')+(ok?' good':' bad')}
+let slots=0;
+function reveal(i,l){const c=$('#code').children[i];if(c.classList.contains('got'))return;c.textContent=l;c.classList.add('got');if(++slots===3){$('#chest').classList.add('open');say($('#fb7c'),'🗝️ Скринька відкрилась! Код — ЛІС. Це наш корінь!',1);award('q')}}
+document.querySelectorAll('.choice').forEach(g=>{const fb=g.parentElement.querySelector('.fb');g.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(g.dataset.done)return;if(b.dataset.ok){g.dataset.done=1;b.classList.add('right');say(fb,g.dataset.good,1);if(g.dataset.award)award(g.dataset.award);if(g.dataset.slot!==undefined)reveal(+g.dataset.slot,g.dataset.letter)}else{b.classList.add('wrong');shake(b);say(fb,b.dataset.hint||'Спробуй ще!',0)}})});
+$('#openEnv').onclick=()=>{$('#envBox').hidden=true;$('#papers').hidden=false};
+/* 2 */
+(function(){const W=[[["ліс",1]],[["ліс",1],["ок",0]],[["ліс",1],["ник",0]],[["ліс",1],["овий",0]],[["ліс",1],["ова",0]]];let n=0;
+W.forEach(ps=>{const w=document.createElement('div');w.className='w2';ps.forEach(([t,r])=>{const s=document.createElement('span');s.className='seg';s.textContent=t;
+s.onclick=()=>{if(w.dataset.done)return;if(r){s.classList.add('root');w.dataset.done=1;n++;say($('#fb2'),'Є! Спільна частина «ліс» у слові '+ps.map(p=>p[0]).join('')+'.',1);if(n===W.length){$('#rootbig').hidden=false;say($('#fb2'),'Чудово! Спільна частина — корінь, він несе спільне значення: про ліс.',1);award('s2')}}else{shake(s);say($('#fb2'),'«'+t+'» є не в кожному слові. Шукай те, що повторюється!',0)}};w.appendChild(s)});$('#words2').appendChild(w)})})();
+/* 3 LEGO */
+(function(){const F=["вода","водний","водяний","підводний","водичка","водопад","водоспад"],T={"водій":"Пастка! Водій — від слова водити, а не від вода.","вогонь":"Схоже на початок, але вогонь і вода не родичі.","вогник":"Цей від слова вогонь — інша родина.","водити":"Водити — про рух, не про рідину. Інший корінь."};
+const cols=["#C0392B","#2E7D32","#1F5FBF","#B07400","#7B3FA0","#00796B","#A8326B"];let got=0;
+shuffle(F.concat(Object.keys(T))).forEach((w,i)=>{const b=document.createElement('button');b.className='brick';b.style.setProperty('--b',cols[i%cols.length]);b.textContent=w;
+b.onclick=()=>{if(F.includes(w)){b.innerHTML=w.replace('вод','<u>вод</u>');b.disabled=true;$('#tray3').appendChild(b);got++;say($('#fb3'),'Так! У слові «'+w+'» є корінь вод-.',1);if(got===F.length){say($('#fb3'),'Родина зібрана! Усі ці слова про воду.',1);award('s3')}}else{shake(b);say($('#fb3'),T[w],0)}};$('#pool3').appendChild(b)})})();
+/* 4 fish */
+(function(){const F=["сніг","сніжок","сніговик","сніжинка","снігопад","сніжний","сніговий"],T={"сніданок":"Сніданок — їжа зранку, до снігу не має стосунку.","сік":"Сік — зовсім інше значення.","сідати":"Сідати — про дію, кореня сніг- немає.","снідати":"Снідати — від сніданок, не від сніг."};let sel=null,left=F.length+Object.keys(T).length;
+shuffle(F.concat(Object.keys(T))).forEach(w=>{const b=document.createElement('button');b.className='fish';
+b.innerHTML='<svg viewBox="0 0 132 60"><path class="bd" d="M4 30C20 6 70 2 98 24L128 6v48L98 36C70 58 20 54 4 30Z" stroke="#0004" stroke-width="2"/><path d="M40 12c8 10 8 26 0 36" fill="none" stroke="#0003" stroke-width="3"/><circle cx="22" cy="25" r="5" fill="#fff"/><circle cx="21" cy="25" r="2.5" fill="#222"/><text x="50" y="35" font-family="Baloo 2,sans-serif" font-weight="800" font-size="15" fill="#2a1a10">'+w+'</text></svg>';
+b.onclick=()=>{if(sel)sel.classList.remove('sel');sel=b;b.classList.add('sel');say($('#fb4'),'Рибка «'+w+'» піймана! Куди її покласти?',1)};$('#pond').appendChild(b)});
+document.querySelectorAll('.basket').forEach(bk=>bk.onclick=()=>{if(!sel){say($('#fb4'),'Спочатку піймай рибку.',0);return}const w=sel.textContent,f=F.includes(w);
+if(f===(bk.dataset.k==='fam')){const c=document.createElement('span');c.className='chip';c.textContent=w;bk.querySelector('.in').appendChild(c);sel.remove();sel=null;left--;say($('#fb4'),f?'Так! Корінь сніг- є в слові «'+w+'».':'Вірно, це пастка. '+T[w],1);if(!left){say($('#fb4'),'Усі рибки в кошиках! Однаковий початок — ще не спільний корінь.',1);award('s4')}}else{shake(sel);say($('#fb4'),f?'Це слово має корінь сніг-, воно родич!':'Не поспішай. '+T[w],0)}})})();
+/* 5 */
+(function(){const R=[{ic:'🌸',w:["квітка","кіт","квітник","квітковий"],o:1,y:'«Кіт» — інший корінь.'},{ic:'🐟',w:["риба","рибалка","рівний","рибний"],o:2,y:'«Рівний» — не про рибу.'},{ic:'❄️',w:["зима","зимовий","зимувати","зірка"],o:3,y:'«Зірка» — про небо.'},{ic:'🏠',w:["дім","домівка","домашній","дим"],o:3,y:'«Дим» — інший корінь.'},{ic:'🌳',w:["дерево","дерев'яний","дорога","деревце"],o:2,y:'«Дорога» — не про дерево.'}];let n=0;
+R.forEach(r=>{const row=document.createElement('div');row.className='row5';row.innerHTML='<div class="ic">'+r.ic+'</div><div class="opts-row"></div><div class="why" hidden></div>';const oc=row.querySelector('.opts-row'),why=row.querySelector('.why');
+r.w.forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.textContent=t;b.onclick=()=>{if(row.dataset.done)return;if(i===r.o){row.dataset.done=1;b.classList.add('right');why.hidden=false;why.textContent='✓ '+r.y;if(++n===R.length)award('s5')}else{b.classList.add('wrong');shake(b)}};oc.appendChild(b)});$('#rows5').appendChild(row)})})();
+/* 6 */
+(function(){const TXT="У саду росте великий сад. Біля саду працює садівник. Він доглядає садові дерева і квіти. Улітку сад стає особливо красивим.",SAD=["сад","саду","садівник","садові"];let total=0,found=0;
+TXT.split(/(\s+)/).forEach(t=>{if(!t||/^\s+$/.test(t)){$('#text6').appendChild(document.createTextNode(t));return}const c=t.replace(/[.,!?]/g,'').toLowerCase(),is=SAD.includes(c);if(is)total++;const s=document.createElement('span');s.className='word';s.textContent=t;
+s.onclick=()=>{if(s.classList.contains('root'))return;if(is){s.classList.add('root');found++;upd();if(found===total){say($('#fb6'),'Усі слова з коренем сад- знайдено!',1);award('s6');$('#mini').hidden=false}}else{shake(s);say($('#fb6'),'У слові «'+c+'» немає кореня сад-.',0)}};$('#text6').appendChild(s)});
+function upd(){$('#cnt6').textContent='Знайдено: '+found+' з '+total}upd();
+$('#chk6').onclick=()=>{const txt=$('#mytext').value,u=[...new Set(txt.toLowerCase().match(/ліс[\p{L}]*/gu)||[])],o=$('#minires');o.textContent='';
+txt.split(/(ліс)/i).forEach(p=>{if(p.toLowerCase()==='ліс'){const b=document.createElement('b');b.textContent=p;o.appendChild(b)}else o.appendChild(document.createTextNode(p))});
+const n=document.createElement('div');n.className='fb '+(u.length>=3?'good':'bad');n.textContent=u.length>=3?'Чудово! Корінь ліс- виділено. Слів: '+u.length:'Знайдено слів із коренем ліс-: '+u.length+'. Потрібно 3 різні.';o.appendChild(n)}})();
+/* 7: добір родини з казки */
+function pick(id,F,T,key,root){const box=$(id);box.innerHTML='<div class="opts-row"></div><div class="fb"></div>';const row=box.firstChild,fb=box.lastChild;let got=0;
+shuffle(F.concat(Object.keys(T))).forEach(w=>{const b=document.createElement('button');b.className='opt';b.textContent=w;b.onclick=()=>{if(b.classList.contains('right'))return;if(F.includes(w)){b.classList.add('right');say(fb,'Так! У слові «'+w+'» є корінь '+root+'.',1);if(++got===F.length){say(fb,'Родину зібрано! Усі ці слова мають корінь '+root+'.',1);award(key)}}else{b.classList.add('wrong');shake(b);say(fb,T[w],0)}};row.appendChild(b)})}
+pick('#pk1',["вистрибнув","перестрибуючи","стрибок","стрибати","стрибунець"],{"сходинки":"Сходинки — інший корінь (ход-).","страшенно":"Страшенно — про страх, не про стрибання.","стіна":"Стіна — не про стрибки."},'c1','стриб-');
+pick('#pk2',["усміхнувся","сміх","смішний","сміятися","усмішка"],{"смугасті":"Смугасті — від смуга, інший корінь.","сміття":"Сміття — про сміття, не про сміх."},'c2','смі-');
+pick('#pk3',["квіточка","квітка","квітковий","квітник","квітучий"],{"кіт":"Кіт — зовсім інший корінь.","квас":"Квас — не про квіти."},'c3','квіт-');
+pick('#pk4',["кишеня","кишенька","кишеньковий","кишенею"],{"кишіти":"Кишіти — інше значення.","кішка":"Кішка — про тварину."},'x4','кишен-');
+pick('#pk5',["сердитий","сердитися","пересердитися","сердито"],{"середина":"Середина — не про сердитість.","серйозний":"Серйозний — інший корінь."},'x5','серд-');
+pick('#pk6',["гном","гномик","гномів","гномський"],{"ґудзик":"Ґудзик — зовсім інший корінь.","гнів":"Гнів — про почуття, а не про гномів."},'x6','гном-');
+pick('#pk7',["образа","образитися","ображатися","образливий"],{"обрій":"Обрій — про небо, не про образу.","обруч":"Обруч — інший корінь."},'x7','обра-');
+pick('#pk8',["каша","кашка","кашу","кашки"],{"кашель":"Кашель — про хворобу, не про їжу.","каштан":"Каштан — дерево, інший корінь."},'x8','каш-');
+pick('#pk9',["дощ","дощик","дощовий","дощі"],{"дошка":"Дошка — не про дощ, це слово-пастка.","доскіпливий":"Доскіпливий — інший корінь."},'x9','дощ-');
+pick('#pk10',["хлопчик","хлопець","хлопчина","хлопчак"],{"хліб":"Хліб — про їжу, не про хлопців.","хлів":"Хлів — зовсім інший корінь."},'x13','хлоп-');
+(function(){const P=[["каша","кашка"],["дощ","дощовий"],["гном","гномик"],["хлопець","хлопчик"]],cs=[];P.forEach((p,i)=>p.forEach(w=>cs.push({w,i})));let up=[],m=0,lock=false;
+shuffle(cs).forEach(c=>{const b=document.createElement('button');b.className='card';b.textContent='?';b.onclick=()=>{if(lock||b.classList.contains('up')||b.classList.contains('ok'))return;b.classList.add('up');b.textContent=c.w;up.push([b,c]);if(up.length===2){const[[b1,c1],[b2,c2]]=up;up=[];if(c1.i===c2.i){b1.classList.replace('up','ok');b2.classList.replace('up','ok');m++;say($('#fbm'),'Пара! «'+c1.w+'» і «'+c2.w+'» — родичі.',1);if(m===P.length)say($('#fbm'),'Усі пари знайдено! Ти майстер споріднених слів!',1)}else{lock=true;say($('#fbm'),'Це не пара. Запам’ятай картки!',0);setTimeout(()=>{[b1,b2].forEach(x=>{x.classList.remove('up');x.textContent='?'});lock=false},900)}}};$('#mem').appendChild(b)})})();
+(function(){const Q=[["вода","водичка",1],["вода","водій",0],["ліс","лісник",1],["сніг","сніданок",0],["гора","гірський",1],["кіт","квітка",0],["сад","садівник",1],["дощ","дошка",0]];let i=0;const box=$('#lt');
+function show(){if(i>=Q.length){box.textContent='🏁';say($('#fbl'),'Світлофор пройдено! Усі пари розпізнано правильно.',1);return}box.innerHTML='';const p=document.createElement('div');p.className='paper';p.style.display='inline-block';p.textContent=Q[i][0]+' — '+Q[i][1];const r=document.createElement('div');r.className='opts-row';r.style.cssText='margin-top:10px;justify-content:center';
+[['🟢 Родичі',1,'gr'],['🔴 Пастка',0,'rd']].forEach(([t,v,c])=>{const b=document.createElement('button');b.className='btn '+c;b.textContent=t;b.onclick=()=>{if(v===Q[i][2]){say($('#fbl'),v?'Так, це родичі!':'Так, це пастка!',1);i++;show()}else{shake(p);say($('#fbl'),'Подумай: чи однаковий корінь і значення?',0)}};r.appendChild(b)});box.append(p,r)}show()})();
+(function(){const E=[["ліс + ник","лісник"],["дощ + ик","дощик"],["сніг + ов + ик","сніговик"],["гном + ик","гномик"],["хлоп + чик","хлопчик"]],rows=[];
+E.forEach(e=>{const d=document.createElement('div');d.className='eq';d.append(e[0]+' = ');const inp=document.createElement('input');inp.type='text';d.appendChild(inp);$('#eqs').appendChild(d);rows.push([d,inp,e[1]])});
+$('#chkE').onclick=()=>{let n=0;rows.forEach(([d,i,a])=>{const ok=i.value.trim().toLowerCase()===a;d.classList.toggle('ok',ok);if(ok)n++});say($('#fbe'),n===E.length?'Усі слова складено правильно!':'Правильно: '+n+' з '+E.length+'. Перевір решту ще раз.',n===E.length)}})();
+/* 8 */
+(function(){const o=document.querySelectorAll('#multi .opt');o.forEach(b=>b.onclick=()=>{if(!$('#multi').dataset.done)b.classList.toggle('sel')});
+$('#chk7').onclick=()=>{if($('#multi').dataset.done)return;const ok=[...o].every(b=>!!b.dataset.ok===b.classList.contains('sel'));
+if(ok){$('#multi').dataset.done=1;o.forEach(b=>{if(b.dataset.ok)b.classList.add('right')});say($('#fb7b'),'Так! Гірський і гірка — корінь гір-/гор-. Літера І.',1);reveal(1,'І')}else{shake($('#multi'));say($('#fb7b'),'Не зовсім. Вибери два слова про гори.',0)}}})();
+document.querySelectorAll('[data-save]').forEach(el=>{const k='urok3korin_'+el.dataset.save,v=ls(k);if(v!==null){if(el.type==='checkbox')el.checked=v==='1';else el.value=v}
+const sv=()=>ls(k,el.type==='checkbox'?(el.checked?'1':'0'):el.value);el.addEventListener('input',sv);el.addEventListener('change',sv)});
+(function(){const t=$('#chtext'),s=$('#chshow');const f=()=>{s.textContent=t.value};t.addEventListener('input',f);f()})();
+</script></body></html>
