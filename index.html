@@ -439,7 +439,7 @@ if(teacher){
   drawTabs(-1);
   jsonp('mode=access_all&callback=applyAllAccess');
 }else if(lock!==null){
-  bp.textContent='Привіт, '+who.replace(/\s*\d+$/,'')+'! Обери урок — за кожне правильне завдання ⭐';
+  bp.style.display='none';   /* учням підпис під заголовком не показуємо */
   access=staticFor(who).slice();
   show(lock);
   jsonp('mode=access&callback=applyAccess&student='+encodeURIComponent(who));
