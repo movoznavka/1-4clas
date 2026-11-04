@@ -32,7 +32,7 @@ body.teacher .banner{display:block}
 .sec{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--cc)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px 18px}
 .cw{display:flex;flex-direction:column;gap:8px}
-.nb{position:relative;display:block;color:var(--ink);background:var(--card);border-radius:6px 18px 18px 6px;padding:18px 18px 16px 52px;min-height:176px;box-shadow:0 16px 28px -18px var(--shadow);border-left:10px solid var(--cc);transition:transform .18s cubic-bezier(.34,1.56,.64,1);
+.nb{position:relative;display:block;color:var(--ink);background:var(--card);border-radius:6px 18px 18px 6px;padding:18px 18px 42px 52px;min-height:176px;box-shadow:0 16px 28px -18px var(--shadow);border-left:10px solid var(--cc);transition:transform .18s cubic-bezier(.34,1.56,.64,1);
 background-image:repeating-linear-gradient(transparent 0 25px,var(--line) 25px 26px);background-position:0 44px;background-repeat:repeat-y;background-size:100% 100%}
 .nb::before{content:'';position:absolute;left:38px;top:0;bottom:0;width:2px;background:var(--margin);opacity:.6}
 .rings{position:absolute;left:-17px;top:14px;bottom:14px;display:flex;flex-direction:column;justify-content:space-around}
@@ -47,6 +47,7 @@ background-image:repeating-linear-gradient(transparent 0 25px,var(--line) 25px 2
 .nb h2 a{color:inherit;text-decoration:none}
 .nb h2 a::after{content:'';position:absolute;inset:0;border-radius:6px 18px 18px 6px}
 .nb:focus-within{outline:2px solid var(--cc);outline-offset:2px}
+body.teacher .st{bottom:auto;top:14px}
 .ob{position:absolute;left:52px;bottom:10px;z-index:2;font:800 10.5px 'Baloo 2',sans-serif;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:var(--card)}
 .ob.open{color:var(--ok);border:2px solid var(--ok)}
 .ob.closed{color:var(--red);border:2px solid var(--red)}
@@ -202,15 +203,15 @@ const SEC={
 };
 /* Готові уроки: номер → [файл, статус, назва?, опис?, файл_ДЗ?] */
 const OVR={
-2:{4:['urok-2-antonimy-synonimy.html','ready','Протилежні та близькі за значенням слова','Антоніми й синоніми: добираємо пари, шукаємо зайве, складаємо речення.'],
-   12:['urok-6-imennyk-profesii-imena.html','ready','Іменник: професії та імена людей','Професії, власні й загальні назви. Імена, по батькові, прізвища пишемо з великої літери. Гра «Країна Іменників».'],
-   13:['urok-5-imennyk-hto-shcho.html','ready','Іменник: хто? що?','Слова, що називають предмети. Питання хто? що? Розсортовуємо, збираємо слова з літер, читаємо текст.'],
-   14:['urok-14-nazvy-istot-neistot.html','ready','Назви істот і неістот','Смислові групи іменників: хто? що? Казка «Скляний чоловічок», сортуємо слова й картинки, складаємо речення, відкриваємо чарівну скриню.','urok-14-nazvy-istot-neistot-dz.html']},
+2:{4:['urok-2-antonimy-synonimy.html','ready','Протилежні та близькі за значенням слова','Антоніми й синоніми.'],
+   12:['urok-6-imennyk-profesii-imena.html','ready','Іменник: професії та імена людей','Професії, власні й загальні назви. Імена й прізвища.'],
+   13:['urok-5-imennyk-hto-shcho.html','ready','Іменник: хто? що?','Слова, що називають предмети. Питання хто? що?'],
+   14:['urok-14-nazvy-istot-neistot.html','ready','Назви істот і неістот','Смислові групи іменників: хто? що?','urok-14-nazvy-istot-neistot-dz.html']},
 3:{3:['urok-3-korin-slova.html','ready','Корінь слова','Корінь, спільнокореневі слова.']},
 4:{}
 };
 /* Уроки поза програмою */
-const EXTRA={3:[['Додатково','Речення та його види','Розповідні, питальні, спонукальні й окличні речення. Читаємо текст, ставимо питання, складаємо власні речення.','urok-3-rechennya-vydy.html','ready']]};
+const EXTRA={3:[['Додатково','Речення та його види','Розповідні, питальні, спонукальні й окличні речення.','urok-3-rechennya-vydy.html','ready']]};
 
 function prog(c){
   const pad=n=>String(n).padStart(2,'0'),S=SEC[c],out=[];
