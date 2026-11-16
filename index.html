@@ -78,15 +78,18 @@ body.teacher .st{bottom:auto;top:14px}
 <script>
 /* ============================================================
    ЯК ДОДАТИ ТЕМУ
-   Картка: [тег, назва, опис, файл_уроку, статус, файл_тесту?]
-   Файл_тесту (6-й елемент) — необов'язковий: з'явиться плашка «ДЗ».
+   Картка: [тег, назва, опис, файл_уроку, статус, файл_ДЗ?]
+   Файл_ДЗ (6-й елемент) — необов'язковий. Якщо його не вказано, у РЕЖИМІ
+   ВЧИТЕЛЯ плашка «📝 ДЗ» все одно показується, а назва файлу ДЗ
+   утворюється з файлу уроку: urok2-05.html → urok2-05-dz.html.
+   Учні бачать плашку ДЗ лише там, де файл ДЗ вказано явно
+   або вчителька призначила ДЗ через бота.
    Розділ: {t:'Назва', gt:'файл_загального_тесту (необов'язково)', items:[...]}
    ============================================================ */
 /* ============================================================
    ПРОГРАМА 2–4 КЛАСИ (по 34 уроки)
-   1) Вставте весь цей блок у index.html ПЕРЕД рядком: const CLASSES=[
-   2) У CLASSES замініть блоки n:2, n:3, n:4 на три рядки з кінця файлу.
-   Новий урок готовий → у OVR змініть 'soon' на 'ready' (і додайте ДЗ).
+   Новий урок готовий → у OVR вкажіть його файл (і за потреби ДЗ).
+   Усі 34 уроки кожного класу вже прописані й видимі вчительці.
    ============================================================ */
 const P={
 2:[
@@ -389,6 +392,12 @@ function testPill(file,cls,label){
   const href=link(h?file+(file.indexOf('?')>-1?'&':'?')+'hw='+encodeURIComponent(h.number):file);
   return `<a class="tp ${cls||''} ${h?'homework':''}" href="${href}">${h?label+' '+h.number:label}</a>`;
 }
+/* Файл ДЗ до уроку: явний (6-й елемент) або, для вчителя, urok2-05.html → urok2-05-dz.html */
+function dzFile(i){
+  if(i[5])return i[5];
+  if(teacher&&i[4]==='ready'&&i[3])return i[3].replace(/\.html$/,'')+'-dz.html';
+  return '';
+}
 
 function colorOf(c){return getComputedStyle(document.documentElement).getPropertyValue(c.color).trim();}
 function drawTabs(n){
@@ -417,7 +426,7 @@ function show(n){
         <span class="lab">${i[0]}</span><br>
         <h2>${rd?`<a href="${link(i[3])}">${i[1]}</a>`:i[1]}</h2><br><p>${i[2]}</p>
         ${badge}<span class="st">${rd?'Відкрити':'Скоро'}</span></div>
-        ${testPill(i[5],'','📝 ДЗ')}</div>`;}).join('')+`</div></div>`;
+        ${testPill(dzFile(i),'','📝 ДЗ')}</div>`;}).join('')+`</div></div>`;
   });
   content.innerHTML=html||(teacher?'':'<p class="brand" style="color:var(--soft);font-weight:600">Поки для тебе не відкрито жодної теми. Зверніться до вчительки.</p>');
 }
@@ -436,7 +445,7 @@ function jsonp(q){const s=document.createElement('script');s.src=API_URL+(API_UR
 const bp=document.querySelector('.brand p');
 if(teacher){
   document.querySelector('.eyebrow').textContent='Навігація · для вчителя';
-  bp.textContent='Кожному учню — своє посилання (…/index.html?u=Ім\'я). Він бачить лише ті теми, які ви йому відкрили — і урок, і ДЗ до нього. Оберіть клас, щоб побачити теми та хто що має відкритим.';
+  bp.textContent='Кожному учню — своє посилання (…/index.html?u=Ім\'я). Він бачить лише ті теми, які ви йому відкрили — і урок, і ДЗ до нього. Оберіть клас, щоб побачити всі теми, ДЗ та хто що має відкритим.';
   document.getElementById('tnote').innerHTML='<a href="ukr-teacher.html?vchytel=1">📊 Кабінет вчителя: результати й посилання учнів</a>';
   drawTabs(-1);
   jsonp('mode=access_all&callback=applyAllAccess');
