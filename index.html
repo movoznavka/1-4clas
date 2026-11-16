@@ -458,6 +458,9 @@ if(teacher){
   jsonp('callback=applyHomework&student='+encodeURIComponent(who));
 }else{
   bp.textContent='Це посилання недійсне. Зверніться до вчительки за новим.';
+  try{var dbg=document.createElement('div');dbg.style.cssText='margin:16px auto;max-width:420px;font:12px monospace;color:#8a6;word-break:break-all;text-align:left';
+  dbg.textContent='діагностика · u="'+(who===null?'(немає)':who)+'" · коди: '+Array.from(who||'').map(function(c){return c.charCodeAt(0).toString(16)}).join(' ')+' · url: '+location.href+' · версія: 2';
+  bp.parentNode.insertBefore(dbg,bp.nextSibling);}catch(e){}
   tabs.style.display='none';
 }
 </script>
