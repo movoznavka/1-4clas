@@ -344,6 +344,7 @@ const STUDENT_ACCESS={"Марічка":["urok-5-imennyk-hto-shcho.html"]};
 const tabs=document.getElementById('tabs'),content=document.getElementById('content');
 const qs=new URLSearchParams(location.search);
 let who=qs.get('u'),teacher=false;
+if(who&&/%[0-9a-f]{2}/i.test(who)){try{who=decodeURIComponent(who);}catch(e){}}
 if(who)who=who.normalize('NFC').replace(/[\u00A0\u200B]/g,' ').trim();
 try{
   if(qs.has('vchytel')&&!who){localStorage.setItem('zoshyt_teacher','1');localStorage.removeItem('zoshyt_current_student');teacher=true;}
