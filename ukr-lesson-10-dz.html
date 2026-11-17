@@ -66,23 +66,40 @@ input.ok{border:2px solid var(--ok)}input.no{border:2px solid var(--bad)}
 <textarea id="tx" placeholder="Пиши тут…"></textarea><button class="b rs" onclick="chkW()">Готово ✓</button><div class="fb" id="wf"></div></section>
 <div id="fin">🎉 Молодець! Усі завдання виконано!</div></div>
 <script>
+/* ===== Надсилання результату вчительці (через Google Apps Script) ===== */
+const API_URL="https://script.google.com/macros/s/AKfycbwi1AzxlGzRW8HrejKj9aJuB19bgpdrBaKGp0i85SwyYShcp2rf0n5gUnomIBB77LPi/exec";
+const TEST_NAME="Урок 10 · Місяці року та календар"; /* має збігатися з title уроку в боті */
+const SECNUM={o:1,s:2,t:3,w:4,b:5,v:6,x:7,wr:8};
+const wrong=new Set();let sent=false;
+const nrm=s=>(s||"").normalize("NFC").replace(/[\u00A0\u200B]/g," ").trim();
+function studentName(){let w=null;try{w=new URLSearchParams(location.search).get("student");}catch(e){}
+ if(!w){try{w=localStorage.getItem("zoshyt_current_student");}catch(e){}}
+ if(w&&/%[0-9a-f]{2}/i.test(w)){try{w=decodeURIComponent(w);}catch(e){}}
+ return nrm(w)||"Без імені";}
+function secOf(id){const m=String(id).match(/^[a-z]+/);return SECNUM[m?m[0]:""]||0}
+function sendResult(){if(sent)return;sent=true;
+ const wl=[...new Set([...wrong].map(secOf).filter(Boolean))].sort((a,b)=>a-b);
+ const payload={type:"quiz_result",student:studentName(),testName:TEST_NAME,correct:total-wrong.size,answered:total,total:total,wrongList:wl,flaggedList:[]};
+ try{fetch(API_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload),keepalive:true});}catch(e){}}
+const addWrong=id=>wrong.add(id);
+/* ===== Завдання ===== */
 const MN=["січень","лютий","березень","квітень","травень","червень","липень","серпень","вересень","жовтень","листопад","грудень"];
 const SE=["зима","весна","літо","осінь"],sOf=m=>[0,0,1,1,1,2,2,2,3,3,3,0][m];
 const done=new Set();let total=0;
-const mark=id=>{done.add(id);pb.style.width=Math.round(done.size/total*100)+"%";sc.textContent="Виконано: "+done.size+" з "+total;if(done.size===total)fin.style.display="block"};
+const mark=id=>{done.add(id);pb.style.width=Math.round(done.size/total*100)+"%";sc.textContent="Виконано: "+done.size+" з "+total;if(done.size===total){fin.style.display="block";sendResult()}};
 const reg=()=>{total++;sc.textContent="Виконано: "+done.size+" з "+total};
 const sh=a=>[...a].sort(()=>Math.random()-.5);
 let nx=0;
 function reset1(){nx=0;slots.innerHTML=MN.map((_,i)=>`<div class="slot"><i>${i+1}</i><span></span></div>`).join("");pool.innerHTML="";
 sh(MN).forEach(m=>{const b=document.createElement("button");b.className="b";b.textContent=m[0].toUpperCase()+m.slice(1);
-b.onclick=()=>{if(m===MN[nx]){const s=slots.children[nx];s.classList.add("f");s.lastChild.textContent=b.textContent;b.remove();nx++;if(nx===12)mark("o")}else{b.classList.add("no");setTimeout(()=>b.classList.remove("no"),400)}};pool.appendChild(b)})}
+b.onclick=()=>{if(m===MN[nx]){const s=slots.children[nx];s.classList.add("f");s.lastChild.textContent=b.textContent;b.remove();nx++;if(nx===12)mark("o")}else{addWrong("o");b.classList.add("no");setTimeout(()=>b.classList.remove("no"),400)}};pool.appendChild(b)})}
 reg();reset1();
 function choice(el,id,items){items.forEach((t,i)=>{reg();const d=document.createElement("div");d.className="it";d.innerHTML=`<div class="q">${t[0]}</div>`;
-t[1].forEach(o=>{const b=document.createElement("button");b.className="b";b.textContent=o;b.onclick=()=>{if(o===t[2]){b.classList.add("ok");[...d.querySelectorAll("button")].forEach(x=>x.disabled=true);mark(id+i)}else{b.classList.add("no");b.disabled=true}};d.appendChild(b)});el.appendChild(d)})}
+t[1].forEach(o=>{const b=document.createElement("button");b.className="b";b.textContent=o;b.onclick=()=>{if(o===t[2]){b.classList.add("ok");[...d.querySelectorAll("button")].forEach(x=>x.disabled=true);mark(id+i)}else{addWrong(id+i);b.classList.add("no");b.disabled=true}};d.appendChild(b)});el.appendChild(d)})}
 choice(e2,"s",[0,7,3,9,1,4,10,6,11,2].map(m=>[`<b>${MN[m]}</b>`,SE,SE[sOf(m)]]));
 [[0,"січні"],[1,"лютому"],[4,"травні"],[6,"липні"],[8,"вересні"],[10,"листопаді"],[11,"грудні"],[7,"серпні"]].forEach(([m,a],i)=>{reg();
 const d=document.createElement("div");d.className="it";d.innerHTML=`<div class="q">(${MN[m]}) У <input type="text" autocomplete="off"> ми святкуємо.</div>`;
-const inp=d.querySelector("input");const f=()=>{const v=inp.value.trim().toLowerCase().replace(/^[ув]\s+/,"");if(v===a){inp.className="ok";inp.disabled=true;mark("t"+i)}else if(v)inp.className="no"};
+const inp=d.querySelector("input");const f=()=>{const v=inp.value.trim().toLowerCase().replace(/^[ув]\s+/,"");if(v===a){inp.className="ok";inp.disabled=true;mark("t"+i)}else if(v){addWrong("t"+i);inp.className="no"}};
 inp.onkeydown=e=>{if(e.key==="Enter")f()};inp.onblur=f;e3.appendChild(d)});
 const W=["взимку","навесні","влітку","восени"];
 choice(e4,"w",[["_____ холодно, і падає сніг.",W,"взимку"],["_____ цвітуть квіти.",W,"навесні"],["_____ тепло, і я купаюся в морі.",W,"влітку"],["_____ жовтіє листя.",W,"восени"],["Яка зараз пора року? — Зараз _____ (листопад).",SE,"осінь"]]);
