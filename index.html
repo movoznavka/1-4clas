@@ -366,6 +366,7 @@ const VISIBLE=teacher?CLASSES:(lock===null?[]:CLASSES.filter(c=>c.n===lock));
 
 /* ---- доступи ---- */
 let access=[];                       // відкриті уроки цього учня
+let accessLoaded=false,accessFailed=false,hwLoaded=false;
 const staticFor=name=>{for(const k in STUDENT_ACCESS){if(norm(k)===norm(name))return STUDENT_ACCESS[k];}return [];};
 let allMap={};                       // для вчителя: {код: [файли]}
 let hw={};                           // ДЗ учня: {файл_тесту: {number}}
@@ -430,18 +431,38 @@ function show(n){
         ${badge}<span class="st">${rd?'Відкрити':'Скоро'}</span></div>
         ${testPill(dzFile(i),'','📝 ДЗ')}</div>`;}).join('')+`</div></div>`;
   });
-  content.innerHTML=html||(teacher?'':'<p class="brand" style="color:var(--soft);font-weight:600">Поки для тебе не відкрито жодної теми. Зверніться до вчительки.</p>');
+  if(html){content.innerHTML=html;return;}
+  if(teacher){content.innerHTML='';return;}
+  const st='style="color:var(--soft);font-weight:600"';
+  if(!accessLoaded&&!accessFailed)content.innerHTML='<p class="brand" '+st+'>Завантажуємо твої теми…</p>';
+  else if(accessFailed)content.innerHTML='<p class="brand" '+st+'>Не вдалося завантажити теми (слабкий інтернет). <button onclick="location.reload()" style="font:inherit;padding:6px 14px;border-radius:12px;border:2px solid currentColor;background:none;color:inherit;cursor:pointer">Оновити сторінку</button></p>';
+  else content.innerHTML='<p class="brand" '+st+'>Поки для тебе не відкрито жодної теми. Зверніться до вчительки.</p>';
 }
 
 /* ---- відповіді бота (JSONP) ---- */
 window.applyAccess=function(list){
-  const extra=(list||[]).filter(h=>access.indexOf(h)===-1);
+  accessLoaded=true;accessFailed=false;
+  list=list||[];
+  try{localStorage.setItem('zoshyt_access_'+norm(who),JSON.stringify(list));}catch(e){}
+  const extra=list.filter(h=>access.indexOf(h)===-1);
   access=access.concat(extra);
   if(curN!==null)show(curN);
 };
 window.applyAllAccess=function(map){allMap=map||{};if(curN!==null&&curN>=0)show(curN);};
-window.applyHomework=function(map){hw=map||{};if(curN!==null)show(curN);};
-function jsonp(q){const s=document.createElement('script');s.src=API_URL+(API_URL.indexOf('?')>-1?'&':'?')+q;document.body.appendChild(s);}
+window.applyHomework=function(map){hwLoaded=true;hw=map||{};if(curN!==null)show(curN);};
+function jsonp(q){const s=document.createElement('script');s.src=API_URL+(API_URL.indexOf('?')>-1?'&':'?')+q+'&_='+Date.now();s.onerror=function(){s.remove();};document.body.appendChild(s);}
+/* Якщо відповідь не прийшла (слабкий інтернет, збій Google) — пробуємо ще, до 5 разів */
+function loadAccess(tries){
+  if(accessLoaded)return;
+  if(tries>5){accessFailed=true;if(curN!==null)show(curN);return;}
+  jsonp('mode=access&callback=applyAccess&student='+encodeURIComponent(who));
+  setTimeout(function(){loadAccess(tries+1);},6000);
+}
+function loadHw(tries){
+  if(hwLoaded||tries>5)return;
+  jsonp('callback=applyHomework&student='+encodeURIComponent(who));
+  setTimeout(function(){loadHw(tries+1);},6000);
+}
 
 /* ---- старт ---- */
 const bp=document.querySelector('.brand p');
@@ -454,9 +475,10 @@ if(teacher){
 }else if(lock!==null){
   bp.style.display='none';   /* учням підпис під заголовком не показуємо */
   access=staticFor(who).slice();
+  try{const c=JSON.parse(localStorage.getItem('zoshyt_access_'+norm(who))||'[]');c.forEach(h=>{if(access.indexOf(h)===-1)access.push(h);});}catch(e){}
   show(lock);
-  jsonp('mode=access&callback=applyAccess&student='+encodeURIComponent(who));
-  jsonp('callback=applyHomework&student='+encodeURIComponent(who));
+  loadAccess(1);
+  loadHw(1);
 }else{
   bp.textContent='Це посилання недійсне. Зверніться до вчительки за новим.';
   try{var dbg=document.createElement('div');dbg.style.cssText='margin:16px auto;max-width:420px;font:12px monospace;color:#8a6;word-break:break-all;text-align:left';
